@@ -1,0 +1,40 @@
+\part{Groups and Subgroups}
+
+\chapter{Introduction and Examples}
+
+\section*{Introduction}
+
+수 체계의 확장.
+\begin{center}
+    \(\N \longrightarrow \Z \longrightarrow \Q \longrightarrow \R \longrightarrow \C\)
+\end{center}
+
+학부 현대대수학의 최종 목표는 다음 정리를 증명하는 것.
+
+\thm. \(n\)차 방정식의 일반해는 존재하지 않는다. (\(n \geq 5\))
+
+\section*{March 6th, 2023}
+
+추상적인 개념을 공부하는 이유는 구체적인 example 때문이다. Example이 곧 motivation이 되기 때문이다.\footnote{이인석 교수님: 추상화는 구체적인 example이 없으면 의미 없다.}
+
+\begin{itemize}
+    \item Complex numbers \(\C\). \(a + bi \in \C\), \(a, b \in \R\) and \(+, \times\) defined on them.
+    \item The unit circle \(U = \{a + bi : a^2 + b^2 = 1, a, b \in \R\} = \{e^{i\theta} : 0 \leq \theta < 2\pi\}\). \(U\) is not closed under addition, but closed under addition.
+
+          Note that the above two representations are intrinsically the `same' representations of the unit circle. We write
+          \[
+              (U, \cdot) \approx \bigl([0, 2\pi), +_{2\pi}\bigr)
+          \]
+          and say that these two are \textbf{isomorphic}.
+    \item \textbf{Roots of Unity}: \(\{\xi \in \C : \xi^n = 1\}\). We can see that
+          \[
+              \xi_k = e^{\frac{2\pi k}{n}i}, \quad (k = 0, \dots, n - 1).
+          \]
+          When we multiply two elements for example, we do the following.
+          \[
+              \xi_1 \cdot \xi_2 = e^{\frac{2\pi}{n}i} \cdot e^{\frac{4\pi}{n}i} = e^{\frac{6\pi}{n}i} = \xi_3
+          \]
+          If we look closely, we see that we have transformed elements of \((U, \cdot)\) to \(\bigl([0, 2\pi), +_{2\pi}\bigr)\). This can be done because the two sets are \textbf{isomorphic}!
+\end{itemize}
+
+\pagebreak

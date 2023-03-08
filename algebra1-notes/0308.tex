@@ -1,0 +1,56 @@
+\chapter{Binary Operations}
+
+\section*{March 8th, 2023}
+
+\defn. \note{Binary Operation} A \textbf{binary operation} \(\ast\) on a set \(S\) is defined as a function
+\[
+    \ast: S \times S \ra S
+\]
+We write \(a \ast b\) instead of \(\ast(a, b)\).
+
+\rmk If you consider the number systems like \(\N, \Z, \Q, \R, \C\), we already know operations defined on them. We are just naming them \textit{binary operations}. The examples came first, and the definitions came afterwards. We can also see that the definitions are really useful, and it will serve as a tool for formalizing our theory.
+
+\ex. Examples of binary operations.
+\begin{enumerate}
+    \item Addition \(+\) and multiplication \(\cdot\) on \(\N, \Z, \Q, \R, \C\).
+    \item Subtraction \(-\) is not a binary operation on \(\N\). We extend \(\N\) to \(\Z\), so that \(-\) is a binary operation on \(\Z\).
+    \item The set of functions \(f: \R \ra \R\), and \(+, -, \times, \circ\) defined on it.
+\end{enumerate}
+
+\defn. \note{Closure} For a set \(S\) and a binary operation \(\ast\) on \(S\), suppose that \(H \subset S\). We restrict the domain of \(\ast\) to \(H \times H\). Then
+\[
+    \ast\mid_{H\times H} \;: H\times H \ra S.
+\]
+If the image of \(\ast\mid_{H\times H} \;\subset H\), then we say that \textbf{\(H\) is closed under \(\ast\)}.
+
+\rmk When we learn new definitions, it's very important to think about examples that we already know. Often books give trivial examples first, and then show some non-trivial examples, motivating us to study. Books are written in that way!
+
+\defn. Let \((S, \ast)\) be given. We say that
+\begin{enumerate}
+    \item \(\ast\) is \textbf{commutative} if \(a \ast b = b \ast a\) for all \(a, b \in S\).
+    \item \(\ast\) is \textbf{associative} if \((a \ast b)\ast c = a \ast (b \ast c)\) for all \(a, b, c \in S\).
+\end{enumerate}
+
+\ex. Consider these binary operations on \(\Z\).
+\begin{enumerate}
+    \item \(a \ast b = a\), \(\ast\) is not commutative but associative.
+    \item \(a \ast b = a + 2\), \(\ast\) is not commutative nor associative.
+\end{enumerate}
+
+\rmk To study these binary operations, we first start with finite sets where we can write tables with the results of the binary operation.
+\[
+    S = \{a\} \implies \begin{array}{c|c}
+        \ast & a \\ \hline
+        a    & a
+    \end{array}\;,
+    \qquad
+    S = \{a, b\} \implies
+    \begin{array}{c|c|c}
+        \ast & a        & b     \\ \hline
+        a    &          & a * b \\ \hline
+        b    & b \ast a &
+    \end{array}
+\]
+Consider the relation between binary operation on a finite set \(S\) and tables. Binary operation is a function, so we have the existence and uniqueness of \(a \ast b\). In terms of tables, we see that each cell in the table should have a value and it should be uniquely determined. So we conclude that \textit{we can describe a binary operation with a table}.
+
+\pagebreak
