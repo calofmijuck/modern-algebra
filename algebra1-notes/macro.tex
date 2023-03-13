@@ -79,3 +79,14 @@
 \newcommand{\claim}{\textbf{Claim}}
 
 \newcommand{\note}[1]{({\sffamily #1})}
+
+\newcounter{topic}
+\setcounter{topic}{0}
+\newcommand{\topic}[1]{
+    \addtocounter{topic}{1}
+    \vspace{15pt}
+    \textbf{\large Section \thetopic.\, #1}
+    \vspace{3pt}
+    \hrule
+    \vspace{10pt}
+}

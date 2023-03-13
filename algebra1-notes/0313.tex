@@ -1,8 +1,8 @@
-\chapter{Isomorphic Binary Structures}
-
 \section*{March 13th, 2023}
 
-Let \(S = \{a, b, c\}, S' = \{1, 2, 3\}\) and binary operations \(*, *'\), defined as the following.
+\topic{Isomorphic Binary Structures}
+
+Consider \(S = \{a, b, c\}, S' = \{1, 2, 3\}\) and binary operations \(*, *'\), defined as the following.
 \[
     \begin{array}{c|ccc}
         * & a & b & c \\ \hline
@@ -18,7 +18,7 @@ Let \(S = \{a, b, c\}, S' = \{1, 2, 3\}\) and binary operations \(*, *'\), defin
         3  & 1 & 2 & 3
     \end{array}
 \]
-We see that if we rename \(a, b, c\) to \(1, 2, 3\) respectively, we see that the tables are actually \textit{equivalent}. How to we formalize the notion of equivalence of binary structures \((S, *), (S', *')\)?
+We see that if we rename \(a, b, c\) to \(1, 2, 3\) respectively, we see that the tables are actually \textit{equivalent}. How do we formalize the notion of equivalence of binary structures \((S, *), (S', *')\)?
 
 \defn. \note{Isomorphism} Let \((S, *)\) and \((S', *')\) be binary structures. If there exists a bijection \(\varphi: S \ra S'\) such that
 \begin{center}
@@ -80,20 +80,20 @@ is called a \textbf{homomorphism} between \((S, *)\) and \((S', *')\).
     \end{tikzpicture}
 \end{center}
 
-\rmk \textbf{Structural properties}: properties preserved by isomorphisms
-\begin{enumerate}
-    \item Number of elements (Cardinality if not finite)
-    \item Commutativity, associativity
-    \item \(a * x = b\), \(\forall a, b \in S\) has a solution
-\end{enumerate}
-We can disprove the existence of an isomorphism by showing that any of the structural properties do not hold.
-
 \ex. Examples of isomorphisms.
 \begin{enumerate}
     \item Let \(\varphi: (\R, +) \ra (\R^+, \cdot)\) with \(\varphi(x) = e^x\) for \(x \in \R\).
     \item Let \(\varphi: (\Z, +) \ra (2\Z, +)\) with \(\varphi(n) = 2n\) for \(n \in \Z\).
     \item Non-example: \((\Z, *) \not\simeq (\R, *)\) (different cardinality)
 \end{enumerate}
+
+\rmk \textbf{Structural properties}: properties preserved by isomorphisms
+\begin{enumerate}
+    \item Number of elements (cardinality, for infinite sets)
+    \item Commutativity, associativity
+    \item The equation \(a * x = b\), \(\forall a, b \in S\) has a solution in \(S\)
+\end{enumerate}
+We can disprove the existence of an isomorphism by showing that any of the structural properties do not hold.
 
 \ex. For \((\Z, \cdot)\) and \((\Z^+, \cdot)\) we want to show that these two are not isomoprhic. Consider the equation \(x^2 = x\). In \(\Z\), the solutions are \(x = 0, 1\), but in \(\Z^+\), the solution is unique, \(x = 1\).
 
@@ -127,7 +127,7 @@ so \(e = e'\).
 \]
 so \(\varphi(e)\) is the identity of \(S'\).
 
-\chapter{Groups}
+\topic{Groups}
 
 \defn. \note{Inverse} Let \((S, *)\) be a binary structure with identity \(e \in S\). If \(x \in S\) satisfies
 \begin{center}
