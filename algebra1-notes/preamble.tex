@@ -57,5 +57,5 @@
 \usepackage[parfill]{parskip}
 \setlength{\parskip}{10pt}
 
-\titleformat{\chapter}[display]{\bfseries\Large}
-{\vspace{-10ex}}{-5ex}{Section \thechapter. \filright}[\vspace{3pt}\titlerule\vspace{-30pt}]
+\renewcommand{\chaptername}{Part}
+\renewcommand{\thechapter}{\Roman{chapter}}
