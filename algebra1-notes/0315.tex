@@ -16,7 +16,7 @@ then \(x\) is an \textbf{inverse} of \(a\), and we write \(x = a\inv\).
 \end{enumerate}
 Then \(G = (G, *)\) is called a \textbf{group}.
 
-Consider \((\N, +)\) which is not a group. So the equation \(n + x = m\), \((n, m \in \N)\) does not have a solution if \(n \leq m\). So we extend the number system to \(\Z\) and consider \(n + x = m\) for \(n, m \in \Z\). This equation always has a solution, this is due to the fact that \((\Z, +)\) is a group! \(+\) is associative, \(\Z\) has an identity \(0\), and also has an inverse for any \(n\in \Z\)!
+\((\N, +)\) is not a group. The equation \(n + x = m\), \((n, m \in \N)\) does not have a solution if \(n \leq m\). So we extend the number system to \(\Z\) and consider \(n + x = m\) for \(n, m \in \Z\). This equation always has a solution, this is due to the fact that \((\Z, +)\) is a group! \(+\) is associative, \(\Z\) has an identity \(0\), and also has an inverse for any \(n\in \Z\)!
 
 So if \((G, *)\) is a group, equations of the from \(a * x = b\) for given \(a, b \in G\) can be solved by multiplying \(a\inv\) on the left.
 \[
@@ -55,9 +55,9 @@ Note that all three properties of the group was used!
 \[
     a'' * a' * a * e = a'' * a' * e * a \implies a * e = e * a = a,
 \]
-so \(a * e = a\), proving that \(e\) is also a right identity.
+so \(a * e = a\), proving that \(e\) is also a right identity.\footnote{Alternatively, \(a e = e a e = (a'' a') a (a' a) = a'' e a' a = e a = a\).}
 
-Let \(a'\) be a left inverse of \(a\), and let \(a''\) be a left inverse of \(a'\). Then \(a'' * a' * a * a' = e * a * a' = a * a'\), also \(a'' * a' * a * a' = a'' * e * a' = a'' * a' = e\). Therefore \(a * a' = e\), proving that \(a'\) is also a right inverse.
+Let \(a'\) be a left inverse of \(a\), and let \(a''\) be a left inverse of \(a'\). Then \(a'' * a' * a * a' = e * a * a' = a * a'\), also \(a'' * a' * a * a' = a'' * e * a' = a'' * a' = e\). Therefore \(a * a' = e\), proving that \(a'\) is also a right inverse.\footnote{Alternatively, \(aa' = (a'' a')a a' = a'' (a' a) a' = a'' e a' = e\).}
 
 \rmk For finite groups, the elements in a single row or column should be unique. For example, if some two elements \(a * x\), \(a * y\) in the same row (but different column) are the same, we can use the left cancellation law to show that \(x = y\). This is a contradiction.
 
