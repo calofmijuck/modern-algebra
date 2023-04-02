@@ -72,15 +72,21 @@
     {\textbf{\sffamily Lemma #1.}}%
 }
 
+\newcommand{\cor}[1]{%
+    \ifthenelse{\equal{#1}{.}}
+    {\textbf{\sffamily Corollary.}}%
+    {\textbf{\sffamily Corollary #1.}}%
+}
+
 \newcommand{\recall}{\textbf{\sffamily Recall.\;}}
 \newcommand{\rmk}{\textbf{\sffamily Remark.\;}}
 \newcommand{\pf}{\textbf{\sffamily Proof.\;}}
 \newcommand{\question}{\textbf{\sffamily Question.\;}}
 \newcommand{\notation}{\textbf{\sffamily Notation.\;}}
-\newcommand{\cor}{\textbf{\sffamily Corollary.\;}}
 \newcommand{\claim}{\textbf{Claim}}
 
 \newcommand{\note}[1]{({\sffamily #1})}
+\newcommand{\sref}[1]{{\sffamily #1}}
 
 \newcounter{topic}
 \setcounter{topic}{0}
