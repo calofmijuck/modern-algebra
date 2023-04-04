@@ -1,0 +1,77 @@
+\topic{Orbits, Cycles and the Alternating Groups}
+
+\defn. Equivalence relation \(\sim_\sigma\) on \(A\) with respect to \(\sigma \in S_A\) is defined as
+\begin{center}
+    For \(a, b \in A\), \(a \sim_\sigma b \iff \exists n \in \Z\) such that \(a = \sigma^n(b)\).
+\end{center}
+
+\rmk Check that \(\sim\) is indeed an equivalence relation.
+
+\defn. Equivalence classes in \(A\) induced from the relation \(\sim_\sigma\) are called the \textbf{orbits of \(\sigma\)}.
+
+\ex. Consider \(\sigma = (1, 3, 6) (2, 5, 7, 4) (8)\). Then \(\{1, 3, 6\}, \{2, 4, 5, 7\}, \{8\}\) are orbits.
+
+If we represent orbits in circles, \(\sigma\) can be represented as 2 circles. \(\tau = (1, 2, 3, 4)\) would be represented as a circle, and \(\tau' = (1, 2, 3)(4)\) would be represented as a circle.
+
+\defn. \note{Cycles}
+\begin{enumerate}
+    \item A permutation \(\sigma \in S_n\) is called a \textbf{cycle} if \(\sigma\) has at most 1 orbit with more than 1 element.
+    \item The \textbf{length} of a cycle \(\sigma\) is the number of elements in its largest orbit.
+\end{enumerate}
+
+\(\tau\) is a cycle of length 4, \(\tau'\) is a cycle of length 3, but \(\sigma\) is not a cycle.
+
+\question \textit{For any \(\sigma \in S_n\), can \(\sigma\) be represented as a composition of cycles?}
+
+\thm. Every permutation of a finite set is a product of disjoint cycles.
+
+\pf Take any \(\sigma \in S_n\). Then the equivalence relation \(\sim_\sigma\) induces a partition on \(\{1, 2, \dots, n\}\) as \(\bigsqcup_{i = 1}^k B_i\). Then \(\sigma \mid_{B_i} : B_i \ra B_i\) is a well-defined permutation. Now define
+\[
+    \mu_i(x) = \begin{cases}
+        \sigma(x) & (x \in B_i), \\ x & (x \notin B_i).
+    \end{cases}
+\]
+Then \(\mu_i\) is a cycle of \(B_i\), and \(\sigma = \mu_1 \circ \mu_2 \circ \cdots \circ \mu_k\).
+
+\defn. \note{Transposition} A cycle of length 2 is called a \textbf{transposition}.
+
+\rmk \((1, 2, 3) = (1, 3) (1, 2)\), \((a_1, a_2, \dots, a_n) = (a_1, a_n) (a_1, a_{n - 1}) \cdots (a_1, a_2)\).
+
+\cor. Any permutation is a product of transpositions, since disjoint cycles can be decomposed into a product of transpositions by the above remark.
+
+Note that this representation is not unique. Since \(\tau^2 = id\) for any transposition \(\tau\), we can always multiply two same transpositions at the end.
+
+\thm. No permutation in \(S_n\) can be expressed both as a product of an even number of transpositions and as a product of an odd number of transpositions.
+
+\pf \\
+\note{Step 1} Take \(\sigma \in S_n\), \(\tau \in S_n\) (transposition). Then for \(\sigma\) and \(\tau\sigma\), their number of orbits differ by 1.
+\begin{itemize}
+    \item Case 1. \(\tau = (i, j)\) where \(i, j\) are not in the same orbit. \\
+    Let \(\sigma = (b, j, \dots) (a, i, \dots) (\dots)\). Then \(\tau\sigma = (b, i, \dots, a, j, \dots)(\dots)\). So the number of orbits differ by 1.
+    \item Case 2. \(\tau = (i, j)\) where \(i, j\) are in the same orbit. \\
+    Left as exercise.
+\end{itemize}
+
+\note{Step 2} Suppose we could write \(\sigma = \tau_1\tau_2\cdots\tau_t = \tau_1'\tau_2'\cdots\tau_s'\) where \(\tau_i, \tau_j'\) are transpositions. Then the number of orbits of \(\sigma\), \(t\) and \(s\) have the same parity. This follows directly from \sref{Step 1}.
+
+So this definition is well-defined!
+
+\defn. A permutation \(\sigma \in S_n\) is called
+\begin{enumerate}
+    \item \textbf{even} if \(\sigma\) is a product of even number of transpositions.
+    \item \textbf{odd} if \(\sigma\) is a product of odd number of transpositions.
+\end{enumerate}
+
+\defn. \note{Alternating Group} We define the \textbf{alternating group} \(A_n\) as
+\[
+    A_n = \{\sigma \in S_n : \sigma \text{ is even}\}.
+\]
+
+\thm.
+\[
+    \abs{A_n} = \frac{\abs{S_n}}{2} = \frac{n!}{2}.
+\]
+
+\pf Consider a map \(\lambda_\tau: A_n \ra S_n \bs A_n\) defined as \(\lambda_\tau(\sigma) = \tau\circ\sigma\) where \(\tau\) is any transposition. Then \(\lambda_\tau\) is a bijection.
+
+\pagebreak
