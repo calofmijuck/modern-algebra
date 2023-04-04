@@ -16,18 +16,18 @@ then \(x\) is an \textbf{inverse} of \(a\), and we write \(x = a\inv\).
 \end{enumerate}
 Then \(G = (G, *)\) is called a \textbf{group}.
 
-\((\N, +)\) is not a group. The equation \(n + x = m\), \((n, m \in \N)\) does not have a solution if \(n \leq m\). So we extend the number system to \(\Z\) and consider \(n + x = m\) for \(n, m \in \Z\). This equation always has a solution, this is due to the fact that \((\Z, +)\) is a group! \(+\) is associative, \(\Z\) has an identity \(0\), and also has an inverse for any \(n\in \Z\)!
+\((\N, +)\) is not a group. The equation \(n + x = m\), \((n, m \in \N)\) does not have a solution if \(n \leq m\). So we extend the number system to \(\Z\) and consider \(n + x = m\) for \(n, m \in \Z\). This equation always has a solution, this is due to the fact that \((\Z, +)\) is a group. The operation \(+\) is associative, \(\Z\) has an identity \(0\), and also has an inverse for any \(n \in \Z\).
 
 So if \((G, *)\) is a group, equations of the from \(a * x = b\) for given \(a, b \in G\) can be solved by multiplying \(a\inv\) on the left.
 \[
     \begin{aligned}
-        a\inv * (a * x) & = a\inv b    \\
+        a\inv * (a * x) & = a\inv * b    \\
         (a\inv * a) * b & = a\inv * b  \\
         e * b           & = a\inv * b  \\
         x               & = a\inv * b.
     \end{aligned}
 \]
-Note that all three properties of the group was used!
+Note that all three properties of the group were used!
 
 \ex.
 \begin{enumerate}
@@ -37,7 +37,7 @@ Note that all three properties of the group was used!
     \item The roots of unity with multiplication form a group.
 \end{enumerate}
 
-\defn. \note{Commutative} A group \(G\) is \textbf{commutative}/\textbf{abelian} if
+\defn. \note{Commutative Group} A group \(G\) is \textbf{commutative}/\textbf{abelian} if
 \begin{center}
     \(a * b = b * a\) for all \(a, b \in G\).
 \end{center}

@@ -8,7 +8,7 @@
     \item \(3\Z \leq \Z\). We call \(3\Z\), \(3\Z + 1\), \(3\Z + 2\) are cosets of \(3\Z\).
 \end{enumerate}
 
-We saw that \(A_n\) and \(S_n \bs A_n\) have the same number of elements. This was done by constructing a bijection between two sets. But we know that a bijection between \(3\Z, 3\Z + 1, 3\Z + 2\) exist. We guess that the number of elements would be the same.
+We saw that \(A_n\) and \(S_n \bs A_n\) have the same number of elements. This was done by constructing a bijection between two sets. But we know that a bijection between \(3\Z, 3\Z + 1, 3\Z + 2\) exist. We guess that the number of elements would be the same for each coset.
 
 So if \(G\) is a finite group and \(H \leq G\), we conjecture that we can partition \(G\) by cosets of \(H\), and each cosets have the same number of elements. So \(\abs{H} \mid \abs{G}\).
 
@@ -54,7 +54,7 @@ Check for non-commutative groups that left and rights cosets need not be equal!
 
 \thm. \note{Lagrange} Let \(G\) be a finite group with \(H \leq G\). Then \(\abs{H} \mid \abs{G}\).
 
-\pf If we construct a bijection between any two left cosets, \(\abs{H}\) would be \(\abs{G}\) divided by the number of left cosets. Which would imply \(\abs{H} \mid \abs{G}\).
+\pf If we construct a bijection between any two left cosets, \(\abs{H}\) would be \(\abs{G}\) divided by the number of left cosets. This would imply \(\abs{H} \mid \abs{G}\).
 
 Recall that left cosets are defined as the equivalence classes with respect to the relation \(\sim_L\). So \(G\) is a disjoint union of cosets, \(G = \bigsqcup aH\). Therefore, \(\abs{G} = \text{(number of left cosets)} \cdot \abs{H}\).
 

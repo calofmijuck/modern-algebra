@@ -7,7 +7,7 @@
 
 \rmk Check that \(\sim\) is indeed an equivalence relation.
 
-\defn. Equivalence classes in \(A\) induced from the relation \(\sim_\sigma\) are called the \textbf{orbits of \(\sigma\)}.
+\defn. \note{Orbit} Equivalence classes in \(A\) induced from the relation \(\sim_\sigma\) are called the \textbf{orbits of \(\sigma\)}.
 
 \ex. Consider \(\sigma = (1, 3, 6) (2, 5, 7, 4) (8)\). Then \(\{1, 3, 6\}, \{2, 4, 5, 7\}, \{8\}\) are orbits.
 
@@ -44,7 +44,7 @@ Note that this representation is not unique. Since \(\tau^2 = id\) for any trans
 \thm. No permutation in \(S_n\) can be expressed both as a product of an even number of transpositions and as a product of an odd number of transpositions.
 
 \pf \\
-\note{Step 1} Take \(\sigma \in S_n\), \(\tau \in S_n\) (transposition). Then for \(\sigma\) and \(\tau\sigma\), their number of orbits differ by 1.
+\note{Step 1} Take \(\sigma \in S_n\), transposition \(\tau \in S_n\). Then for \(\sigma\) and \(\tau\sigma\), their number of orbits differ by 1.
 \begin{itemize}
     \item Case 1. \(\tau = (i, j)\) where \(i, j\) are not in the same orbit. \\
     Let \(\sigma = (b, j, \dots) (a, i, \dots) (\dots)\). Then \(\tau\sigma = (b, i, \dots, a, j, \dots)(\dots)\). So the number of orbits differ by 1.
@@ -62,7 +62,7 @@ So this definition is well-defined!
     \item \textbf{odd} if \(\sigma\) is a product of odd number of transpositions.
 \end{enumerate}
 
-\defn. \note{Alternating Group} We define the \textbf{alternating group} \(A_n\) as
+\defn. \note{Alternating Group \(A_n\)} We define the \textbf{alternating group} \(A_n\) as
 \[
     A_n = \{\sigma \in S_n : \sigma \text{ is even}\}.
 \]
