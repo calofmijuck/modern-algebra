@@ -12,16 +12,18 @@ since \(p_i^{r_i}\) are pairwise coprime.
 \[
     \span{l} = \span{r_1} \cap \span{r_2} \cap \cdots \cap \span{r_m}
 \]
-in \(\Z\).
+in \(\Z\). We write \(l = \lcm(r_1, r_2, \dots, r_n)\).
 
 \thm. Let \((a_1, \dots, a_n) \in \prod_{i=1}^n G_i\), where each \(a_i\) has finite order \(r_i\). Then
 \[
     \abs{(a_1, \dots, a_n)} = \lcm(r_1, \dots, r_n).
 \]
 
-\pf Homework!
+\pf Homework! \qed
 
 \ex. \((8, 4, 10) \in \Z_{12} \times \Z_{60} \times \Z_{24}\). Then \(r_1 = 3\), \(r_2 = 15\), \(r_3 = 12\). We want to find the smallest positive \(N\) such that \(N (8, 4, 10) = (0, 0, 0)\). Then \(3, 15, 12 \mid N\), so \(N = \lcm(3, 5, 12) = 60\).
+
+\pagebreak
 
 \subsection*{Structure of Finitely Generated Abelian Groups}
 
@@ -45,9 +47,9 @@ We only know cyclic groups, since they were the only groups that we classified c
 
 This is a typical exercise after learning this theorem.
 
-\prob. Classify all abelian groups of order 360.
+\ex. Classify all abelian groups of order 360.
 
-\pf This group is finitely generated. We know that \(360 = 2^3 \times 3^2 \times 5\). So we have the following cases.
+\pf This group is finitely generated. We know that \(360 = 2^3 \times 3^2 \times 5\).
 \begin{center}
     \begin{tabular}{cc}
         \(\Z_{2^3} \times \Z_{3^2} \times \Z_5\)                           & \(\Z_{2^3} \times \Z_3 \times \Z_3 \times \Z_5\)                           \\
@@ -55,6 +57,7 @@ This is a typical exercise after learning this theorem.
         \(\Z_{2} \times \Z_{2} \times \Z_{2} \times \Z_{3^2} \times \Z_5\) & \(\Z_{2} \times \Z_{2} \times \Z_{2} \times \Z_3 \times \Z_3 \times \Z_5\)
     \end{tabular}
 \end{center}
+So these are all possible cases. \qed
 
 \defn. \note{Decomposable} A group \(G\) is \textbf{decomposable} if \(G \simeq H \times K\) for \(H, K \leq G\).
 
@@ -64,13 +67,13 @@ This implies two things: that we can understand \(G\) by studying \(H, K\), and 
 
 \thm. Let \(G\) be a finite abelian group. If \(m \mid \abs{G}\), then there exists a subgroup of \(G\) with order \(m\).
 
-\pf Let \(G \simeq \Z_{p_1^{r_1}} \times \Z_{p_2^{r_2}} \times \cdots \times \Z_{p_k^{r_k}}\). We use the fact that \(\Z_{p_i^{s_i}} \leq \Z_{p_i^{r_i}}\) if \(s_i \leq r_i\). Since \(m \mid \abs{G}\), we can write \(m = p_1^{s_1}p_2^{s_2} \cdots p_k^{s_k}\) for some \(s_i \leq r_i\). Take \(H_i \leq \Z_{p_i}^{r_i}\) such that \(\abs{H_i} = p_i^{s_i}\). Then \(H_1 \times H_2 \times \cdots H_k \leq G\), and it has order \(m\).
+\pf Let \(G \simeq \Z_{p_1^{r_1}} \times \Z_{p_2^{r_2}} \times \cdots \times \Z_{p_k^{r_k}}\). We use the fact that \(\Z_{p_i^{s_i}} \leq \Z_{p_i^{r_i}}\) if \(s_i \leq r_i\). Since \(m \mid \abs{G}\), we can write \(m = p_1^{s_1}p_2^{s_2} \cdots p_k^{s_k}\) for some \(s_i \leq r_i\). Take \(H_i \leq \Z_{p_i^{r_i}}\) such that \(\abs{H_i} = p_i^{s_i}\). Then \(H_1 \times H_2 \times \cdots H_k \leq G\), and it has order \(m\). \qed
 
 Recall that from Lagrange's theorem, for finite group \(G\), if \(H \leq G\), \(\abs{H} \mid \abs{G}\). We could ask if the converse is true. \textit{Is there a subgroup of order \(m\) that divides \(\abs{G}\)?} This is not true in general, but if \(G\) is abelian this is true.
 
 \thm. Let \(m\) be a square-free integer.\footnote{\(\nexists\, p\) prime such that \(p^2 \mid m\).} Then an abelian group of order \(m\) is cyclic.
 
-\pf Let \(m = p_1 \cdots p_k\) where \(p_i\) are distinct primes. Using the fundamental theorem, an abelian group of order \(m\) can be written as \(\Z_{p_1} \times \Z_{p_2} \times \cdots \times \Z_{p_k}\), which is isomorphic to \(\Z_m\).
+\pf Let \(m = p_1 \cdots p_k\) where \(p_i\) are distinct primes. Using the fundamental theorem, an abelian group of order \(m\) can be written as \(\Z_{p_1} \times \Z_{p_2} \times \cdots \times \Z_{p_k}\), which is isomorphic to \(\Z_m\). \qed
 
 \pagebreak
 
