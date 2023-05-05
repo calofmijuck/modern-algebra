@@ -1,0 +1,60 @@
+\section*{April 12th, 2023}
+
+\thm. Let \(\varphi : G \ra G'\) be a group homomorphism, \(H = \ker \varphi\). For \(a \in G\),
+\[
+    \varphi\inv(\varphi(a)) = aH = Ha.
+\]
+
+\pf \note{\(\subset\)} Take \(g \in \varphi\inv(\varphi(a))\). Then \(\varphi(g) = \varphi(a)\), and \(e' = \varphi(e) = \varphi(ag\inv)\), so \(ag\inv \in \ker\varphi\). \(ag\inv = h\) for some \(h \in H\), and \(g = h\inv a \in Ha\). Similarly \(g \in aH\).
+
+\note{\(\supset\)} Let \(g = ha \in Ha\) for some \(h \in H\). Then \(\varphi(g) = \varphi(ha) = \varphi(a)\), so \(g \in \varphi\inv(\varphi(a))\). For \(g \in aH\), it can be shown similarly. \qed
+
+\cor. \(\varphi\) is a monomorphism if and only if \(\ker\varphi = \{e\}\).
+
+\pf \note{\mimp} Trivial. \note{\mimpd} For \(a \in G\), \(\varphi\inv(\varphi(a)) = a \{e\} = \{a\}\). \(\varphi\) is injective. \qed
+
+Here is an alternative trivial proof.
+
+\pf \note{\mimpd} If \(\varphi(x) = \varphi(y)\), then \(\varphi(xy\inv) = e\), \(xy\inv \in \ker\varphi\). So \(xy\inv = e\) and \(x = y\). \qed
+
+\defn. \note{Normal Subgroup} Let \(H \leq G\). If \(aH = Ha\) for any \(a \in G\), then \(H\) is called a \textbf{normal subgroup} of \(G\). We write \(H \nsub G\).
+
+\cor. \(\ker\varphi \nsub G\) for any group homomorphism \(\varphi\), since the left and right cosets coincide.
+
+For injectivity, we can show that \(\ker \varphi = \{e\}\) instead. We are on our way to define factor groups.
+
+\topic{Factor Groups}
+
+If \(H \leq G\), \(\{aH : a \in G\}\) were left cosets. We want to give a group structure on the cosets. Not just any structure, but a structure that naturally arises from the structure of \(G\). \((aH)(bH) = abH\) is a natural candidate, but we have a problem. \textit{Is this operation well-defined?} If \(aH = a'H\) and \(bH = b'H\), is it true that \(abH = a'b'H\)? Sadly, this is not true in general. But it is true when \(aH = Ha\).\footnote{Not math: \((aH)(bH) = a(Hb)H = a(bH)H = abH\), so we want \(bH = Hb\)!}
+
+\defn. \note{Factor Group} If \(H \leq G\), \(G/H\) is defined as
+\[
+    G/H = \{aH : a \in G\}.
+\]
+If \(G/H\) has a group structure with the binary operation \((aH)(bH) = abH\), we call \(G/H\) a \textbf{factor group}.
+
+\ex. \(\Z / 3\Z = \{3\Z, 1 + 3\Z, 2 + 3\Z\}\).
+
+\thm. Let \(\varphi : G \ra G'\) be a group homomorphism.
+\begin{enumerate}
+    \item \(G / \ker\varphi\) is a factor group.
+    \item \note{1st Isomorphism Theorem} \(G / \ker\varphi \simeq \im \varphi\), with isomorphism \(\mu(a \ker\varphi) = \varphi(a)\).
+\end{enumerate}
+
+\pf \\
+\note{1} Well-definedness! If \(a \ker\varphi = a' \ker\varphi\) and \(b \ker\varphi = b' \ker\varphi\), then \(\varphi(a) = \varphi(a')\) and \(\varphi(b) = \varphi(b')\). Since \(\varphi\) is a homomorphism, \(\varphi(ab) = \varphi(a'b')\). So \(ab \ker\varphi = a'b' \ker\varphi\). Associativity directly follows, \(eH\) is the identity, \(a\inv H = (aH)\inv\) can be checked.
+
+\note{2} Well-definedness! If \(a \ker\varphi = a' \ker\varphi\), then \(\varphi(a) = \varphi(a')\), so \(\mu(a \ker\varphi) = \mu(a' \ker\varphi)\). The fact that \(\mu\) is an isomorphism can be checked easily. \qed
+
+If we prove the well-definedness part, the rest is pretty automatic.
+
+\recall \(N \nsub G \iff gN = Ng\) for all \(g \in G \iff gNg\inv = N\) for all \(g \in G\).
+
+\thm. For \(H \leq G\), \(G/H\) is a factor group if and only if \(H \nsub G\).
+
+\pf \note{\mimpd} Trivial. \\
+\note{\mimp} Let \(x \in aH\). Choose \(x \in aH\), \(a\inv \in a\inv H\). then \(H = (aH)(a\inv H) = (xH)(a\inv H) = (xa\inv) H\). So \(xa\inv \in H\), showing that \(x \in Ha\). Similarly, \(Ha \subset aH\). \(H \nsub G\). \qed
+
+\defn. The \(G / H\) in the above theorem is called a \textbf{factor group} or a \textbf{quotient group}.
+
+\pagebreak

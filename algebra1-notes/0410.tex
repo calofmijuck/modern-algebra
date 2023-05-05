@@ -90,10 +90,17 @@ We already learned about homomorphisms.
 \end{center}
 is called a \textbf{group homomorphism}. If \(\varphi\) is a bijection, \(\varphi\) is a \textbf{group isomorphism}.
 
-\defn. \note{Kernel} Let \(\varphi: G \ra G'\) be a group homomorphism. Then the \textbf{kernel} of \(\varphi\) is
-\[
-    \ker \varphi = \{x \in G : \varphi(x) = e'\}
-\]
-where \(e'\) is the identity of \(G'\).
+\defn. Let \(\varphi: G \ra G'\) be a group homomorphism.
+\begin{enumerate}
+    \item \note{Kernel} The \textbf{kernel} of \(\varphi\) is
+    \[
+        \ker \varphi = \{x \in G : \varphi(x) = e'\} = \varphi\inv(\{e'\}),
+    \]
+    where \(e'\) is the identity of \(G'\).
+    \item \note{Image} The \textbf{image} of \(\varphi\) is
+    \[
+        \im \varphi = \varphi(G) = \{\varphi(x) : x \in G\}.
+    \]
+\end{enumerate}
 
 \pagebreak
