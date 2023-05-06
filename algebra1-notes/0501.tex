@@ -1,0 +1,113 @@
+\section*{May 1st, 2023}
+
+\defn. Given a finite sequence of subgroups
+\[
+    \{e\} = H_0 < H_1 < \cdots < H_k = G,
+\]
+\begin{enumerate}
+    \item \note{Subnormal Series} If \(H_i \pnsub H_{i+1}\) for \(i = 0, \dots, k - 1\), it is called a \textbf{subnormal series}.
+    \item \note{Normal Series} If \(H_i \pnsub G\) for \(i = 0, \dots, k - 1\), it is called a \textbf{normal series}.
+\end{enumerate}
+
+Note that the \textit{finite} condition is important!
+
+\rmk Since \(H_i \pnsub G \implies H_i \pnsub H_{i+1}\), a normal series is a subnormal series.
+
+We will focus on subnormal series.
+
+\ex. Let \(G = \Z\). Since \(G\) is abelian, all subgroups are normal, so
+\[
+    \{0\} = H_0 < 12\Z < 6\Z < 3\Z < \Z = G
+\]
+is a subnormal series. Also,
+\[
+    \{0\} = H_0 < 18\Z < 9\Z < 3\Z < \Z = G.
+\]
+We see that subnormal series are not unique, and note that we can find an infinite series of subgroups of \(\Z\). But actually we want uniqueness, since we want to find the building blocks of a group. How can we obtain a \textit{unique} subnormal series, up to isomorphism?
+
+\defn. Subnormal (normal) series \(\seq{H_i}_{i \in I}\), \(\seq{K_j}_{j \in J}\) of \(G\) are \textbf{isomorphic} if there exists a bijection between
+\[
+    \{H_{i+1} / H_i\} \longleftrightarrow \{K_{j+1} / K_j\}
+\]
+such that the corresponding quotient groups are isomorphic.
+
+\ex. Consider the following subnormal series,
+\[
+    \{H_i\} : \{0\} < \{0, 2, 4, 6\} < \Z_8, \quad \{K_j\} : \{0\} < \{0, 2\} < \Z_8.
+\]
+We know that \(H_2 / H_1 \simeq \Z_2\), \(H_1 / H_0 \simeq \Z_4\), and \(K_2 / K_1 \simeq \Z_4\), \(K_1 / K_0 \simeq \Z_2\). So we will map \(H_2 / H_1\) to \(K_1 / K_0\), and \(H_1 / H_0\) to \(K_2 / K_1\). So these two series are isomorphic. The building blocks of \(\Z_8\) obtained from the two series are equivalent!
+
+\defn. \note{Refinement} For two subnormal (normal) series \(\seq{H_i}\) and \(\seq{K_j}\) of \(G\), \(\seq{K_j}\) is a \textbf{refinement} of \(\seq{H_i}\) if \(\seq{H_i} \subset \seq{K_j}\).
+
+\ex. Given a subnormal series \(\seq{H_i}\): \(\{0\} < \span{8} < \span{2} < \Z_{24}\), we can insert \(\span{4}\) to get a subnormal series
+\[
+    \seq{K_j}: \{0\} < \span{8} < \bf{\span{4}} < \span{2} < \Z_{24}.
+\]
+Now, each \(K_{j+1} / K_j\) has no nontrivial proper subgroups.
+
+We are one step closer to getting uniqueness.
+
+\thm. \note{Schrier} Any two subnormal (normal) series of \(G\) have isomorphic refinements.
+
+\rmk This theorem does not state that for any two pairs of subnormal series, their isomorphic refinements are isomorphic. i.e. if \(\seq{H_i}, \seq{K_i}, \seq{L_i}, \seq{M_i}\) are subnormal series of \(G\), the isomorphic refinements obtained from \(\seq{H_i}, \seq{K_i}\) and \(\seq{L_i}, \seq{M_i}\) need not be isomorphic. So we don't have the exact uniqueness. As an example, consider the following series
+\[
+    \{0\} < 36\Z < 12\Z < 3\Z < \Z, \quad \{0\} < 72\Z < 8\Z < 4\Z < \Z.
+\]
+We can obtain many isomoprhic refinements by appending some \(n\Z\) to the end of the series. So the isomorphic refinements can change, depending on the last element of the series.
+
+\ex. Consider these subnormal series,
+\[
+    \{0\} < \span{8} < \span{2} < \Z_{24}, \quad \{0\} < \span{12} < \span{6} < \Z_{24}.
+\]
+We can obtain a refinement by
+\[
+    \{0\} < \span{8} < \bf{\span{4}} < \span{2} < \Z_{24}, \quad \{0\} < \span{12} < \span{6} < \bf{\span{3}} < \Z_{24}.
+\]
+These two series are isomorphic.
+
+\defn. Let \(\seq{H_i}\) be a subnormal (normal) series of \(G\). If \(H_{i+1} / H_i\) is simple for any \(i\), \(\seq{H_i}\) is called a \textbf{composition (principal) series}.
+
+\thm. \note{Jordan-Hölder} Any two composition series of a group \(G\) are isomorphic.
+
+\rmk We assumed something that wasn't an assumption in the Schrier theorem. Does \(G\) really have a composition series? Consider the series \(\{0\} < n\Z < 6\Z < 3\Z < \Z\). This cannot be a composition series, since any multiple \(m\) of \(n\), the quotient group \(n\Z / \{0\} \simeq n\Z\) has a subgroup \(m\Z\). So this series is infinite, thus \(\Z\) has no composition series. In Jordan-Hölder theorem, we are assuming that \(G\) has a composition series, which gets rid of groups that don't have a composition series.
+
+\pf Composition series cannot have any further refinements. By Schrier theorem. \qed
+
+\pf (of Schrier, Idea sketch) Consider two subnormal series
+\[
+    \{0\} = H_0 \leq H_1 \leq \cdots \leq H_i \leq H_{i+1} \leq \cdots H_k = G,
+\]
+\[
+    \{0\} = K_0 \leq K_1 \leq \cdots \leq K_j \leq K_{j+1} \leq \cdots \leq K_l = G.
+\]
+Then in between \(H_i \leq H_{i+1}\), write
+\[
+    H_i(K_0 \cap H_{i+1}) \leq H_i(K_1 \cap H_{i+1}) \leq \cdots \leq H_i(K_l \cap H_{i+1}).
+\]
+In between \(K_j \leq K_{j+1}\), write
+\[
+    K_j (H_0 \cap K_{j+1}) \leq K_j (H_1 \cap K_{j+1}) \leq \cdots \leq K_j (H_k \cap K_{j+1}).
+\]
+Our claim is that if we obtain a refienment by applying the above to all pairs, we can get an isomorphic subnormal series.
+
+\quad \claim. \(H_i (K_{j+1} \cap H_{i+1}) / H_i (K_j \cap H_{i+1}) \simeq K_j (H_{i+1} \cap K_{j+1}) / K_j (H_i \cap K_{j+1})\).
+
+\quad \pf By the following lemma. \qed
+
+\lemma. \note{Zassenhaus} Suppose that \(H^* \nsub H\), \(K^* \nsub K\), \(H, K \leq G\). Then the following hold.
+\begin{enumerate}
+    \item \(H^* (H \cap K^*) \nsub H^*(H \cap K)\).
+    \item \(K^* (H^* \cap K) \nsub K^*(H \cap K)\).
+    \item \(H^* (H\cap K) / H^*(H\cap K^*) \simeq K^*(H\cap K) / K^*(H^* \cap K) \simeq H\cap K / (H^* \cap K)(H\cap K^*)\).
+\end{enumerate}
+
+\pf Consider \(\varphi: H^*(H\cap K) \ra H\cap K / (H^*\cap K)(H\cap K^*)\), that maps \(\varphi(hx) = \bar{x}\). (\(h \in H^*\), \(x \in H\cap K\)) We need to check the following.
+\begin{itemize}
+    \item \(H^* (H\cap K)\) is a group.
+    \item \(H\cap K / (H^*\cap K)(H\cap K^*)\) is a quotient group. (\(H^* \cap K, H \cap K^* \nsub H\cap K\))
+    \item \(\varphi\) is a well-defined epimorphism.
+    \item \(\ker\varphi = H^* (H \cap K^*)\).
+\end{itemize}
+Then the result follows from the first isomorphism theorem. \qed
+
+\pagebreak

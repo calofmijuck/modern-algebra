@@ -1,0 +1,76 @@
+\section*{April 19th, 2023}
+
+\prop. Let \(\varphi : G \ra G'\) be a group homomorphism.
+\begin{enumerate}
+    \item \(N \nsub G \implies \varphi(N) \nsub \varphi(G)\).
+    \item \(N' \nsub \varphi(G) \implies \varphi\inv(N') \nsub G\).
+\end{enumerate}
+
+\pf For any \(\varphi(g) \in \varphi(G)\), \(\varphi(g) \varphi(n) \varphi(g)\inv = \varphi(gng\inv) \in \varphi(N)\). \qed
+
+\rmk \(\varphi(N) \nsub G'\) is not true! For \(K \nsub H \nsub G'\), \(K \nsub H\) does not imply \(K \nsub G'\). (not transitive) Think about the definition of normal subgroups. \(K \nsub H \iff aK = Ka\) for all \(a \in H\), but as for \(K \nsub G'\), \(aK = Ka\) for all \(a \in G'\). So if we extend to a larger group, it may not be a normal subgroup.
+
+\thm. \(M\) is a maximal normal subgroup of \(G\) if and only if \(G/M\) is simple.
+
+\pf The projection \(\varphi: G \ra G/M\), \(\varphi(g) = gM\) is a group homomorphism.
+
+\note{\mimp} Suppose that \(M\) is a maximul normal subgroup and \(G/M\) is not simple. Then there exists proper \(\bar{P} \pnsub G/M = \varphi(G)\) which is not trivial. Then \(\varphi\inv(\bar{P}) \pnsub G\) is a normal subgroup which strictly contains \(M\).
+
+\note{\mimpd} Suppose that \(G/M\) is simple and \(M\) is not maximal. Then there exists \(P \pnsub G\) such that \(M \subsetneq P\). Then \(\varphi(P) \pnsub G/M\) is a nontrivial proper normal subgroup. \qed
+
+\subsection*{Center \& Commutator Subgroup}
+
+\defn. \note{Center} The center of a group \(G\) is defined as
+\[
+    Z(G) = \{z \in G : gz = zg,\; \forall g \in G\}.
+\]
+
+\rmk \(Z(G) \nsub G\).
+
+\defn. \note{Commutator Subgroup}
+\begin{enumerate}
+    \item For \(a, b \in G\), \(aba\inv b\inv\) is called the \textbf{commutator} of \(G\).
+    \item \(C = \span{aba\inv b\inv : a, b \in G} \leq G\) is called the \textbf{commutator subgroup}.
+\end{enumerate}
+
+The following theorem is the reason we use commutator subgroups. Think about the meaning. Center of a group is used to get a commutative subgroup of \(G\). Commutator subgroup is used to quotient out the non-commutative elements, to get a commutative group.
+
+\thm. Let \(C\) be the commutator subgroup of \(G\).
+\begin{enumerate}
+    \item \(C \nsub G\).
+    \item If \(N \nsub G\), \(G/N\) is commutative if and only if \(C \subset N\).
+\end{enumerate}
+
+\pf \note{1} Let \(g \in G\), \(aba\inv b\inv \in C\). We want to show that \(g\inv aba\inv b\inv g \in C\).
+\[
+    g\inv aba\inv b\inv g = g\inv aba\inv (gb\inv b g\inv)b\inv g = (g\inv a)b(g\inv a)\inv b\inv (bg\inv b\inv g) \in C.
+\]
+
+\note{2} Left as exercise. \qed
+
+\topic{Group Action on a Set}
+
+This is a very important section! Groups appear on many branches of mathematics.
+
+\defn. \note{\(G\)-set} Let \(G\) be a group and \(X\) be a set. A \textbf{group action} of \(G\) on \(X\) is a map \(G \times X \ra X\) such that
+\begin{enumerate}
+    \item If \(e\) is the identity of \(G\), \(ex = x\) for all \(x \in X\).
+    \item \((g_1g_2)x = g_1(g_2 x)\) for all \(g_1, g_2 \in G\) and \(x \in X\).
+\end{enumerate}
+The set \(X\) is called a \textbf{\(G\)-set}.
+
+\ex.
+\begin{enumerate}
+    \item \(X = G\), consider a map \(G \times X \ra X\), where \((g_1, g_2) \mapsto g_1 g_2\). \(X\) is a \(G\)-set.
+    \item Let \(G = S_n\), \(X = \{1, 2, \dots, n\}\). Consider a map \(G \times X \ra X\) defined as \((\sigma, x) \mapsto \sigma(x)\). \(X\) is a \(S_n\)-set.
+\end{enumerate}
+
+\thm. Let \(X\) be a \(G\)-set. For each \(g \in G\), the function \(\sigma_g: X \ra X\) defined by \(\sigma_g(x) = gx\) is a permutation of \(X\). Also, the map \(\varphi : G \ra S_X\) defined by \(\varphi(g) = \sigma_g\) is a homomorphism with the property \(\varphi(g)(x) = gx\).
+
+\defn. Let \(X\) be a \(G\)-set.
+\begin{enumerate}
+    \item \(G\) acts \textbf{faithfully} on \(X\) if \(\{a \in G : ax = x, \; \forall x \in X\} = \{e\}\).
+    \item \(G\) acts \textbf{transitively} on \(X\) if for any \(x_1, x_2 \in X\), \(\exists g \in G\) such that \(g x_1 = x_2\).
+\end{enumerate}
+
+\pagebreak

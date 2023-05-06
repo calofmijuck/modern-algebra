@@ -1,0 +1,71 @@
+\section*{April 24, 2023}
+
+We can consider \(G/N\)-action on \(X\). If \(G\) is not transitive, we can make it transitive by quotienting it out by \(N\). (Why?)
+
+\ex. Think about the definitions...
+\begin{enumerate}
+    \item Consider the numbered square and \(D_4\). Then \(D_4\) acts on \(X\) transitively.
+    \item Refer to \sref{Example 16.8}. There doesn't exist an element of \(D_4\) such that \(m_1 \mapsto d_1\). This action is not transitive.
+\end{enumerate}
+
+\subsection*{Isotropy Subgroups}
+
+\defn. Given a \(G\)-set \(X\), fix \(g \in G\), \(x \in X\).
+\begin{enumerate}
+    \item \(X_g = \{x \in X : gx = x\} \subset X\). (Fixed points)
+    \item \note{Isotropy Subgroup} \(G_x = \{g \in G : gx = x\} \subset G\).
+\end{enumerate}
+
+\(X_g \subset X\) always, but is \(G_x \leq G\)?
+
+\thm. Let \(X\) be a \(G\)-set. For \(x \in X\), \(G_x \leq G\).
+
+\pf For \(g_1, g_2 \in G_x\), \((g_1 g_2) x = g_1 (g_2 x) = g_1 x = x\), so \(g_1 g_2 \in G_x\). Also \(ex = x\) so \(e \in G_x\). If \(g \in G_x\), \(g\inv x = g\inv (gx) = (g\inv g)x = x\), so \(g\inv \in G_x\). \qed
+
+Can we partition or classify elements of \(X\) with respect to the actions of \(G\)?
+
+\thm. Given a \(G\)-set \(X\), for \(x_1, x_2 \in X\), define
+\begin{center}
+    \(x_1 \sim x_2 \iff \exists g \in G\) such that \(gx_1 = x_2\).
+\end{center}
+Then \(\sim\) is an equivalence relation.
+
+\pf Left as exercise. \qed
+
+So \(X\) has a partition induced by the action of \(G\). Each equivalence class is an orbit.
+
+\defn. \note{Orbit} Given a \(G\)-set \(X\), the \textbf{orbit} of \(x\) under \(G\) as
+\[
+    Gx = \{gx : g\in G\}.
+\]
+
+\rmk Do not get confused! \(Gx \subset X\), \(G_x \leq G\).
+
+\thm. \note{Orbit-Stabilizer Theorem} Given a \(G\)-set \(X\), let \(x \in X\). Then \(\abs{Gx} = \ind{G}{G_x}\).
+
+\pf Let \(H\) be the left cosets of \(G_x\), define \(\varphi: Gx \ra H\) by \(\varphi(gx) = gG_x\). We show that \(\varphi\) is a bijection. Well-definedness! Does \(g_1x = g_2x\) imply \(g_1 G_x = g_2 G_x\)? The reverse direction shows that \(\varphi\) is injective. Then surjectivity is trivial if we have well-definedness. Left as exercise. \qed
+
+By Lagrange's Theorem, \(\abs{Gx} = \abs{G} / \abs{G_x}\), so we have \(\abs{G} = \abs{Gx} \cdot \abs{G_x}\).
+
+\topic{Applications of \(G\)-sets to Counting}
+
+\thm. \note{Burnside's Formula} Let \(\abs{G} < \infty\), \(X\) be a finite \(G\)-set. Let \(r\) be the number of orbits. Then
+\[
+    r \abs{G} = \sum_{g\in G} \abs{X_g}.
+\]
+
+\pf By double counting, note that
+\[
+    \sum_{g \in G} \abs{X_g} = \sum_{x \in X} \abs{G_x} = \abs{\{ (g, x) \in G\times X : gx = x\}}.
+\]
+By the orbit-stabilizer theorem,
+\[
+    \sum_{g \in G} \abs{X_g} = \sum_{x \in X} \frac{\abs{G}}{\abs{G x}} = \abs{G} \sum_{\text{orbit } \mc{O}}\sum_{x \in \mc{O}} \frac{1}{\abs{Gx}} = r \abs{G}.
+\]
+Here, \(\sum_{x \in \mc{O}} \frac{1}{\abs{Gx}} = \sum_{x \in \mc{O}} \frac{1}{\abs{\mc{O}}} = 1\), so the last equality holds. \qed
+
+\ex. We have a cube with 6 faces, where we want to mark the faces with 6 distinct marks. Then how many are distinguishable?
+
+\pf If a cube can be rotated to give the same markings, they are not distinguishable. Let \(X\) be the set of all distinct markings. Then \(\abs{X} = 6! = 720\). (We treat all 6 faces as distinct faces) Let \(G\) be the group of rotations of the cube, then \(\abs{G} = 6 \times 4 = 24\). Then the number of orbits of \(X\) under \(G\) is equal to the number of distinguishable cubes. By Burnside's formula, \(r =\frac{1}{\abs{G}}\sum_{g \in G} \abs{X_g}\). We can check that \(X_e = X\), and if \(g\neq e\), \(\abs{X_g} = 0\). So \(r = \frac{720}{24} = 30\). \qed
+
+\pagebreak
