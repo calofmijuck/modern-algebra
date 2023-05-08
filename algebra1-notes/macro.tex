@@ -9,13 +9,15 @@
 \newcommand{\adj}{\text{*}}
 \newcommand{\cross}{^\times}
 \newcommand{\bs}{\setminus}
+\newcommand{\nsub}{\unlhd}
+\newcommand{\pnsub}{\lhd}
 
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\paren}[1]{\left( #1 \right)}
-\newcommand{\seq}[1]{\left( #1 \right)}
+\newcommand{\seq}[1]{\left\{ #1 \right\}}
 \renewcommand{\span}[1]{\left\langle #1 \right\rangle}
-\renewcommand{\bar}[1]{\overline{#1 \vphantom{1}}}
+\renewcommand{\bar}[1]{\overline{#1 \vphantom{l}}}
 \newcommand{\ind}[2]{\left(#1 : #2\right)}
 \newcommand{\lcm}{{\rm lcm}}
 
@@ -34,6 +36,7 @@
 \newcommand{\C}{\mathbb{C}}
 
 \DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\quotient}{/}
 
 \let\oldexists\exists
 \renewcommand{\exists}{\oldexists\,}
