@@ -50,6 +50,23 @@ defined as \(\varphi(M) = \gamma(M)\) is a bijection.
 \[
     \frac{HN}{N} \simeq \frac{H}{H\cap N}.
 \]
+\begin{center}
+    \begin{tikzpicture}
+        \node (H) at (0, 0) {\(H\)};
+        \node (HN) at (3, 0) {\(HN\)};
+        \node (HoverHcapN) at (0, -2.5) {\(\dfrac{H}{H \cap N}\)};
+        \node (HNoverN) at (3, -2.5) {\(\dfrac{HN}{N}\)};
+
+        \draw[->] (H) -- (HN) node[midway,above,scale=0.7] {\(\imath\)};
+        \draw[->] (HN) -- (HNoverN) node[midway,right,scale=0.7] {\(\pi'\)};
+        \draw[->] (H) -- (HoverHcapN) node[midway,left,scale=0.7] {\(\pi\)};
+        \draw[->] (HoverHcapN) -- (HNoverN) node[midway,below,scale=0.7] {\(\bar{\jmath}\)} node[midway,above,scale=0.7] {\(\simeq\)};
+        \draw[->] (H) -- (HNoverN) node[midway,above right,scale=0.7] {\(\jmath\)};
+
+        \node[scale=0.6] at (0.7, -1.6) {\(\circlearrowright\)};
+        \node[scale=0.6] at (2.3, -0.6) {\(\circlearrowright\)};
+    \end{tikzpicture}
+\end{center}
 
 \pf We first have to check that \(N \nsub HN\) and \(H\cap N \nsub H\). (Check!)
 
