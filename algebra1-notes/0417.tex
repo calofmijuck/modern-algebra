@@ -10,7 +10,7 @@ is an isomorphism.
 \[
     \begin{tikzcd}
         G \arrow{rr}{\varphi} \arrow[swap]{dr}{\gamma} & \arrow[d, phantom, "\circlearrowright"]& \im \varphi \\
-        & G/H \arrow[swap]{ur}{\mu} &
+        & G/ \ker\varphi \arrow[swap]{ur}{\mu} &
     \end{tikzcd}
 \]
 
@@ -25,10 +25,10 @@ is an isomorphism.
 \defn. \note{Automorphism}
 \begin{enumerate}
     \item An isomorphism \(\varphi : G \ra G\) is called an \textbf{automorphism}.
-    \item \(\imath_g : G \ra G\) defined as \(\imath_g(x) = gxg\inv\) is called the \textbf{inner automorphism} by \(g\).
+    \item \(i_g : G \ra G\) defined as \(i_g(x) = gxg\inv\) is called the \textbf{inner automorphism} by \(g\).
     \item \(gxg\inv\) is called a \textbf{conjugation} of \(x\) by \(g\).
     \item For \(H \leq G\), \(i_g(H) = gHg\inv\) is called the \textbf{conjugation subgroup} of \(H\).
-    \item If \(\imath_g(H) = H\) then \(H\) is called \textbf{invariant}.
+    \item If \(i_g(H) = H\) then \(H\) is called \textbf{invariant}.
 \end{enumerate}
 
 \rmk Normal subgroups of \(G\) are invariant under all inner automorphisms.
@@ -83,7 +83,7 @@ We state this theorem and use it without proof. The insolvability of the quintic
 
 If simple groups are the building blocks, there should be a way to derive simple groups from any group.
 
-\defn. \note{Maximal Normal Subgroup} \(M\) is a \textbf{maximal normal subgroup} of \(G\) if for any \textit{proper} \(N \pnsub G\), \(M \subsetneq N\).
+\defn. \note{Maximal Normal Subgroup} \(M\) is a \textbf{maximal normal subgroup} of \(G\) if for any \textit{proper} \(N \pnsub G\), \(N \subseteq M\).
 
 \thm. \(M\) is a maximal normal subgroup of \(G\) if and only if \(G/M\) is simple.
 
