@@ -1,0 +1,89 @@
+\setcounter{chapter}{3}
+\chapter{Rings and Fields}
+
+\section*{May 3rd, 2023}
+
+\setcounter{topic}{17}
+\topic{Rings and Fields}
+
+\defn. \note{Ring} \((R, +, \cdot)\) is a \textbf{ring} if it satisfies the following properties.
+\begin{enumerate}
+    \item \((R, +)\) is an abelian group.\footnote{We will write 0 as the additive identity, \(-a\) as the additive inverse of \(a\).}
+    \item \(\cdot\) is associative.
+    \item \note{Distributive} \(a (b + c) = ab + ac\), \((a + b) c = ac + bc\).\footnote{The two binary operations are \textit{compatible}.}
+\end{enumerate}
+
+\rmk In our textbook, ring \(R\) may not have a multiplicative identity. Some authors require that a ring should have a multiplicative identity. We also denote the multiplicative identity as \(1\). The inverse of \(a\) is \(a\inv\) as usual.
+
+\ex. Examples of rings.
+\begin{enumerate}
+    \item \((\Z, +, \cdot)\), \((\Q, +, \cdot)\), \((\R, +, \cdot)\).
+    \item \(\mc{M}_{n\times n}(R)\), the set of matrices whose entries are in the ring \(R\).
+    \item \(n\Z = \span{n}\) is a ring without 1, for \(n \neq 0, \pm 1\). Note that \(\Z\) and \(n\Z\) are isomorphic as groups, but it is not isomorphic as rings.
+    \item \(\Z_n = \Z / n\Z\).
+    \item \note{Direct Product of Rings} If \(R_1, \dots, R_n\) are rings, then \(R_1 \times \cdots \times R_n\) is also a ring, where the multiplication is done componentwise.
+\end{enumerate}
+
+\thm. Let \(a, b \in R\).
+\begin{enumerate}
+    \item \(0 \cdot a = a \cdot 0 = 0\).
+    \item \(a(-b) = (-a)b = -ab\).
+    \item \((-a)(-b) = ab\).
+\end{enumerate}
+
+\pf Exercise. \qed
+
+Since homomorphisms and isomorphisms were defined on any binary structures, we can specialize the definition to ring homomorphisms and isomorphisms.
+
+\defn. For rings \(R, R'\), \(\varphi: R \ra R'\) is a \textbf{ring homomorphism} if
+\[
+    \varphi(a + b) = \varphi(a) + \varphi(b), \quad \varphi(ab) = \varphi(a)\varphi(b), \quad \forall a, b \in R.
+\]
+If \(\varphi\) is bijective, then \(\varphi\) is a \textbf{ring isomorphism}.
+
+\ex.
+\begin{enumerate}
+    \item \(\varphi: \Z \ra \Z_n\) defined as \(\varphi(n) = \bar{n}\) is a ring homomorphism.
+    \item \(\varphi: \Z \ra 2\Z\) defined as \(\varphi(n) = 2n\) is not a ring homomorphism. \(\varphi(1) \neq \varphi(1) \varphi(1) = 4\).
+\end{enumerate}
+
+\rmk Note that if the binary operation changes, \(\varphi\) may not be a homomorphism anymore. Homomorphisms were defined on the set \textit{with the binary operation}, not on the set itself.
+
+\prop. For \(r, s \in \Z\), if \(\gcd(r, s) = 1\), \(\Z_{rs} \simeq \Z_r \times \Z_s\) as rings.
+
+\pf We know already that these are isomorphic as groups. Check also for multiplication, with the isomorphism \(\varphi: \Z_{rs} \ra \Z_r \times \Z_s\) defined as \(\varphi(n \cdot 1) = n \cdot (1, 1)\). \qed
+
+\pagebreak
+
+We cannot say much about multiplication on rings, since it only satisfies associativity. We want to consider some examples where the multiplication has more properties.
+
+\defn. Let \(R\) be a ring.
+\begin{enumerate}
+    \item \note{Commutative Ring} \(R\) is a \textbf{commutative ring} if \(ab = ba\) for all \(a, b \in R\).
+    \item \note{Ring with Unity} \(R\) is a \textbf{ring with unity} if \(R\) has a multiplicative identity \(1\in R\).
+\end{enumerate}
+
+We kind of hope that \((R, \cdot)\) becomes a group. We have associativity and assume a lot that it has an identity. How about inverses? But since \(0 \cdot a = 0\) for any \(a \in R\), not all elements can have inverses.
+
+\defn. Let \(R\) be a ring with unity.
+\begin{enumerate}
+    \item \note{Unit} If \(u \in R\) has a multiplicative inverse \(u \inv \in R\), \(u\) is called a \textbf{unit}.
+    \item \note{Division Ring} \(R\) is a \textbf{division ring} if all non-zero elements have an inverse.
+    \item \note{Field} A \textbf{field} is a commutative division ring.
+\end{enumerate}
+
+\rmk For a field \(F\), \((F \bs \{0\}, \cdot)\) is a group.
+
+\ex. Examples of fields.
+\begin{enumerate}
+    \item \(\Q, \R, \C\) are fields.
+    \item \(\Z_p\) is a field if \(p\) is prime.
+\end{enumerate}
+
+\defn. Let \(R\) be a ring and \(F\) be a field.
+\begin{enumerate}
+    \item \note{Subring} If \(S \subset R\) and \(S\) is a ring by the binary operations inherited from \(R\), then \(S\) is called a \textbf{subring} of \(R\) and write \(S \leq R\).
+    \item \note{Subfield} If \(K \subset F\) and \(K\) is a field by the binary operations inherited from \(F\), then \(F\) is called a \textbf{subfield} of \(F\) and write \(K \leq F\).
+\end{enumerate}
+
+\pagebreak
