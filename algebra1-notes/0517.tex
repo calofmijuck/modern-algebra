@@ -1,0 +1,81 @@
+\section*{May 17th, 2023}
+
+\topic{The Field of Quotients of an Integral Domain}
+
+Motivation: we have an integral domain \(\Z\), we want to create a field \(\Q\). We embed \(\Z\) into \(\Q\) to use useful properties of fields.\footnote{A similar example is when we calculate eigenvalues in \(\C\), instead of \(\R\).}
+
+Define \(\Q = \left\{\frac{a}{b} : a, b \in \Z,\, b \neq 0\right\}\) and \(\frac{a}{b} = \frac{c}{d} \iff ad = bc\). Each \(\frac{a}{b}\) is an equivalence class. The operations are defined as
+\begin{center}
+    \(\ds \left[\frac{a}{b}\right] + \left[\frac{c}{d}\right] = \left[\frac{ad + bc}{bd}\right]\), \(\ds \left[\frac{a}{b}\right] \cdot \left[\frac{c}{d}\right] = \left[\frac{ac}{bd}\right]\).
+\end{center}
+
+Given an integral domain \(D\), we want to construct \(D \hookrightarrow F\) (field). As a set, let
+\[
+    S = \{(a, b) : a, b\in D,\, b \neq 0\}.
+\]
+
+\defn. Let \((a, b), (c, d) \in S\). \((a, b) \sim (c, d) \iff ad = bc\).
+
+Check that \(\sim\) is an equivalence relation. Note that we need the cancellation law of \(D\).
+
+\defn. Let \(F = \{[(a, b)] : (a, b) \in S\}\). Addition and multiplication are defined as
+\[
+    [(a, b)] + [(c, d)] = [(ad + bc, bd)], \quad [(a, b)] \cdot [(c, d)] = [(ac, bd)].
+\]
+
+\lemma. Addition and multiplication on \(F\) are well-defined.
+
+\pf We show that if \((a, b) \sim (a', b')\), \((c, d) \sim (c', d')\), then \([(a, b)] * [(c, d)] = [(a', b')] * [(c', d')]\) for both multiplication and addition. Trivial. \qed
+
+\lemma. The following holds.
+\begin{enumerate}
+    \item Addition on \(F\) is associative, has identity and inverse.
+    \item Multiplication on \(F\) is associative, has identity, and has inverse for \(a \in F \bs \{0\}\).
+    \item Addition and multiplication on \(F\) are compatible.
+    \item Multiplication and addition on \(F\) are commutative.
+\end{enumerate}
+
+\pf Check associativity. Additive identity is \([(0, 1)]\), \(-[(a, b)] = [(-a, b)]\). Multiplicative identity is \([(1, 1)]\), \([(a, b)]\inv = [(b, a)]\), if the inverse exists. \qed
+
+\lemma. Let \(\iota : D \hookrightarrow F\) where \(\iota(a) = [(a, 1)]\). Then \(\iota\) is a monomorphism and \(\iota(D) \simeq D\).
+
+\pf Left as exercise. \qed
+
+\rmk \([(a, b)] = [(a, 1)] \cdot [(1, b)] = \iota(a) \iota(b)\inv\).
+
+Is this the most natural construction?
+
+\thm. Let \(D\) be an integral domain. Then \(D\) can be embedded into a field \(F\) such that every element of \(F\) can be expressed as a quotient of two elements of \(D\).
+
+\defn. \note{Field of Quotients} Such \(F\) is called the \textbf{field of quotients} of \(D\).
+
+\rmk The first condition \(D \hookrightarrow F\) tells us that \(F\) contains at least \(D\). Every element of \(F\) should be expressible, so \(F\) shouldn't be too large. This construction also gives us uniqueness.
+
+Let \(F\) be a field of quotients of \(D\). Then \(F = \left\{\frac{a}{b} : a, b \in D,\, b \neq 0\right\}\). We know that \(\frac{a}{b} \cdot b = a\), \(\frac{a}{b} = \frac{c}{d} \iff ad = bc\).
+
+Suppose that \(x = \frac{a}{b} \cdot \frac{c}{d}\). Multiplying \(bd\) on both sides gives \(xbd = ac\), so \(x = \frac{ac}{bd}\). This can be done similarly for addition, which implies that addition and multiplication on \(F\) has to be defined this way.
+
+\thm. Let \(F\) be a field of quotients of \(D\), let \(L\) be any field such that \(D \subset L\). Then there exists \(\psi : F \ra L\) such that \(\psi(a) = a\) for \(a \in D\) and \(F \simeq \psi(F) \leq L\).
+
+\pf Define \(\psi\paren{\frac{a}{b}} = ab\inv\) for \(a, b \in D\), \(b \neq 0\). Check that \(\psi\) is well-defined, and that \(\psi\) is a monomorphism. \qed
+
+\cor.
+\begin{enumerate}
+    \item Any field containing \(D\) contains a field of quotients of \(D\).
+    \item Any two fields of quotients of \(D\) are isomorphic.
+\end{enumerate}
+
+\pf \note{2} Let \(F, F'\) be two fields of quotients of \(D\).
+\begin{center}
+    \begin{tikzpicture}[scale=0.5]
+        \node (D) at (0, 0) {\(D\)};
+        \node (F) at (5, 0) {\(F\)};
+        \node (F') at (5, -5) {\(F'\)};
+        \draw[arrows={Hooks[right]->}, thick] (D) -- (F) node[midway,above] {\(\iota\)};
+        \draw[arrows={Hooks[right]->}, thick] (D) -- (F') node[midway,below left] {\(\psi\mid_D\)};
+        \draw[->, thick] (F) -- (F') node[midway,right] {\(\psi\)};
+    \end{tikzpicture}
+\end{center}
+Check that \(\psi\) is onto, \(a\cdot_F b\inv \mapsto a \cdot_{F'} b\inv\). \qed
+
+\pagebreak

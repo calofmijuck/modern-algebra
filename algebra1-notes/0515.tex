@@ -1,0 +1,70 @@
+\section*{May 15th, 2023}
+
+\topic{Fermat's and Euler's Theorems}
+
+\rmk If \(F\) is a field, then \((F\cross, \cdot)\) is a group.
+
+\pf \(F\cross\) is closed under multiplication, is associative, has identity and has inverse. \qed
+
+\thm. \note{Fermat's Little Theorem} For \(a \in \Z\) and prime \(p\) such that \(p \nmid a\),
+\[
+    a^{p-1} \equiv 1 \pmod p.
+\]
+
+\pf The statement can be rewritten as follows. For \(a \neq 0\) in \(\Z_p\), \(a^{p-1} = 1\) in \(\Z_p\). Since \(\Z_p\cross\) is a group of order \(p - 1\), the order of \(a\) should divide \(p - 1\). Therefore, order of \(a \neq 0\) is \(p - 1\), and \(a^{p - 1} = 1\) in \(\Z_p\). \qed
+
+\cor. For \(a \in \Z\), \(a^p \equiv a \pmod p\) for any prime \(p\).
+
+\pf If \(p \nmid a\), the result directly follows from Fermat's little theorem. If \(p \mid a\), then \(a \equiv 0 \pmod p\), so \(a^n \equiv a \equiv 0 \pmod p\). \qed
+
+\ex. \(8^{103} \equiv (8^{12})^8 \cdot 8^7 \equiv 1 \cdot 8^7 \equiv (8^2)^3 \cdot 8 \equiv (-1)^3 \cdot 8 \equiv 5 \pmod{13}\).
+
+\ex. Show that \(15 \mid (n^{33} - n)\) for any integer \(n\).
+
+\pf We show that 3, 5 both divide the given expression. Use Fermat's little theorem. \qed
+
+We have Euler's generalization.
+
+\thm. Let \(G_n = \{a \in \Z_n \bs \{0\} : a \text{ is not a zero divisor}\}\). Then \((G_n, \cdot)\) is a group.
+
+\pf \(G_n\) is closed under multiplication. For \(a, b \in G_n\), suppose that \((ab)c = 0\) for some \(c \in \Z_n\). Then \(a(bc) = 0\), so \(bc = 0\) and \(c = 0\). So \(ab\) is not a zero divisor. Also \(ab \neq 0\), since \(a, b\) are not zero divisors. Thus \(ab \in G_n\).
+
+Next, multiplication is associative and we know that \(1 \in G_n\). Lastly, \(a \in G_n\) has an inverse. Let \(G_n = \{a_0 = 1, a_1, \dots, a_k\}\). Then \(a G_n = \{a, aa_1, \dots, aa_k\}\). But the elements of \(aG_n\) are distinct, since if \(aa_i = aa_j\) for some different \(i, j\), then \(a(a_i - a_j) = 0\). \(a\) is not a zero divisor so \(a_i = a_j\), which contradicts that \(a_i\) are distinct. So there exists \(b \in G_n\) such that \(ab = 1\). Then \(b = a\inv \in G_n\). \(G_n\) is a multiplicative group. \qed
+
+\pagebreak
+
+\defn. \note{Euler Phi Function} For \(n \in \N\), define \(\varphi(n)\) as the number of positive integers \(k \leq n\) such that \(\gcd(n, k) = 1\).
+
+\ex. \(\varphi(1) = 1\), \(\varphi(2) = 1\), \(\varphi(12) = 4\).
+
+\thm. \note{Euler} Let \(a \in \Z\) such that \(\gcd(a, n) = 1\). Then
+\[
+    a^{\varphi(n)} \equiv 1 \pmod n.
+\]
+\pf Let \(G_n\) be the set of nonzero elements which are not zero divisors in \(\Z_n\). Then \(\abs{G_n} = \varphi(n)\). Take \(a \in G_n\), then \(a^{\abs{G_n}} = a^{\varphi(n)} = 1\) in \(G_n\). The result directly follows since if \(\gcd(a, n) = 1\) then \(a\) is not a zero divisor in \(\Z_n\). (\sref{Theorem 19.3}) \qed
+
+\ex. \(7^4 \equiv 1 \pmod{12}\), since \(7 \in G_{12}\) (\(\gcd(7, 12) = 1\)) and \(\varphi(12) = 4\).
+
+We solve linear congruences with the above results.
+
+\thm. Let \(m \in \N\), \(a \in \Z_m\) such that \(\gcd(a, m) = 1\). Then for all \(b \in \Z_m\), there exists a unique solution to \(ax = b\) in \(\Z_m\).
+
+\pf Since \(\gcd(a, m) = 1\), \(a \in G_m\), and \(\exists a\inv \in G_n \subset \Z_m\). Therefore \(x = a\inv b\) is the unique solution to \(ax = b\). If \(x_1\), \(x_2\) were solutions, multiplying \(a\inv\) on both sides of \(ax_1 = ax_2\) would give \(x_1 = x_2\). \qed
+
+\cor. Let \(a, m \in \Z\), \(\gcd(a, m) = 1\). For all \(b \in \Z\), there exists a solution in \(\Z\) to \(ax \equiv b \pmod m\). All solutions are in one residue class modulo \(m\).
+
+\thm. Let \(m \in \N\), \(a \in \Z_m\) and let \(\gcd(a, m) = d\). The equation \(ax = b\) has a solution in \(\Z_m\) if and only if \(d \mid b\). If \(d \mid b\), then there are exactly \(d\) solutions in \(\Z_m\).
+
+\pf Homework. \qed
+
+\cor. Let \(a, m \in \Z\), and let \(\gcd(a, m) = d\). Then \(ax \equiv b \pmod m\) has a solution if and only if \(d \mid b\). If \(d \mid b\), every solution is in \(d\) distinct residue classes.
+
+\ex. Solve \(12x \equiv 27 \pmod{18}\).
+
+\pf \(\gcd(12, 18) = 6\), but \(6 \nmid 27\), so this equation has no solution. \qed
+
+\ex. Solve \(15x \equiv 27 \pmod{18}\).
+
+\pf \(\gcd(15, 18) = 3\) and \(3 \mid 27\), so are 3 classes of solutions. By inspection \(x = 3\) is a solution, and \(15 \cdot 6 = 15 \cdot \frac{18}{3} = 5 \cdot 18 \equiv 0 \pmod{18}\), so \(15x \equiv 15(x+6) \pmod{18}\). Thus \(x = 9, 15\) are also solutions. Thus \(x \equiv 3, 9, 15 \pmod{18}\). \qed
+
+\pagebreak
