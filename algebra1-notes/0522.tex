@@ -1,0 +1,100 @@
+\section*{May 22nd, 2023}
+
+\setcounter{topic}{23}
+\topic{Noncummutative Examples}
+
+\defn. \note{Endomorphism} An \textbf{endomorphism} is a homomorphism into itself. The set of endomorphisms of an abelian group \(A\) is denoted as \(\End(A)\).
+
+\ex. Ring of endomorphisms.
+\begin{enumerate}
+    \item For \(\varphi, \psi \in \End(A)\) and \(a \in A\) define the binary operations
+    \[
+        (\varphi + \psi)(a) = \varphi(a) + \psi(a), \quad (\varphi * \psi)(a) = (\varphi \circ \psi)(a).
+    \]
+    Then \(\End(A)\) is a noncommutative ring, since composition is not commutative.
+    \item \(A = F[x] = \left\{\sum_{n = 0}^k a_n x^n : a_n \in F\right\}\), where \(\ch F = 0\). Take \(X, Y \in \End(A)\) such that
+    \[
+        X(f(x)) = xf(x), \quad Y(f(x)) = \frac{\partial}{\partial x}f(x).
+    \]
+    Let \(W = \span{X, Y}\) be the subring of \(\End(A)\) generated \(X, Y\). \(W\) is called the \textit{Weyl algebra}.
+\end{enumerate}
+
+\prop. The Weyl algebra \(W\) is not commutative.
+
+\pf For \(f(x) \in F[x]\), we show that \((XY - YX)(f(x)) \neq 0\). By simple calculus,
+\[
+    YX(f(x)) = \frac{\partial}{\partial x}\paren{x f(x)} = f(x) + x \frac{\partial}{\partial x}f(x) = f(x) + XY(f(x)).
+\]
+Thus \(YX - XY = 1\). \qed
+
+\subsection*{Group Rings and Group Algebras}
+
+Let \(G = \{g_i : i \in I\}\) be a group, and let \(R\) be a commutative ring with unity.
+
+\prop. \(RG = \left\{\sum_{i \in I} a_ig_i : a_i \in R, g_i \in G\right\}\) is a ring, with the binary operations defined as
+\[
+    \sum a_i g_i + \sum b_i g_i = \sum (a_i + b_i) g_i, \quad \paren{\sum a_i g_i} \paren{\sum b_i g_i} = \sum_{k \in I} \sum_{g_i g_j = g_k} (a_i b_j) g_k.
+\]
+If \(G\) is not commutative, \(R[G]\) is not commutative.
+
+\defn. \(RG\) is called the \textbf{group ring of \(G\) over \(R\)}, and if \(F\) is a field, \(FG\) is called the \textbf{group algebra of \(G\) over \(F\)}.
+
+\subsection*{The Quaternions}
+
+\(\bb{H} = (\R^4, +)\), denote an element by \(a + b\bf{i} + c\bf{j} + d\bf{k}\). We define multiplication f
+\[
+    \bf{ij = k},\quad \bf{jk = i},\quad \bf{ki = j},\quad \bf{i}^2 = \bf{j}^2 = \bf{k}^2 = -1.
+\]
+
+\(\bb{H}\) is noncommutative division ring with unity. (Not a field)
+
+\setcounter{topic}{21}
+\topic{Ring of Polynomials}
+
+\defn. \note{Ring of Polynomials} Let \(R\) be a ring. Then the \textbf{ring of polynomials over \(R\)} is defined as
+\[
+    R[x] = \left\{\sum_{i=0}^N r_ix^i : r_i \in R \right\}.
+\]
+Here, the \(x\) is called an \textbf{indeterminate}. Addition and multiplicaion is defined as
+\[
+    \sum a_i x^i + \sum b_i x^i = \sum (a_i + b_i) x^i, \quad \paren{\sum a_i x^i} \paren{\sum b_i x^i} = \sum_k \sum_{i + j = k} (a_i b_j) x^k.
+\]
+
+\defn. \note{Degree} The \textbf{degree} of a polynomial \(p(x) = \sum_{i=1}^N r_i x^i\) is the largest \(n\) such that \(r_n \neq 0\), and we write \(\deg p(x) = n\).\footnote{The degree of the zero polynomial is not defined. Some texts use \(-\infty\).}
+
+\rmk If \(R\) is commutative, check that \(R[x]\) is a commutative ring.
+
+\ex. Let \(p\) be prime. In \(\Z_p\),
+\[
+    (x + 1)^p = \sum_{i=0}^p {p \choose i} x^i = x^p + 1.
+\]
+since \(p\) always divides \({p \choose i}\) for \(i = 1, \dots, p - 1\). In general,
+\[
+    (ax + b)^p = a^px^p + \sum_{i=1}^{p-1} a^ib^{p-i}{p \choose i} x^i + b^p = (ax)^p + b^p = ax^p + b,
+\]
+since \(a^p = a\), \(b^p = b\) in \(\Z_p\) by Fermat's little theorem.
+
+\rmk
+\begin{enumerate}
+    \item For integral domain \(D\), \(D[x]\) is an integral domain.
+    \item For field \(F\), \(F[x]\) is an integral domain.
+    \item For integral domain \(D\), \((D[x])[y] \simeq (D[y])[x]\) is also an integral domain. We can define \(D[x, y]\) in this way, and inductively define \(D[x_1, \dots, x_n]\).
+\end{enumerate}
+
+\notation Let \(F(x) = \left\{\frac{g(x)}{f(x)} : f(x), g(x) \in F[x],\, f(x) \neq 0\right\}\) be the field of quotients of \(F[x]\).
+
+\subsection*{Evaluation Homomorphism}
+
+\thm. Let \(E\) be a field, and \(F \leq E\). For \(\alpha \in E\), the map \(\varphi_\alpha : F[x] \ra E\) defined as
+\[
+    \varphi_\alpha(f) = f(\alpha), \quad f \in F[x].
+\]
+Then \(\varphi_\alpha\) is a ring homomorphism.
+
+\defn. \note{Evaluation Homomorphism} \(\varphi_\alpha\) above is called the \textbf{evaluation homomorphism}.
+
+\rmk We know that \(f(x) = x^2 + 1 \in \R[x]\) has the solution \(x = i\). We write this rigorously as: for the evaluation homomorphism \(\varphi_i : R[x] \ra \C\), \(\varphi_i(f) = 0\).
+
+\defn. \note{Zero} Let \(E\) be a field, and \(F \leq E\). For \(f \in F[x]\), if \(\varphi_\alpha(f) = 0\) for \(\alpha \in E\), then \(\alpha\) is called a \textbf{zero} of \(f\).
+
+\pagebreak

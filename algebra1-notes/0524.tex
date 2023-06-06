@@ -1,0 +1,89 @@
+\section*{May 24th, 2023}
+
+\topic{Factorization of Polynomials over a Field}
+
+Let \(F\) be a field.
+
+\thm. \note{Division Algorithm for \(F[x]\)} For \(f(x), g(x) \in F[x]\), let
+\[
+    f(x) = a_nx^n + \cdots + a_0, \quad g(x) = b_mx^m + \cdots + b_0, \quad (a_n, b_m \neq 0, n, m \in \N).
+\]
+There exists unique polynomials \(q(x), r(x) \in F[x]\) such that
+\[
+    f(x) = q(x)g(x) + r(x)
+\]
+where \(\deg r(x) < m\) or \(r(x) = 0\).
+
+\pf \note{Existence} Define a set
+\[
+    S = \{f(x) - s(x)g(x) : s(x) \in F[x]\} \subset F[x].
+\]
+If \(0 \in S\), then \(\exists q(x) \in F[x]\) such that \(f(x) = q(x)g(x) + 0\). So assume \(0 \notin S\). Then there is a polynomial \(r(x)\) with minimal degree in \(S\). We need to show that \(\deg r < \deg g\).
+
+Suppose not, and denote \(r(x) = c_lx^l + \cdots + c_0\) where \(l = \deg r\). Then by calculation, degree of \(r'(x) = r(x) - \frac{c_l}{b_m} x^{l-m} \cdot g(x)\) is less than \(l = \deg r\). However, since \(r'(x) \in S\), it contradicts that \(r(x)\) has the minimal degree in \(S\).
+
+\note{Uniqueness} Suppose that for \(q(x), q'(x), r(x), r'(x) \in F[x]\),
+\[
+    f(x) = q(x)g(x) + r(x) = q'(x)g(x) + r'(x),
+\]
+with [\(\deg r < \deg g\) or \(r = 0\)] and [\(\deg r' < \deg g\) or \(r' = 0\)]. We have \(g(x) (q(x) - q'(x)) = r'(x) - r(x)\). LHS is 0 or has degree at least \(\deg g\), RHS is 0 or has degree less than \(\deg g\). Since they are equal they are both 0, and we have \(q(x) = q'(x)\) and \(r(x) = r'(x)\). \qed
+
+\rmk We needed that \(F\) is a field in \(c_l/b_m\). If \(F\) is changed to \(D\), we cannot use this proof.
+
+\cor. \note{Factor Theorem} \(a \in F\) is a zero of \(f(x) \in F[x]\) if and only if \((x-a) \mid f(x)\).
+
+\pf \note{\mimpd} If \(f(x) = (x-a)g(x)\) for some \(g(x) \in F[x]\), \(\varphi_a(f(x)) = 0 \cdot \varphi_a(g(x)) = 0\).
+
+\note{\mimp} By the division algorithm, \(\exists q, r \in F[x]\) such that \(f(x) = (x-a)g(x) + r(x)\) and \(r(x) \in F\). By evaluation at \(a\), \(\varphi_a(f(x)) = \varphi_a((x-a)g(x)) + r\) implies that \(r = 0\). \qed
+
+\ex. Let \(f(x) = x^4 + 3x^3 + 2x + 4 \in \Z_5[x]\). \(f(1) = 0\), so \(f(x) = (x-1)(x^3 + 4x^2 + 4x + 1)\). Repeat the process to get \(f(x) = (x-1)^3(x+1)\).
+
+\cor. Let \(0 \neq f(x) \in F[x]\) with \(\deg f = n\). Then \(f(x)\) has at most \(n\) distinct zeros in \(F\).
+
+\pf Suppose that \(\{a_1, \dots, a_m\}\) are distinct zeros of \(f(x)\). By the factor theorem, \(f(x)\) can be written as
+\[
+    f(x) = (x - a_1)(x - a_2) \dots (x-a_m)g(x)
+\]
+from some \(g \in F[x]\). Then \(n = \deg f \geq m\). \qed
+
+\cor. Let \(G\) be a finite subgroup of \((F\cross, \cdot)\). Then \(G\) is cyclic.
+
+\pf \(G\) has to be an abelian group. So by FGAG,
+\[
+    G \simeq \Z_{p_1^{r_1}} \times \Z_{p_2^{r_2}} \times \cdots \Z_{p_k^{r_k}}.
+\]
+Let \(l = \lcm (p_1^{r_1}, p_2^{r_2}, \dots, p_k^{r_k})\). Then for all \(g \in G\), \(g^l = 1\), so all \(g \in G \subset F\) is a zero of \(f(x) = x^l - 1 \in F[x]\). Let \(m\) be the number of distinct zeros of \(f(x)\).
+
+\(m\) should be at least \(\abs{G} = p_1^{r_1}p_2^{r_2}\cdots p_k^{r_k}\). But by the above corollary, \(l \geq m\). Therefore \(\lcm (p_1^{r_1}, p_2^{r_2}, \dots, p_k^{r_k}) = p_1^{r_1}p_2^{r_2}\cdots p_k^{r_k}\). We conclude that \(p_i, p_j\) are pairwise relatively prime, and \(G \simeq \Z_{p_1^{r_1}p_2^{r_2}\cdots p_k^{r_k}}\). \qed
+
+\pagebreak
+
+\subsection*{Irreducible Polynomials}
+
+\defn. \note{Irreducible Polynomial} Let \(f(x) \in F[x]\), which is not a constant.
+\begin{enumerate}
+    \item If there exists \(g(x), h(x) \in F[x]\) with \(\deg g, \deg h < \deg f\) such that \(f(x) = g(x)h(x)\), then \(f(x)\) is \textbf{reducible}.
+    \item If \(f\) is not reducible, it is \textbf{irreducible}.
+\end{enumerate}
+
+\ex. \(f(x) = x^2 - 2\) is irreducible in \(\Q[x]\), but reducible in \(\R[x]\).
+
+\thm. If \(f(x) \in F[x]\) is a reducible polynomial of degree \(2\) or \(3\), then \(f(x)\) has a zero.
+
+\pf \(f\) is reducible, so it must have a factor of degree 1. \(3 = 1 + 2\), \(2 = 1 + 1\). \qed
+
+If \(f\) is reducible in \(\Q[x]\), then it is reducible in \(\Z[x]\).
+
+\thm. Let \(f(x) \in \Z[x]\). \(f(x) = g(x) h(x)\) for \(g(x), h(x) \in \Q[x]\) with \(\deg g, \deg h < \deg f\) if and only if there exists \(\widetilde{g}, \widetilde{h} \in \Z[x]\) such that \(f(x) = \widetilde{g}(x) \widetilde{h}(x)\), \(\deg \widetilde{g} = \deg g\) and \(\deg \widetilde{h} = \deg h\).
+
+\cor. For \(n \geq 1\), let \(f(x) = x^n + a_{n-1}x^{n-1} + \cdots + a_0 \in \Z[x]\). If \(f\) has a zero in \(\Q\), then \(f\) has a zero \(m \in \Z\) such that \(m \mid a_0\).
+
+\pf Let \(f(x) = (ax + b) g(x)\) with \(a \neq 0\). Then \(f(x) = (\widetilde{a}x + \widetilde{b})\widetilde{g}(x) \in \Z[x]\). So comparing coefficients of \(x^n\) and \(x^0\) will give \(\widetilde{a} = \pm 1\), \(\widetilde{b} \mid a_0\). Then \(\pm\widetilde{b}\) is a zero of \(f\). \qed
+
+\ex. Is \(f(x) = x^4 - 2x^2 + 8x + 1 \in \Q[x]\) irreducible? If \(f(x)\) had a linear factor, then \(f(x)\) has a zero in \(\Z\), and that zero should be a divisor of 1. \(f(1), f(-1) \neq 0\), so this is impossible. Next, we need to show that there are no polynomials \(g, h \in \Z[x]\) of degree \(2\), such that \(f(x) = g(x) h(x)\). We do this by setting
+\[
+    f(x) = (x^2 + ax + 1)(x^2 + bx + 1) = (x^2 + cx - 1)(x^2 + dx - 1),
+\]
+and showing that such \(a, b, c, d \in \Z\) do not exist. Note that this is possible since we are in \(\Z\). If we were in \(\Q\), we would have many cases to consider.
+
+\pagebreak
