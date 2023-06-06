@@ -1,0 +1,140 @@
+\section*{May 29th, 2023}
+
+Note that we cannot use the division algorithm in \(D[x]\).
+
+Now, how do we check if a polynomial is irreducible?
+
+\thm. \note{Eisenstein Criterion} For \(p \in \Z\) prime, and \(n \geq 1\), let
+\[
+    f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_0 \in \Z[x]
+\]
+\(f\) is irreducible over \(\Q\) if \(a_n \not\equiv 0 \pmod p\), \(a_i \equiv 0 \pmod p\) for \(i < n\) and \(a_0 \not\equiv 0 \pmod {p^2}\).
+
+\pf It is enough to show that \(f\) is irreducible over \(\Z\). Suppose that \(\exists g(x), h(x) \in \Z[x]\) such that \(f(x) = g(x)h(x)\). Denote
+\[
+    g(x) = b_m x^m + \cdots + b_0 \quad (b_m \neq 0, m\geq 1), \quad h(x) = c_r x^r + \cdots + c_0 \quad (c_r \neq 0, r \geq 1).
+\]
+Then \(a_0 = b_0 c_0\), so either \(b_0\) or \(c_0\) is a multiple of \(p\). Suppose that \(p \mid b_0\) and \(p \nmid c_0\). Now, \(a_1 = b_1c_0 + c_1b_0\), so \(p \mid b_1c_0\) and \(p \mid b_1\). Similarly, \(a_2 = b_2c_0 + b_1c_1 + b_0c_2\), so \(p \mid b_2\). Inductively, \(p \mid b_i\) for all \(i = 0, \dots, m\). Then \(a_n = b_m c_r\) is divisible by \(p\), contradiction. \qed
+
+\ex. We want to check if \(25x^5 - 9x^4 - 3x^2 - 12 \in \Q[x]\) is irreducible. We consider the polynomial in \(\Z[x]\). For \(p = 3\), we can use Eisenstein's criterion and conclude that the polynomial is irreducible.
+
+\cor. Polynomial \(\Phi_p(x) = \frac{x^p - 1}{x - 1} = x^{p - 1} + x^{p - 2} + \cdots + x + 1 \in \Q[x]\) is irreducible for any prime \(p\).
+
+\pf For \(p = 2\), trivial. For \(p \geq 3\), we use a trick and check that \(\Phi_p(x+1)\) is irreducible instead. Then we see that
+\[
+    \Phi_p(x + 1) = \frac{(x+1)^p - 1}{(x + 1) - 1} = x^{p-1} + p x^{p-2} + {p \choose 2} x^{p-3} + \cdots + p.
+\]
+By Eisenstein's criterion, \(\Phi_p(x + 1)\) is irreducible. \qed
+
+\defn. \note{Cyclotomic Polynomial} \(\Phi_p(x)\) is called the \textbf{\(p\)-th cyclotomic polynomial}.
+
+\pagebreak
+
+\subsection*{Uniqueness of Factorization in \(F[x]\)}
+
+\thm. Let \(p(x) \in F[x]\) be irreducible, and let \(r(x), s(x) \in F[x]\). If \(p(x) \mid r(x)s(x)\), then \(p(x) \mid r(x)\) or \(p(x) \mid s(x)\).
+
+\pf Next class. \qed
+
+\cor. Let \(p(x) \in F[x]\) be irreducible, and let \(r_1(x), \dots, r_n(x) \in F[x]\). \\
+If \(p(x) \mid r_1(x) \cdots r_n(x)\), \(p(x) \mid r_1(x)\) or ... or \(p(x) \mid r_n(x)\).
+
+We consider irreducible polynomials to be not reducible polynomials with degree at least 1.
+
+\thm. Let \(f(x) \in F[x]\) be a nonzero polynomial.
+\begin{enumerate}
+    \item \(f(x)\) can be factored into a product of irreducible polynomials.
+    \item Irreducible polynomials are unique up to order and unit factors.
+\end{enumerate}
+
+\pf \note{1} If \(f(x)\) is reducible, \(f(x) = p(x)q(x)\). Inductively, if \(p(x)\),\(q(x)\) are reducible, we can factorize it again. But \(\deg f < \infty\), this process is finite.
+
+\note{2} Suppose \(f(x) = p_1(x)\cdots p_r(x) = q_1(x)\cdots q_s(x)\) where \(p_i(x), q_j(x)\) are irreducible. Since \(p_i(x) \mid q_1(x)\cdots q_s(x)\), so \(p_i(x) \mid q_1(x)\) or ... or \(p_i(x) \mid q_s(x)\). Also, \(q_j(x) \mid p_1(x)\cdots p_r(x)\), so \(q_j(x) \mid p_1(x)\) or ... or \(q_j(x) \mid p_r(x)\). Without loss of generality, let \(p_1(x) \mid q_1(x)\). But \(q_1(x)\) is irreducible, so \(c_1 p_1(x) = q_1(x)\) where \(c_1\) is a nonzero constant. Then we can use the cancellation law and we have
+\[
+    p_2(x) \cdots p_r(x) = c_1 q_2(x)\cdots q_s(x).
+\]
+Similarly, repeat the process for \(p_2(x), \dots, p_r(x)\). Then we have \(1 = c_1\cdots c_r q_{r+1}(x)\cdots q_s(x)\). Thus, \(r = s\) and \(c_1, \dots, c_r\) are units. \qed
+
+\rmk The WLOG \(p_1(x) \mid q_1(x)\) part accounts for the uniqueness up to order. Also, \(c_i\) are all nonzero, so they are units.
+
+\chapter{Ideals and Factor Rings}
+
+\setcounter{topic}{25}
+\topic{Homomorphisms and Factor Rings}
+
+\thm. Given a ring homomorphism \(\varphi: R \ra R'\),
+\begin{enumerate}
+    \item \(\varphi(0) = 0\), \(\varphi(-a) = -\varphi(a)\).
+    \item If \(S \leq R\), then \(\varphi(S) \leq R'\).
+    \item If \(S' \leq R'\), then \(\varphi\inv(S') \leq R\).
+    \item If \(1 \in R\), then \(\varphi(1)\) is a unity in \(\varphi(R)\).
+\end{enumerate}
+
+\pf Trivial. \qed
+
+\defn. \note{Kernel} Given a ring homomorphism \(\varphi : R \ra R'\), define the \textbf{kernel} of \(\varphi\) as
+\[
+    \ker \varphi = \varphi\inv(0) = \{r \in R : \varphi(r) = 0\}.
+\]
+
+\thm. Given a ring homomorphism \(\varphi : R \ra R'\), let \(H = \ker\varphi\). Then
+\[
+    \varphi\inv(\varphi(a)) = a + H = H + a.
+\]
+
+\cor. Ring homomorphism \(\varphi : R \ra R'\) is a monomorphism if and only if \(\ker\varphi = \{0\}\).
+
+\pagebreak
+
+\subsection*{Quotient Ring}
+
+\thm. Given a ring homomorphism \(\varphi : R \ra R'\), let \(H = \ker \varphi\). Then \(R / H\) is a ring where the binary operations are defined as
+\[
+    (a + H) + (b + H) = (a + b) + H, \quad (a + H)(b + H) = ab + H.
+\]
+In addition, \(\mu : R/H \ra \im \varphi\) is a ring isomorphism.
+
+\pf It is trivial for addition, since we can apply the results from group theory. So for multiplication, we check well-definedness, associativity, and the distributive law.
+
+For well-definedness, suppose that \(a' \in a + H\), \(b' \in b + H\). Let \(a' = a + h_1\), \(b' = b + h_2\), then \(a'b' = ab + ah_2 + h_1b + h_1h_2\). Now check that \(ah_2 + h_1b + h_1h_2 \in H = \ker\varphi\), so \(a'b' \in ab + H\).
+
+Now the rest is trivial, using the well-defined operation.
+\[
+    ((a + H)(b + H))(c + H) = ((ab)c) + H = (a(bc)) + H = (a + H)((b + H)(c + H)).
+\]
+Finally, \(\mu\) is definitely a homomorphism, and is surjective if we take \(a + H\) for \(\varphi(a)\). Also, \(\ker \mu = 0 + H\), so it is injective. \(\mu\) is an isomorphism. \qed
+
+What property of \(\ker \varphi\) allows us to define factor rings?
+
+\thm. For ring \(R\), let \(H \leq R\). The binary operation
+\[
+    (a + H)(b + H) = ab + H, \quad (a, b \in R)
+\]
+is a well-defined binary operation on \(R/H\) if and only if \(ah, hb \in H\) for all \(a, b \in R\), \(h \in H\).
+
+\pf Homework. \qed
+
+\pagebreak
+
+\defn. \note{Ideal} Let \(N\) be an additive subgroup of ring \(R\). If \(aN \subset N\), \(Nb \subset N\) for all \(a, b \in R\), the subgroup \(N\) is called an \textbf{ideal} of \(R\). We will write \(N \nsub R\).\footnote{Note that this notation doesn't seem to be a standard notation.}
+
+\rmk \(aN \subset N\), \(Nb \subset N\) for all \(a, b \in R\) implies that \(N \leq R\).
+
+\defn. \note{Quotient Ring} If \(N \nsub R\), \((R / N, +, \cdot)\) is a ring with the binary operations defined as
+\[
+    (a + N) + (b + N) = (a + b) + N, \quad (a + N)(b + N) = ab + N.
+\]
+This ring is called the \textbf{quotient ring} of \(R\) by \(N\).
+
+\thm. \note{First Isomorphism Theorem} Given a ring homomorphism \(\varphi : R \ra R'\),\\
+\(\mu : R \quotient {\ker\varphi} \ra \im \varphi\) is an isomorphism.
+\[
+    \begin{tikzcd}
+        R \arrow{rr}{\varphi} \arrow[swap]{dr}{\gamma} & \arrow[d, phantom, "\circlearrowright"]& \im \varphi \\
+        & R \quotient \ker\varphi \arrow[swap]{ur}{\mu} &
+    \end{tikzcd}
+\]
+
+Our conclusion today is that ideals in ring theory is an equivalent concept to normal subgroups in group theory.
+
+\pagebreak
