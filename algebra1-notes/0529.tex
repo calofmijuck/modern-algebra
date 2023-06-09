@@ -36,10 +36,9 @@ By Eisenstein's criterion, \(\Phi_p(x + 1)\) is irreducible. \qed
 
 \pf Next class. \qed
 
-\cor. Let \(p(x) \in F[x]\) be irreducible, and let \(r_1(x), \dots, r_n(x) \in F[x]\). \\
-If \(p(x) \mid r_1(x) \cdots r_n(x)\), \(p(x) \mid r_1(x)\) or ... or \(p(x) \mid r_n(x)\).
+\cor. Let \(p(x) \in F[x]\) be irreducible, \(r_1(x), \dots, r_n(x) \in F[x]\). If \(p(x) \mid r_1(x) \cdots r_n(x)\), then \(p(x) \mid r_1(x)\) or \(p(x) \mid r_2(x)\) or ... or \(p(x) \mid r_n(x)\).
 
-We consider irreducible polynomials to be not reducible polynomials with degree at least 1.
+We consider irreducible polynomials to be polynomials with degree at least 1.
 
 \thm. Let \(f(x) \in F[x]\) be a nonzero polynomial.
 \begin{enumerate}
@@ -82,7 +81,7 @@ Similarly, repeat the process for \(p_2(x), \dots, p_r(x)\). Then we have \(1 = 
     \varphi\inv(\varphi(a)) = a + H = H + a.
 \]
 
-\cor. Ring homomorphism \(\varphi : R \ra R'\) is a monomorphism if and only if \(\ker\varphi = \{0\}\).
+\cor. Ring homomorphism \(\varphi : R \ra R'\) is a injective if and only if \(\ker\varphi = \{0\}\).
 
 \pagebreak
 
@@ -131,7 +130,7 @@ This ring is called the \textbf{quotient ring} of \(R\) by \(N\).
 \[
     \begin{tikzcd}
         R \arrow{rr}{\varphi} \arrow[swap]{dr}{\gamma} & \arrow[d, phantom, "\circlearrowright"]& \im \varphi \\
-        & R \quotient \ker\varphi \arrow[swap]{ur}{\mu} &
+        & R \quotient \ker\varphi \arrow[dashed,swap]{ur}{\mu} &
     \end{tikzcd}
 \]
 
