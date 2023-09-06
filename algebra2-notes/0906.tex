@@ -1,0 +1,68 @@
+\defn. \note{Extension Field} Let \(F\) be a field. \(E\) is an \textbf{extension field} of \(F\) if \(E\) is a field and \(F \leq E\).
+
+\ex. Tower of extension fields.
+\begin{enumerate}
+    \item \(\Q \leq \R \leq \C\).
+    \item \(F \leq F(x) \leq F(x, y)\) where \(F(x) = \left\{\frac{f(x)}{g(x)} : f(x), g(x) \in F[x], g(x) \neq 0\right\}\).
+\end{enumerate}
+
+\recall \(\alpha\) is a \textbf{zero} of \(f(x) \in F[x]\) if there exists an \textit{extension field} \(E\) of \(F\) containing \(\alpha\), such that for the \textbf{evaluation homomorphism} \(\varphi_\alpha : F[x] \ra E\) defined as \(a \mapsto a\) (\(a \in F\)), \(x \mapsto \alpha\), we have \(\varphi_\alpha(f(x)) = 0\).
+
+\thm. \note{Kronecker} \footnote{The book says that this is our basic goal.} Let \(f(x) \in F[x]\) be a nonconstant polynomial. Then there exists an extension field \(E\) and \(\alpha \in E\) such that \(f(\alpha) = 0\).
+
+\pf Let \(f(x) = p_1(x)p_2(x)\cdots p_m(x)\) where \(p_i(x)\) are irreducible polynomials in \(F[x]\). We will show that for \(p(x) \in \{p_1(x), \dots, p_m(x)\}\), \(E = F[x] \quotient \span{p(x)}\) is the field we want, and \(\alpha = x + \span{p(x)}\) is a zero of \(f(x)\).
+
+First, it is clear that \(E\) is an extension field of \(F\) since \(p(x)\) is irreducible, and the map \(\varphi: F \ra E\) defined as \(1 \mapsto 1 + \span{p(x)}\) is injective. Next, to show that \(\alpha\) is a zero of \(f(x)\), it is enough to show that \(\alpha\) is a zero of \(p(x)\). If \(p(x) = \sum_{i=0}^d a_ix^i\), then
+\[
+    \varphi_\alpha(p(x)) = \sum_{i=0}^d a_i \paren{x + \span{p(x)}}^i = \sum_{i=0}^d a_ix^i + \span{p(x)} = p(x) + \span{p(x)} = 0 + \span{p(x)},
+\]
+so \(\alpha\) is a zero. \qed
+
+If \(f(x)\) does not have a zero in \(F\), we can also think of \(f(x)\) as an irreducible polynomial in \(F[x]\). By Kronecker's theorem, we can extend \(F\) to a field \(E\) where \(f(x)\) has a zero. An example would be \(f(x) = x^2 + 1 \in \R[x]\), where we take \(\alpha = x + \span{x^2 + 1} \in F[x] \quotient \span{x^2 + 1}\).
+
+\defn. Let \(E\) be an extension field of \(F\).
+\begin{enumerate}
+    \item \(\alpha \in E\) is \textbf{algebraic} over \(F\) if there exists \(f(x) \in F[x]\) such that \(f(\alpha) = 0\).
+    \item Otherwise, \(\alpha \in E\) is called \textbf{transcendental} over \(F\).
+\end{enumerate}
+
+When we don't specify the field \(F\), we think of it as \(\Q\).
+
+\defn. For \(\alpha \in \C\),
+\begin{enumerate}
+    \item \(\alpha\) is \textbf{algebraic} if \(\alpha\) is algebraic over \(\Q\).
+    \item \(\alpha\) is \textbf{transcendental} if \(\alpha\) is transcendental over \(\Q\).
+\end{enumerate}
+
+\thm. Let \(E\) be an extension field of \(F\) and \(\alpha \in E\). Then \(\varphi_\alpha : F[x] \ra E\) is bijective if and only if \(\alpha\) is transcendental over \(F\).
+
+\pf \(\alpha\) is algebraic \(\iff \exists f(x) \in F[x]\) such that \(\varphi_\alpha(f(x)) = 0 \iff \varphi_\alpha\) is not bijective.\\
+(\(\ker \varphi_\alpha\) is not trivial, then it is an ideal and \(F[x]\) is a PID...) \qed
+
+\section*{Irreducible Polynomials for \(\alpha\) over \(F\)}
+
+\thm. Let \(E\) be an extension field of \(F\) and \(\alpha \in E\) be algebraic over \(F\).\footnote{This hypothesis makes sense because of Kronecker's theorem.}
+\begin{enumerate}
+    \item There exists a unique \textit{monic irreducible} polynomial \(p(x) \in F[x]\) such that \(p(\alpha) = 0\).
+    \item If \(f(\alpha) = 0\) for \(f(x) \in F[x]\), then \(f(x) \in \span{p(x)}\).
+\end{enumerate}
+
+\pf Consider the evaluation homomorphism \(\varphi_\alpha : F[x] \ra E\). Since \(\alpha\) is algebraic, \(\ker \varphi_\alpha = \span{p(x)}\) for some monic polynomial \(p(x) \in F[x]\). We must show that \(p(x)\) is irreducible.
+
+\note{1} If \(p(x)\) is reducible, choose nonconstant polynomials \(r(x), s(x) \in F[x]\) such that \(p(x) = r(x)s(x)\). Then \(r(\alpha) = 0\) or \(s(\alpha) = 0\). Without loss of generality, if \(r(\alpha) = 0\), \(r(x) \in \span{p(x)}\) which is a contradiction.
+
+\note{2} If \(f(\alpha) = 0\), then \(f(x) \in \ker\varphi_\alpha = \span{p(x)}\). \qed
+
+Since an algebraic \(\alpha \in E\) determines a unique monic irreducible polynomial, we have the following definition.
+
+\defn. Let \(E\) be an extension field of \(F\) and \(\alpha \in E\) be algebraic over \(F\).
+\begin{enumerate}
+    \item Then the unique irreducible monic polynomial \(p(x) \in F[x]\) is denoted by \(\irr(\alpha, F)\).
+    \item \(\deg (\alpha, F) = \deg \irr(\alpha, F)\).
+\end{enumerate}
+
+Our conclusion today is that for any algebraic \(\alpha \in E\) over \(F\), there exists a unique monic irreducible polynomial \(\irr(\alpha, F)\), and any other polynomial in \(F[x]\) having \(\alpha\) as a zero will have \(\irr(\alpha, F)\) as a factor.
+
+\(E\) was an arbitrary extension field of \(F\) containing \(\alpha\). Our intuition is that \(F[x] \quotient \irr(\alpha, F)\) would be the smallest extension field containing \(\alpha\). We will prove this next time, and compare it with \(F\) and describe it using \(F\).
+
+\pagebreak
