@@ -1,0 +1,60 @@
+\section*{Simple Extensions}
+
+We want to study properties of extension fields, so we start from \textit{simple extensions}, as we started from \textit{simple groups} in group theory.
+
+Let \(F\) be a field, \(E\) be an extension field of \(F\) and \(\alpha \in E\).
+
+Naively, what do we mean by \textit{simple}? We denote simple extensions as \(F(\alpha)\), which is an extension field of \(F\) in \(E\) that satisfies: (i) \(\alpha \in F(\alpha)\), (ii) it is the smallest field containing \(F\) and \(\alpha\). So adding a \textit{single element} \(\alpha\) to \(F\) will generate the whole field \(F(\alpha)\).
+
+We have two cases of simple extensions, whether if \(\alpha \in E\) is algebraic or not.
+
+\begin{itemize}
+    \item If \(\alpha\) is \textit{algebraic} over \(F\), for the evaluation homomorphism \(\varphi_\alpha : F[x] \ra E\), we have \(\ker \varphi_\alpha = \span{\irr(\alpha, F)}\). By the first isomorphism theorem, we have \(F[x] \quotient \ker\varphi_\alpha \simeq \im \varphi_\alpha\). Since \(\varphi_\alpha\) maps \(a\) to \(a\) and \(x\) to \(\alpha\), any field containing \(F\) and \(\alpha\) must contain \(\im \varphi_\alpha\). We see that \(\im \varphi_\alpha = F(\alpha)\).
+
+    \item If \(\alpha\) is \textit{transcendental} over \(F\), \(\varphi_\alpha : F[x] \ra E\) is an injective map. So \(\ker \varphi_\alpha = 0\), and \(F[x] \simeq \im\varphi_\alpha\), which is not a field. But it is an \textit{integral domain}! So we can consider the \textit{field of quotients}, which is the smallest field containing \(\im \varphi_\alpha\).\footnote{Up to isomorphism.} Therefore,
+    \[
+        F(\alpha) = \left\{\frac{f(\alpha)}{g(\alpha)} : g(x) \neq 0, f(x), g(x) \in F[x]\right\} \simeq F(x).
+    \]
+\end{itemize}
+
+\defn. \note{Simple Extension} For \(\alpha \in E\), \(F(\alpha)\) is called a \textbf{simple extension} of \(F\).
+\begin{enumerate}
+    \item If \(\alpha\) is algebraic over \(F\), then \(F(\alpha) = \im \varphi_\alpha\).
+    \item If \(\alpha\) is transcendental over \(F\), then \(F(\alpha)\) is the field of quotients of \(\im \varphi_\alpha\).
+\end{enumerate}
+
+Now we would like to describe \(F(\alpha)\) when \(\alpha\) is algebraic over \(F\).
+
+\thm. Let \(\alpha\) be algebraic over \(F\) and \(E = F(\alpha)\). Let \(n = \deg(\alpha, F)\). Then \(E\) is an \(n\)-dimensional vector space over \(F\) with basis \(\mf{B} = \{1, \alpha, \alpha^2, \dots, \alpha^{n-1}\}\).
+
+\pf We will show that \(\mf{B}\) is a basis.
+\begin{itemize}
+    \item \note{\(\mf{B}\) spans \(E\)} \(E = \im \varphi_\alpha\). Then \(\beta \in E\) has the form \(\beta = g(\alpha)\) for \(g(x) \in F[x]\). By the division algorithm, we can choose \(q(x), r(x) \in F[x]\) so that \(g(x) = \irr(\alpha, F) q(x) + r(x)\) and \(\deg r < n\). So \(\beta = g(\alpha) = r(\alpha) \in \span{\mf{B}}\).
+    \item \note{\(\mf{B}\) is linearly independent} Let \(g(x), h(x) \in F[x]\) with \(\deg g, \deg h < n\). Suppose that \(g(\alpha) = h(\alpha)\). Then \((g-h)(x) \in \ker \varphi_\alpha\), which is a contradiction since \(\deg (g-h) < n\). \qed
+\end{itemize}
+
+\pagebreak
+
+\ex. We know \(\R \leq \C\). \(\C = \R(i) = \R \oplus i\R\). So \(\C\) is a 2-dimensional \(\R\)-vector space with basis \(\{1, i\}\). Also, \(\irr(i, \R) = x^2 + 1\) so we could also write \(\C \simeq \R[x] \quotient \span{x^2 + 1}\).
+
+\ex. Let \(p(x) = x^2 + x + 1 \in \Z_2[x]\). Then \(\Z_2[x] \quotient \span{p(x)}\) is a field, since \(p(x)\) is irreducible.\footnote{\(p(0) = p(1) = 1\) so it cannot have a factor.} Let \(\alpha\) be a zero of \(p(x)\). Then \(\Z_2(\alpha) = \span{1, \alpha} = \left\{0, 1, \alpha, 1 + \alpha\right\}\). Now we can define operations on this field. Addition is easy, and we can check that \(\alpha\inv = \alpha + 1\).
+
+\setcounter{topic}{30}
+\topic{Algebraic Extensions}
+
+Our next simplest example is finite extensions. We will show that finitely many simple extensions leads to finite extensions.
+
+\section*{Finite Extensions}
+
+\defn. \note{Finite Extension}
+\begin{enumerate}
+    \item Let \(E\) be an extension field of \(F\). If \(E\) is a finite dimensional \(F\)-vector space, then \(E\) is called a \textbf{finite extension} over \(F\).
+
+    \item If \(E\) is a finite extension and \(E\) is a \(n\)-dimensional \(F\)-vector space, then \(E\) is a finite extension of degree \(n\) and we denote \([E : F] = n\).
+\end{enumerate}
+
+\cor. Let \(\alpha \in E\) be algebraic over \(F\). Then \(F(\alpha)\) is a finite extension with \([F(\alpha) : F] = \deg(\alpha, F)\).
+
+We have just shown that simple algebraic extensions are finite extensions. The converse is not true.
+
+\pagebreak
