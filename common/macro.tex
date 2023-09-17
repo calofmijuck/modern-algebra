@@ -44,6 +44,9 @@
 \let\oldexists\exists
 \renewcommand{\exists}{\oldexists\,}
 
+\let\oldtilde\tilde
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+
 \newcommand{\defn}[1]{%
     \ifthenelse{\equal{#1}{.}}
     {\textbf{\sffamily Definition.}}%
