@@ -43,7 +43,7 @@ To use Zorn's lemma, we need to define a partially ordered set, and show that ev
 
 \pf Let \(S\) be the set of all algebraic extensions of \(F\).\footnote{\textit{Is \(S\) actually a set? Does it actually exist?}} We define a relation \(\leq\) as the following. For \(E_i, E_j \in S\), \(E_i \leq E_j \iff E_i \subset E_j\). It can be checked that \(S\) is a partially ordered set.
 
-Let \(T = \{E_j : j \in J\}\) be a chain in \(S\), and take \(W = \bigcup_{j \in J} E_j\). \(W\) is an upper bound by definition, so we must show that \(W \in S\). We will show that (i) \(W\) is a field, and (ii) \(W\) is an algebraic extension field of \(F\).
+Let \(T = \{E_j : j \in J\}\) be a chain in \(S\), and take \(W = \bigcup_{E \in T} E\). \(W\) is an upper bound by definition, so we must show that \(W \in S\). We will show that (i) \(W\) is a field, and (ii) \(W\) is an algebraic extension field of \(F\).
 
 \note{i} Suppose that \(\alpha \subset E_i\), \(\beta \subset E_j\) where \(E_i \subset E_j\) in \(T\). Then \(\alpha, \beta \in E_j\), where \(E_j\) is a field. So \(\alpha \pm \beta\), \(\alpha\beta\), \(\alpha / \beta \in E_j \subset W\). \(W\) is a field.
 
