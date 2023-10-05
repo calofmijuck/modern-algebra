@@ -1,0 +1,47 @@
+\bigskip
+
+\defn. \note{Sylow \(p\)-subgroup} A maximal \(p\)-subgroup of \(G\) is called a \textbf{Sylow \(p\)-subgroup}.\footnote{Sylow \(p\)-subgroups need not be unique.}
+
+By the first Sylow Theorem, if \(\abs{G} = p^n \cdot m\) (\(\gcd(p, m) = 1\)), then a Sylow \(p\)-subgroup of \(G\) has order \(p^n\). If \(G\) is a finite group, it is easy to check if a subgroup is a Sylow \(p\)-subgroup, by counting the number of elements.
+
+\thm. \note{Second} Let \(P_1\), \(P_2\) be Sylow \(p\)-subgroups. Then \(P_1\) and \(P_2\) are conjugate. (i.e. there is an element \(x \in G\) such that \(x\inv P_1 x = P_2\))
+
+\pf Let \(\mc{L}\) be the set of left cosets of \(P_1\) in \(G\). \(P_2\) acts on \(\mc{L}\) by \(y \bar{x} = \bar{yx}\) for \(x \in G\), \(y \in P_2\). (\(\mc{L}\) is a \(P_2\)-set) (Check that this is a group action) Then \(\abs{\mc{L}} \equiv \abs{\mc{L}_{P_2}} \pmod p\).
+
+Since \(P_1\) is a Sylow \(p\)-subgroup, \(p \nmid \ind{G}{P_1} = \abs{\mc{L}}\). So \(\abs{\mc{L}_{P_2}} \neq 0\). Choose some \(\bar{x} \in \mc{L}_{P_2}\), then for any \(y \in P_2\), \(y\bar{x} = \bar{x}\). Therefore \(x\inv P_2 x \leq P_1\), but \(\abs{P_1} = \abs{P_2}\), so \(x\inv P_2 x = P_1\). \qed
+
+\bigskip
+
+\thm. \note{Third} Let \(G\) be a finite group with \(p \mid \abs{G}\). Let \(s\) be the number of Sylow \(p\)-sub\-groups. Then \(s \equiv 1 \pmod p\) and \(s \mid \abs{G}\).
+
+\pf Let \(P\) be a Sylow \(p\)-subgroup of \(G\), and let \(\mc{S}\) be the set of all Sylow \(p\)-subgroups. We define a group action on \(\mc{S}\), as \(xT = xTx\inv\) for \(x \in P\) and \(T \in \mc{S}\). Then \(\abs{\mc{S}} \equiv \abs{\mc{S}_P} \pmod p\). Now observe that \(T \in \mc{S}_P\) if and only if \(xTx\inv = T\) for all \(x \in P\). This implies \(P \subset N[T]\).
+
+Note that \(T\) and \(P\) are Sylow \(p\)-subgroups of \(G\). Also, \(P,\, T \leq N[T] \leq G\). Thus \(P\), \(T\) are Sylow \(p\)-subgroups of \(N[T]\). By the second Sylow theorem, \(P\) and \(T\) are conjugate in \(N[T]\). But since \(T \nsub N[T]\), any conjugate of \(T\) in \(N[T]\) should be equal to itself, so \(P = T\). \(\mc{S}_P = \{P\}\), so \(\abs{\mc{S}} \equiv \mc{\mc{S}_P} \equiv 1 \pmod p\).
+
+For the last statement, consider \(G\)-action on \(\mc{S}\) by conjugation. By second Sylow theorem, all Sylow \(p\)-subgroups are conjugate, so \(\mc{S}\) consists of a single orbit. Then \(\abs{\mc{S}}\) is equal to the number of elements in \(GP\) (orbit), which equals \(\ind{G}{G_P}\). Thus \(\abs{\mc{S}} \mid \abs{G}\). \qed
+
+\ex. Consider the symmetric group \(S_3 = \{id, (1, 2), (1, 3), (2, 3), (1, 2, 3), (1, 3, 2)\}\).
+\begin{itemize}
+    \item Sylow \(2\)-subgroups are subgroups of order \(2\). \(\{id, (1, 2)\}\), \(\{id, (1, 3)\}\), \(\{id, (2, 3)\}\). There are \(3\) of them, and \(3 \equiv 1 \pmod 2\) and \(3 \mid \abs{S_3}\). The third Sylow theorem works.
+    \item Let \(P_1 = \{id, (1, 2)\}\), then \((1, 3) P_1 (1, 3) = \{id, (2, 3)\}\). Also \((2, 3)P_1(2, 3) = \{id, (1, 3)\}\). Sylow \(2\)-subgroups are conjugate. The second Sylow theorem works.
+\end{itemize}
+
+Sylow theorems helps us classify finite simple groups.
+
+\ex. No group of order \(15\) is simple.
+
+\pf Let \(\abs{G} = 15\). Then there exists a Sylow \(5\)-subgroup \(P\) of order \(5\) by first Sylow theorem. If there exists another Sylow \(5\)-subgroup \(P'\), then \(P\) and \(P'\) are conjugate by second Sylow theorem. Thus, if \(G\) has a unique Sylow \(5\)-subgroup, then it is a normal subgroup.\footnote{This is because for each \(g \in G\), the inner automorphism \(i_g\) of \(G\) maps \(P\) onto a subgroup \(gPg\inv\), again of order \(5\). We use this fact very often when determining that groups with some order cannot be simple.} Now we check how many Sylow \(5\)-subgroups there are. Let \(k\) be the number of Sylow \(5\)-subgroups of \(G\), then \(k \mid 15\) and \(k \equiv 1 \pmod 5\). Then \(k = 1\), we are done. \qed
+
+\section*{Sylow Theorems (Summary)}
+
+\thm. \note{First} Let \(G\) be a finite group of order \(p^n \cdot m\) with \(\gcd(p, m) = 1\) and \(n \geq 1\).
+\begin{enumerate}
+    \item For \(i \in \{1, \dots, n\}\), there exists a subgroup of order \(p^i\).
+    \item For any subgroup \(H\) of order \(p^i\) (\(1 \leq i \leq n - 1\)), there exists a subgroup \(K\) of order \(p^{i+1}\) such that \(H \nsub K\).
+\end{enumerate}
+
+\thm. \note{Second} Let \(P_1\), \(P_2\) be Sylow \(p\)-subgroups. Then \(P_1\) and \(P_2\) are conjugate.
+
+\thm. \note{Third} Let \(G\) be a finite group with \(p \mid \abs{G}\). Let \(s\) be the number of Sylow \(p\)-subgroups. Then \(s \equiv 1 \pmod p\) and \(s \mid \abs{G}\).
+
+\pagebreak

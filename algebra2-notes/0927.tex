@@ -1,0 +1,103 @@
+\topic{Sylow Theorems}
+
+Sylow theorems are very important in finite group theory. When we first learned groups, we tried to classify groups of finite order. For example, if \(\abs{G} = 2\), then \(G \simeq \Z_2\), if \(\abs{G} = 4\), then \(G \simeq \Z_4\) or \(\Z_2 \times \Z_2\). But for groups with order above \(6\), it is very hard to classify them. Since the ultimate goal of group theory is to classify the groups, Sylow theorems were devised as a tool for classifying groups. Recall Lagrange's theorem. For a finite group \(G\), if \(H \leq G\), then \(\abs{H} \mid \abs{G}\). It is often important to analyze the structures of subgroups. Sylow theorems give us the converse for some cases.
+
+In the context of this class, Sylow theorems are important as an application of group actions, and we also use the theorems later for Galois theory.
+
+We start with some review.
+
+\defn. \note{Group Action} Let \(G\) be a group and \(X\) be a \(G\)-set. A \textbf{group action} of \(G\) on \(X\) is a map \(G \times X \ra X\) such that
+\begin{enumerate}
+    \item If \(e\) is the identity of \(G\), \(ex = x\) for all \(x \in X\).
+    \item \((g_1g_2)x = g_1(g_2 x)\) for all \(g_1, g_2 \in G\) and \(x \in X\).
+\end{enumerate}
+
+\rmk Given a finite \(G\)-set \(X\), we can partition \(X\) in to orbits of \(X\) using the equivalence class defined as
+\begin{center}
+    \(x_1 \sim x_2\) if and only if \(x_1 = g x_2\) for some \(g \in G\).
+\end{center}
+Then the equivalence classes were called \textbf{orbits}, written as \(Gx\).
+
+\prop. \note{Class Equation} Let \(x_i\) be representatives from each orbit. Then \(\abs{X} = \sum_{i} \abs{Gx_i}\). Consider orbits of size \(1\). Then we see that if \(\abs{Gx} = 1\) for some \(x\), then \(gx = x\) for all \(g \in G\). Let \(X_G = \{x \in X : gx = x, \forall g \in G\}\). Then we have
+\[ \tag{\mast}
+    \abs{X} = \abs{X_G} + \sum \abs{G x_i}
+\]
+where the summation is over \(x_i\) with \(\abs{G x_i} \geq 2\).
+
+\prop. \(\abs{Gx} = \ind{G}{G_x}\) for all \(x \in X\), so \(\abs{Gx} \mid \abs{G}\).
+
+\pf Section 16. \qed
+
+\bigskip
+
+On to the Sylow theorems. Let \(G\) be a (finite) group.
+
+\thm. Let \(\abs{G} = p^n\) and let \(X\) be a finite \(G\)-set. Then \(\abs{X} \equiv \abs{X_G} \pmod p\).
+
+\pf By (\mast), we show that \(\sum \abs{G x_i}\) is divisible by \(p\). Also by the above proposition, \(\abs{Gx} \mid \abs{G}\) but since \(G\) has prime order, \(\abs{Gx}\) is either \(1\) or a power of \(p\). But the summation is over \(x_i\) that are in orbits of order greater than 1, so \(\abs{Gx}\) is divisible by \(p\). \qed
+
+\pagebreak
+
+\thm. \note{Cauchy} If \(p \mid \abs{G}\) for prime \(p\), there exists an element of order \(p\) in \(G\).
+
+\pf Let
+\[
+    X = \{(a_1, \dots, a_p) : a_1, \dots, a_p \in G, a_1a_2\cdots a_p = e\}.
+\]
+Then \(\abs{X} = \abs{G}^{p-1}\), since \(a_p\) is automatically fixed after choosing \(a_1, \dots, a_{p-1}\). Thus \(p \mid \abs{X}\).
+
+Consider \(\sigma = (1, 2, \dots, p) \in S_p\) and \(\span{\sigma} \leq S_p\). Note that \(\abs{\span{\sigma}} = p\). Define \(\span{\sigma}\)-action on \(X\) by
+\[
+    \sigma(a_1, \dots, a_p) = (a_2, \dots, a_p, a_1).
+\]
+Then we can check that \((a_2, \dots, a_p, a_1) \in X\), and that this is indeed a group action.
+
+Consider \(X_{\span{\sigma}} = \{(a, a, \dots, a) : a \in G, a^p = e\}\). If \(a \in X_{\span{\sigma}}\), then \(\abs{a}\) must be either \(1\) or \(p\). Now it suffices to show that \(X_{\span{\sigma}}\) has an element that is not the identity.
+
+By the above theorem, \(\abs{X_{\span{\sigma}}} \equiv 0 \pmod p\). But \(e \in X_{\span{\sigma}} \neq \varnothing\), so there is a nontrivial element \(a \in G\) such that \(a^p = e\). Thus \(\abs{a} = p\) in \(G\).\footnote{Whenever we solve a problem using group actions, it is important to set the sets \(X\) and \(G\) properly...} \qed
+
+\defn. \note{\(p\)-group} Let \(p\) be prime.
+\begin{enumerate}
+    \item \(G\) is called a \textbf{\(p\)-group} if every element of \(G\) has order \(p^m\) for some \(m \in \Z_{\geq 0}\).
+    \item A subgroup \(H \leq G\) is called a \textbf{\(p\)-subgroup} if \(H\) is a \(p\)-group.
+\end{enumerate}
+
+\cor. \(G\) is a \(p\)-group if and only if \(\abs{G} = p^n\) for some \(n \in \Z_{\geq 0}\).
+
+\pf \note{\mimpd} For \(a \in G\), \(\abs{a} \mid \abs{G}\). Hence \(\abs{a} = p^m\) for some \(m \in \Z_{\geq 0}\), and \(G\) is a \(p\)-group.
+
+\note{\mimp} Suppose that \(\abs{G} = p^n q N\) for some prime \(q \neq p\). By Cauchy's theorem, \(G\) has an element of order \(q\). Thus \(G\) cannot be a \(p\)-group. \qed
+
+\section*{Sylow Theorems}
+
+\defn. \note{Normalizer} For subgroup \(H\) of \(G\), the \textbf{normalizer} of \(H\) is defined as
+\[
+    N[H] = \{a \in G : aHa\inv = H\}.
+\]
+
+By definition, \(H \nsub N[H]\). Also, it is the largest subgroup of \(G\) that has \(H\) as a normal subgroup.
+
+\lemma. Let \(G\) be a finite group and let \(H\) be a \(p\)-subgroup of \(G\). Then
+\[
+    \ind{N[H]}{H} \equiv \ind{G}{H} \pmod p.
+\]
+
+\pf Let \(\mc{L}\) be the left cosets of \(H\) in \(G\). Then by definition, \(\abs{\mc{L}} = \ind{G}{H}\). Define \(H\)-action on \(\mc{L}\) by \(h\bar{x} = \bar{hx}\). Then \(\mc{L}_H = \left\{\bar{x} \in \mc{L} : \bar{hx} = \bar{x}, \forall h \in H\right\}\).
+
+If \(\bar{hx} = \bar{x}\) for all \(h \in H\), \(x\inv h x \in H\) for all \(h \in H\). Thus \(x \in N[H]\) and \(\abs{\mc{L}_H} = \ind{N[H]}{H}\). \(H\) is a \(p\)-subgroup, so it has order of prime power by the above corollary. We have the desired result by \(\abs{\mc{L}} \equiv \abs{\mc{L}_H} \pmod p\).\qed
+
+\bigskip
+
+\thm. \note{First} Let \(G\) be a finite group of order \(p^n \cdot m\) with \(\gcd(p, m) = 1\) and \(n \geq 1\).
+\begin{enumerate}
+    \item For \(i \in \{1, \dots, n\}\), there exists a subgroup of order \(p^i\).
+    \item For any subgroup \(H\) of order \(p^i\) (\(1 \leq i \leq n - 1\)), there exists a subgroup \(K\) of order \(p^{i+1}\) such that \(H \nsub K\).
+\end{enumerate}
+
+The existence of the a \(p\)-subgroup of order \(p^n\) is guarenteed by the theorem.
+
+\pf We use induction. The case \(i = 1\) is true by Cauchy's theorem. Next, we construct a subgroup of order \(p^{i+1}\) from a subgroup of order \(p^i\).
+
+Consider \(N[H] \quotient H\). Then by the above lemma, \(p \mid \abs{N[H] \quotient H}\). By Cauchy's theorem again, choose \(a \in N[H] \quotient H\) such that \(\abs{a} = p\).
+
+Let \(\pi\) be the canonical projection. Then \(K = \pi\inv(\span{a})\) has order \(p^{i+1}\), and \(K \leq N[H] \leq G\). Moreover, since \(H < K \leq N[H]\) and \(H \nsub N[H]\), we have \(H \nsub K\). \qed
