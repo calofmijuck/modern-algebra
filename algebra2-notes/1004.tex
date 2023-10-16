@@ -1,0 +1,68 @@
+\topic{Applications of the Sylow Theory}
+
+\thm. Every finite \(p\)-group is solvable.
+
+% Let \(p\) be prime, \(n \in \Z_{\geq 0}\). Every group of order \(p^n\) is solvable.
+
+\pf Let \(G\) be a group of order \(p^n\). By first Sylow theorem, \(G\) has a subgroup of order \(p, p^2, \dots, p^n\), so there is a subnormal series
+\[
+    \{e\} < H_1 < H_2 < \cdots < H_n = G
+\]
+such that \(\abs{H_{i+1} \quotient H_i} = p\). Then \(H_{i+1} \quotient H_i \simeq \Z_p\), which is abelian and simple. Thus the subnormal series is a composition series. \qed
+
+\thm. \(Z(G)\) is nontrivial for finite \(p\)-group \(G\).
+
+\pf Consider \(G\), that acts as on itself by conjugation. Then \(X_G = Z(G)\), so \(\abs{G} = \abs{Z(G)} + \sum \abs{Gx_i}\), where the summation is over orbits of length greater than 1. Since \(\abs{Gx_i} \mid \abs{G}\), (\(\abs{Gx_i}\) is a power of prime) we have \(p \mid \abs{Z(G)}\). But \(e \in Z(G)\), so \(\abs{Z(G)} \geq p\). \qed
+
+We can break down large groups into smaller groups.
+
+\lemma. Let \(H, K \nsub G\). If \(H \cap K = \{e\}\) and \(H \vee K = G\),\footnote{\(G = \span{H, K}\).} then \(G \simeq H \times K\).
+
+\pf We show that \(\varphi : H \times K \ra G\) defined as \((h, k) \mapsto hk\) is an isomorphism.
+\begin{enumerate}
+    \item (Homomorphism) Note that \(hkh\inv k\inv \in K \cap H = \{e\}\), so \(h\) and \(k\) commute.
+    \[
+        \varphi(h, k) \varphi(h', k') = hkh'k' = hh'kk' = \varphi\paren{(h, k)(h', k')}.
+    \]
+    \item (Injective) Suppose that \(\varphi(h, k) = hk = e\). Then \(h = k\inv \in H\cap K\), so \(h = k = e\).
+    \item (Surjective) \(H \vee K = HK = G\) by hypothesis.\footnote{Check \sref{Lemma 34.4}.} Trivial. \qed
+\end{enumerate}
+
+\thm. If \(\abs{G} = p^2\), then \(G\) is abelian.
+
+\pf If there is an element of order \(p^2\), then \(G \simeq \Z_{p^2}\), so we are done. Otherwise, take \(a \in G \bs \{e\}\). Then \(\abs{a}\) must be \(p\). Now take \(b \in G \bs \span{a}\). Then \(\abs{b}\) must also be \(p\). We want to use the above lemma.
+\begin{enumerate}
+    \item \(\span{a}, \span{b} \nsub G\) by the first Sylow theorem.
+    \item If \(e \neq c \in \span{a} \cap \span{b}\), then \(\span{c} \leq G\), \(\abs{c}\) must be \(p\) by Lagrange's theorem. Then \(c\) would generate both \(\span{a}, \span{b}\).
+    \item Suppose \(a^mb^n = a^{m'}b^{n'}\), then \(a^{m-m'} = b^{n'-n}\) must be \(e\). Then \(m = m'\), \(n = n'\) in \(\Z_p\). Since \(\{a^mb^n : m, n \in \Z\} \subset \span{a} \vee \span{b}\), so \(p^2 \leq \abs{\span{a} \vee \span{b}}\). But \(\span{a} \vee \span{b} = \span{a}\span{b} \nsub G\), so it must have order \(p^2\) and \(\span{a} \vee \span{b} = G\).
+\end{enumerate}
+Therefore, \(G \simeq \span{a} \times \span{b} \simeq \Z_p \times \Z_p\). \qed
+
+\thm. Let \(\abs{G} = pq\) for distinct primes \(p, q\) with \(p < q\).
+\begin{enumerate}
+    \item \(G\) is not simple. (\(G\) has a normal subgroup of order \(q\))
+    \item If \(q \not\equiv 1 \pmod p\), then \(G\) is abelian.
+\end{enumerate}
+
+\pf \note{1} By the thrid Sylow theorem, the number of Sylow \(q\)-subgroups must be either \(1, p, q, pq\), and the only possibility is \(1\). So \(G\) has a unique Sylow \(q\)-subgroup, and \(G\) is not simple.
+
+\note{2} We show that \(G \simeq \Z_p \times \Z_q\). Let \(H\) be the unique Sylow \(q\)-subgroup of \(G\). Since \(q \not\equiv 1 \pmod p\), there can only be a unique Sylow \(p\)-subgroup \(K\). We use the above lemma again.
+\begin{enumerate}
+    \item \(H, K \nsub G\) since they are unique Sylow \(p\), \(q\)-subgroups.
+    \item \(\abs{H \cap K} \mid p\) and \(q\), so \(H \cap K\) must have order \(1\), so \(H \cap K = \{e\}\).
+    \item \(\abs{H \vee K}\) must be a multiple of \(p, q\) but should be a divisor of \(pq\), thus \(\abs{H \vee K} = pq\) and \(H \vee K = G\).
+\end{enumerate}
+Thus \(G \simeq H \times K \simeq \Z_p \times \Z_q\). \qed
+
+We haven't seen many examples yet, but they will help us answer many classification questions. The last lemma is a technical lemma for applications.
+
+\lemma. Let \(H, K\) be finite subgroups of \(G\).\footnote{Compare this with the second isomorphism theorem. We needed a subgroup to be \textit{normal}.} Then
+\[
+    \abs{HK} = \frac{\abs{H} \abs{K}}{\abs{H \cap K}}.
+\]
+
+\pf We show that \(\varphi : HK \times (H \cap K) \ra H \times K\) is a bijection.
+
+\note{\(\leq\)} For \(hk \in HK\), choose \(x \in H \cap K\) and set \(h' = hx\), \(k' = x\inv k\). Then \(h'k' = hk\). Each element in \(HK \times (H \cap K)\) is mapped to a different element \((h', k') \in H \times K\).
+
+\note{\(\geq\)} For each \((h, k) \in H \times K\), choose \(y \in H\cap K\) so that \(h'' = hy\inv\), \(k' = yk\). Then \(h''k'' = hk\). Each element of \(H \times K\) is mapped to a different element \((hk, y) \in HK \times (H \cap K)\). \qed
