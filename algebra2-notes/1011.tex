@@ -57,18 +57,10 @@ Thus, to show the fundamental theorem, we need to show that finitely generated a
 
 \thm. Let \(G\) be a finitely generated abelian group with generating set \(\{a_1, \dots, a_k\}\). Define \(\varphi : \Z^k \ra G\) where \((n_1, \dots, n_k) \mapsto n_1a_1 + \cdots + n_ka_k\), then \(\varphi\) is a homormophism onto \(G\).
 
-% \pf \note{Sketch} \(G\) is finitely generated, so there exists a finite subset \(X \subset G\) such that \(\span{X} = G\). Suppose that \(\span{X} = \{x_1, \dots, x_n\}\). Consider \(\Z^n\) and a group homomorphism \(\varphi: \Z^n \ra G\) defined as \((a_1, \dots, a_n) \mapsto a_1 x_1 + \cdots a_n x_n\). \(\varphi\) is well-defined since \(\Z^n\) is not a quotient space, and each element is expressed uniquely.
-
 Our next objective is to show that \(\ker \varphi \simeq d_1 \Z \times d_2 \Z \times \cdots \times d_s \Z \times \{0\} \times \cdots \times \{0\}\). Then by the first isomorphism theorem, will have
 \[
     G \simeq \Z^n \quotient \ker \varphi \simeq \Z_{d_1} \times \Z_{d_2} \times \cdots \times \Z_{d_s} \times \Z \times \cdots \times \Z.
 \]
-
-% It is enough to show that \(\varphi\) is surjective, so that \(\Z^n \quotient \ker \varphi \simeq G\), and \(\Z^n \quotient \ker \varphi \simeq (\ast)\). Since \(\ker \varphi\) is always a subgroup, we apply the lemma below, and we can show that
-% \[
-%     \Z^n \quotient \ker\varphi \simeq \Z_{d_1} \times \Z_{d_2} \times \cdots \times \Z_{d_s} \times \overbrace{\Z \times \cdots \times \Z}^{n-s}.
-% \]
-% If we factorize \(d_i\) and reorder them, we get the desired expression in (\mast). \qed
 
 \lemma. Let \(X = \{x_1, \dots, x_r\}\) be a basis of a free abelian group \(G\). For \(t \in \Z\) and \(1 \leq i, j \leq r\) with \(i \neq j\), the set
 \[
