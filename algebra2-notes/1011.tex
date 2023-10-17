@@ -1,0 +1,120 @@
+\topic{Free Abelian Groups}
+
+Free abelian groups are similar to vector spaces, and they are isomorphic to \(\Z^n\).
+
+\thm. Let \(G\) be a nontrivial abelian group and let \(X \subset G\). The following are equivalent.
+
+\begin{enumerate}
+    \item Any \(a \in G\) can be uniquely expressed as \(a = n_1x_2 + n_2x_2 + \cdots + n_rx_r\), where \(x_i \in X\) are distinct and \(n_i \in \Z \bs \{0\}\).\footnote{Uniqueness is up to order, and 0 is excluded for uniqueness.}
+    \item (i) \(\span{X} = G\), (ii) \(n_1x_1 + \cdots + n_rx_r = 0\) for distinct \(x_i \in X\) if and only if \(n_1 = \cdots = n_r = 0\).
+\end{enumerate}
+
+\pf Trivial. \qed
+
+\rmk The condition in (2) seems somewhat similar to the condition of linearly independent vectors. Recall that in linear algebra, if \(\mf{B} = \{x_1, \dots, x_r\}\) is a basis of \(V\), then
+\[
+    V = x_1\R \oplus \cdots \oplus x_r \R \simeq \R \oplus \cdots \oplus \R \simeq \R^r,
+\]
+so \(\dim V\) is all we needed to classify vector spaces. Free abelian groups also satisfy this kind of property, they have a \textit{basis}.
+
+\defn. \note{Free Abelian Group} If an abelian group \(G\) satisfies the conditions in the above theorem, \(G\) is a \textbf{free abelian group}, and the set \(X\) is called a \textbf{basis}.
+
+\ex.
+\begin{enumerate}
+    \item \(\Z \times \Z \times \cdots \times \Z\) is a free abelian group. The basis is \(\{(1, 0, \dots, 0), \dots, (0, \dots, 0, 1)\}\). Note that the basis is not unique, as it was in vector spaces.
+    \item \(\Z_n\) is not a free (abelian) group, since \(nx = 0\) for all \(x \in \Z_n\).
+\end{enumerate}
+
+\thm. Let \(G\) be a free abelian group with \(r\) basis elements. Then \(G \simeq \Z^r\).
+
+\pf Let \(X = \{x_1, \dots, x_r\}\) be a basis of \(G\). Consider a group homomorphism \(\varphi : G \ra \Z^r\) as \(nx_i \mapsto (0, \dots, n, 0, \dots, 0)\). (\(n\) is in the \(i\)-th component) Then \(\varphi\) is an isomorphism. \qed
+
+So now we know the complete structure of free abelian groups with finite basis. Bases are not unique but we can show that the number of elements in any bases are the same.
+
+\thm. Let \(G\) be a free abelian group with finite basis. Then any basis of \(G\) have the same number of elements.
+
+\pf By the above theorem, suppose that \(G \simeq \Z^r \simeq \Z^s\) with \(r\neq s\). Then \(G \quotient 2G \simeq \Z^r \quotient 2\Z^r \simeq \Z^s \quotient 2\Z^s\). But \(\Z^r \quotient 2\Z^r\) has order \(2^r\), while \(\Z^s \quotient 2\Z^s\) has order \(2^s\). But \(2^r \neq 2^s\), so cannot be isomorphic. \qed
+
+These are very similar things we did in linear algebra. For vector space \(V\), the basis is not unique, but all bases have the same number of elements, and we called it the \textit{dimension} of a vector space. But in group theory, we give the name \textit{rank}. The above theorem shows that the rank is well-defined.
+
+\defn. \note{Rank} Let \(G\) be a free abelian group. Then the \textbf{rank} of \(G\) is the number of elements in a basis of \(G\).
+
+\subsection*{Proof of the Fundamental Theorem of Finitely Generated Abelian Groups}
+
+\recall Let \(G\) be a finitely generated abelian group. Then
+\[ \tag{\mast}
+    G \simeq \Z_{p_1^{r_1}} \times \Z_{p_2^{r_2}} \times \cdots \times \Z_{p_k^{r_k}} \times \Z \times \Z \times \cdots \times \Z
+\]
+where \(p_i\) are primes (not necessarily distinct), \(r_i \in \N\), and this representation is unique up to order of products. The number of \(\Z\) components is called \textbf{Betti} number.
+
+\rmk
+\begin{enumerate}
+    \item If \(G \simeq \Z^r\), then we know that \(r\) is unique.
+    \item If \(G \simeq \Z_{p_1^{r_1}} \times \Z_{p_2^{r_2}} \times \cdots \times \Z_{p_k^{r_k}}\), we can show that \((p_1^{r_1}, \dots, p_k^{r_k})\) is determined uniquely by checking the order of each element in \(G\).
+\end{enumerate}
+
+Thus, to show the fundamental theorem, we need to show that finitely generated abelian groups are isomorphic to \(\Z_{p_1^{r_1}} \times \Z_{p_2^{r_2}} \times \cdots \times \Z_{p_k^{r_k}} \times \Z \times \Z \times \cdots \times \Z\). After then, the uniqueness follows easily by the remark above.
+
+\thm. Let \(G\) be a finitely generated abelian group with generating set \(\{a_1, \dots, a_k\}\). Define \(\varphi : \Z^k \ra G\) where \((n_1, \dots, n_k) \mapsto n_1a_1 + \cdots + n_ka_k\), then \(\varphi\) is a homormophism onto \(G\).
+
+% \pf \note{Sketch} \(G\) is finitely generated, so there exists a finite subset \(X \subset G\) such that \(\span{X} = G\). Suppose that \(\span{X} = \{x_1, \dots, x_n\}\). Consider \(\Z^n\) and a group homomorphism \(\varphi: \Z^n \ra G\) defined as \((a_1, \dots, a_n) \mapsto a_1 x_1 + \cdots a_n x_n\). \(\varphi\) is well-defined since \(\Z^n\) is not a quotient space, and each element is expressed uniquely.
+
+Our next objective is to show that \(\ker \varphi \simeq d_1 \Z \times d_2 \Z \times \cdots \times d_s \Z \times \{0\} \times \cdots \times \{0\}\). Then by the first isomorphism theorem, will have
+\[
+    G \simeq \Z^n \quotient \ker \varphi \simeq \Z_{d_1} \times \Z_{d_2} \times \cdots \times \Z_{d_s} \times \Z \times \cdots \times \Z.
+\]
+
+% It is enough to show that \(\varphi\) is surjective, so that \(\Z^n \quotient \ker \varphi \simeq G\), and \(\Z^n \quotient \ker \varphi \simeq (\ast)\). Since \(\ker \varphi\) is always a subgroup, we apply the lemma below, and we can show that
+% \[
+%     \Z^n \quotient \ker\varphi \simeq \Z_{d_1} \times \Z_{d_2} \times \cdots \times \Z_{d_s} \times \overbrace{\Z \times \cdots \times \Z}^{n-s}.
+% \]
+% If we factorize \(d_i\) and reorder them, we get the desired expression in (\mast). \qed
+
+\lemma. Let \(X = \{x_1, \dots, x_r\}\) be a basis of a free abelian group \(G\). For \(t \in \Z\) and \(1 \leq i, j \leq r\) with \(i \neq j\), the set
+\[
+    Y = \{x_1, \dots, x_{j-1}, x_j + tx_i, x_{j+1}, \dots, x_r\}
+\]
+is also a basis of \(G\).
+
+\pf We show that \(Y\) generates \(G\) and is \(\Z\)-linearly independent. \qed
+
+\lemma. Let \(G\) be a nontrivial free abelian group of rank \(n\). If \(\{0\} \neq K \leq G\), then \(K\) is a free abelian group of rank \(s \leq n\), and there is a basis \(\{x_1, \dots, x_n\}\) of \(G\) such that \(\{d_1 x_1, \dots, d_s x_s\}\) is a basis of \(K\) and \(d_i \mid d_{i+1}\).
+
+\pf Choose a basis \(Y = \{y_1, \dots, y_n\}\) of \(G\) that satisfies the following.
+\begin{itemize}
+    \item There exists \(w_1 = d_1y_1 + \alpha_2 y_2 + \cdots \alpha_n y_n \in K\) which has minimal attainable positive coefficient \(d_1\). We renumber the elements of \(Y\) if necessary.
+    \item There is no basis \(Z = \{z_1, \dots, z_n\}\) such that \(w' = d_1' z_1 + \cdots + d_n' z_n\) with \(0 < d_i' < d_1\).
+\end{itemize}
+
+\note{Step 1} By the division algorithm, there exists \(q_i\), \(r_i\) such that \(\alpha_i = q_i d_1 + r_i\) and \(0 \leq r_i < d_1\) for \(i = 2, \dots, n\). Then define \(x_1\) as the following,
+\[
+    w_1 = d_1\underbrace{(y_1 + q_2y_2 + \cdots q_ny_n)}_{x_1} + r_2y_n + \cdots + r_ny_n = d_1x_1 + r_2y_n + \cdots + r_ny_n.
+\]
+By the above lemma, \(\{x_1, y_2, \dots, y_n\}\) is a basis of \(G\). Then \(r_2 = \cdots = r_n = 0\), so \(w_1 = d_1x_1 \in K\).
+
+\note{Step 2} Any \(a \in K\) can be expressed as \(a = \alpha_1 x_1 + \alpha_2 y_2 + \cdots \alpha_n y_n\). We want to show that \(d_1 \mid \alpha_1\), so suppose not. Again by the division algorithm, there exists \(q_1\) and \(r_1\) such that \(\alpha_1 = d_1 q_1 + r_1\) and \(0 < r_1 < d_1\). Then \(a - d_1q_1x_1 = r_1x_1 + \alpha_2y_2 + \cdots r_ny_n \in K\), but this contradicts the minimality of \(d_1\). Hence \(d_1 \mid \alpha_1\).
+
+Thus, we have that \(K = \Z d_1 x_1 \oplus K_1\) where \(K_1\) is some subgroup of \(G\).\footnote{\(K_1\) is generated by \(\{y_2, \dots, y_n\}\).} We repeat the above with \(K_1\) and get \(K_1 = \Z d_2 x_2 \oplus K_2\). We stop when all coefficients are \(0\).
+
+\note{Step 3} Next we show that \(d_1 \mid d_2\). If not, then there exists \(q, r\) such that \(d_2 = d_1q+r\) with \(0 < r < d_1\). Then \(d_1x_1 + d_2x_2 = d_1(x_1 + qx_2) + rx_2 \in K\). Note that \(\{x_1 + qx_2, x_2, \dots, x_n\}\) is a basis of \(G\), so this contradicts the second assumption.
+
+In conclusion, \(K = \Z d_1 x_1 \oplus \Z d_2 x_2 \oplus \cdots \oplus \Z d_s x_s \oplus \{0\} \oplus \cdots \{0\}\) and \(d_i \mid d_{i+1}\). \qed
+
+\medskip
+
+Now we prove the fundamental theorem.
+
+\thm. If \(G\) is a finitely generated abelian group, then
+\[
+    \begin{aligned}
+        G & \simeq \Z_{m_1} \times \Z_{m_2} \times \cdots \times \Z_{m_{k'}} \times \Z \times \cdots \times \Z \qquad (1)                \\
+          & \simeq \Z_{p_1^{r_1}} \times \Z_{p_2^{r_2}} \times \cdots \times \Z_{p_k^{r_k}} \times \Z \times \cdots \times \Z \qquad (2)
+    \end{aligned}
+\]
+where \(m_i \mid m_{i+1}\).
+
+\pf (1) is clear, since \(G \simeq \Z^n \quotient \ker \varphi\), and by the previous theorem, \(G \simeq \Z_{d_1} \times \Z_{d_2} \times \cdots \times \Z_{d_s} \times \Z \times \cdots \times \Z\) with \(d_i \mid d_{i+1}\).
+
+As for (2), we factorize each \(m_i\) and split \(\Z_{m_i}\) into coprime factors using the fact that \(\Z_{p^nq^m} \simeq \Z_{p^n} \times \Z_{q^m}\) for two distinct primes \(p, q\). \qed
+
+\pagebreak
