@@ -2,9 +2,7 @@
 
 \thm. Every finite \(p\)-group is solvable.
 
-% Let \(p\) be prime, \(n \in \Z_{\geq 0}\). Every group of order \(p^n\) is solvable.
-
-\pf Let \(G\) be a group of order \(p^n\). By first Sylow theorem, \(G\) has a subgroup of order \(p, p^2, \dots, p^n\), so there is a subnormal series
+\pf Let \(G\) be a group of order \(p^n\). By first Sylow theorem, \(G\) has subgroups \(H_i\) of order \(p^i\) that is normal in subgroups \(H_{i+1}\) of order \(p^{i+1}\) \((1 \leq i < n)\). So there is a subnormal series
 \[
     \{e\} < H_1 < H_2 < \cdots < H_n = G
 \]
@@ -44,7 +42,7 @@ Therefore, \(G \simeq \span{a} \times \span{b} \simeq \Z_p \times \Z_p\). \qed
     \item If \(q \not\equiv 1 \pmod p\), then \(G\) is abelian.
 \end{enumerate}
 
-\pf \note{1} By the thrid Sylow theorem, the number of Sylow \(q\)-subgroups must be either \(1, p, q, pq\), and the only possibility is \(1\). So \(G\) has a unique Sylow \(q\)-subgroup, and \(G\) is not simple.
+\pf \note{1} By the third Sylow theorem, the number of Sylow \(q\)-subgroups must be either \(1, p, q, pq\), and the only possibility is \(1\). So \(G\) has a unique Sylow \(q\)-subgroup, and \(G\) is not simple.
 
 \note{2} We show that \(G \simeq \Z_p \times \Z_q\). Let \(H\) be the unique Sylow \(q\)-subgroup of \(G\). Since \(q \not\equiv 1 \pmod p\), there can only be a unique Sylow \(p\)-subgroup \(K\). We use the above lemma again.
 \begin{enumerate}
