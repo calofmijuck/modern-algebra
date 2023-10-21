@@ -22,7 +22,7 @@ Recall that for finite abelian groups, we classified them, but for finite \texti
     \item If \(G\) is not abelian, by the Sylow theorem, there exists \(a, b \in G\) such that \(a^2 = 1, b^3 = 1\). Then \(G \simeq S_6 \simeq \span{a, b \mid a^2 = b^3 = 1, ab = b^2a}\).
 \end{enumerate}
 
-\rmk Group presentation is not unique. Two different presentations of a group can give isomorphic groups. For example, suppose that \(G = \span{a, b}\), \(a^2 = b^3 = 1\) and \(ab = ba\). Then by enumerating elements we see that \(G \simeq \Z_6 \simeq \span{a, b \mid a^2 = b^3 = 1, ab = ba}\).
+\rmk Group presentation is not unique. We can have \textbf{isomorphic presentations} where two different presentations of a group can give isomorphic groups. For example, suppose that \(G = \span{a, b}\), \(a^2 = b^3 = 1\) and \(ab = ba\). Then by enumerating elements we see that \(G \simeq \Z_6 \simeq \span{a, b \mid a^2 = b^3 = 1, ab = ba}\).
 
 \section*{Applications of Group Presentations}
 
@@ -45,16 +45,14 @@ We classify small groups using group presentations.
 
 Here we see another drawback of group presentations. If we didn't know the existence of \(D_5\), then it would have been harder to classify groups of order \(10\). It is generally hard to find contradicting relations, and hard to check associativity between group elements.
 
+\rmk It is known that the presentation \(\span{a, b \mid a^m = b^n = 1, ba = a^rb}\) gives a group of order \(mn\) if and only if \(r^n \equiv 1 \pmod m\).\footnote{Check Exercise 40.13.}
+
 \ex. \(\abs{G} = 8\).
 \begin{enumerate}
     \item If \(G\) is abelian, then \(G\) is isomorphic to either \(\Z_8\), \(\Z_2 \times \Z_4\) or \(\Z_2 \times \Z_2 \times \Z_2\).
-    \item If \(G\) is not abelian, elements of \(G\) have order \(1, 2, 4, 8\).
-          \begin{enumerate}
-              \item If all elements (except \(1\)) have order \(2\), then \(G\) is abelian.\footnote{\(a = a\inv\) for all \(a \in G\). This was an exercise in the previous semester.}
-              \item If some element has order \(8\), then \(G\) is cyclic and abelian. Contradiction.
-              \item Thus there exists an element \(a \in G\) with order \(4\).
-          \end{enumerate}
-          Let \(H = \span{a}\). Take \(b \in G \bs H\), then similarly, \(b^2 \in H\). Thus \(b^2 \) is equal to either \(1\) or \(a^2\).\footnote{Other cases are impossible. Check the order of \(b\).} Now we know that \(G = \span{a, b} = \{1, a, a^2, a^3, b, ab, a^2b, a^3b\}\). Using similar methods, \(ba\) must be either \(a^2b\) or \(a^3b\).
+    \item If \(G\) is not abelian, elements of \(G\) have order \(1, 2, 4, 8\). If all elements (except \(1\)) have order \(2\), then \(G\) is abelian.\footnote{\(a = a\inv\) for all \(a \in G\). This was an exercise in the previous semester.} If some element has order \(8\), then \(G\) is cyclic and abelian.
+
+    Thus there exists an element \(a \in G\) with order \(4\). Let \(H = \span{a}\). Take \(b \in G \bs H\), then similarly, \(b^2 \in H\). Thus \(b^2 \) is equal to either \(1\) or \(a^2\).\footnote{Other cases are impossible. Check the order of \(b\).} Now we know that \(G = \span{a, b} = \{1, a, a^2, a^3, b, ab, a^2b, a^3b\}\). Using similar methods, \(ba\) must be either \(a^2b\) or \(a^3b\).
 
           Recall that \(H \nsub G\), so \(bHb\inv = H\). Then \(bab\inv\) has order \(4\) since
           \[
@@ -64,7 +62,7 @@ Here we see another drawback of group presentations. If we didn't know the exist
           \begin{center}
               \(\span{a, b \mid a^4 = b^2 = 1, ba = a^3b}\) \quad or \quad \(\span{a, b \mid a^4 = 1, b^2 = a^2, ba = a^3b}\).
           \end{center}
-          We already know to non-isomoprhic to order \(8\) non-abelian groups, \(D_4\) and \(Q_8\). The former is \(D_4\) and latter is \(Q_8\).
+          We already know to non-isomorphic to order \(8\) non-abelian groups, \(D_4\) and \(Q_8\). The former is \(D_4\) and latter is \(Q_8\).
 \end{enumerate}
 
 It is generally hard to classify groups using this way. But we have no other tools, so it is sometimes useful!

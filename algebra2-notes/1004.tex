@@ -10,7 +10,7 @@ such that \(\abs{H_{i+1} \quotient H_i} = p\). Then \(H_{i+1} \quotient H_i \sim
 
 \thm. \(Z(G)\) is nontrivial for finite \(p\)-group \(G\).
 
-\pf Consider \(G\), that acts as on itself by conjugation. Then \(X_G = Z(G)\), so \(\abs{G} = \abs{Z(G)} + \sum \abs{Gx_i}\), where the summation is over orbits of length greater than 1. Since \(\abs{Gx_i} \mid \abs{G}\), (\(\abs{Gx_i}\) is a power of prime) we have \(p \mid \abs{Z(G)}\). But \(e \in Z(G)\), so \(\abs{Z(G)} \geq p\). \qed
+\pf Let \(G\) act on itself by conjugation. Then \(X_G = Z(G)\), so \(\abs{G} = \abs{Z(G)} + \sum \abs{Gx_i}\), where the summation is over orbits of length greater than 1. Since \(\abs{Gx_i} \mid \abs{G}\), (\(\abs{Gx_i}\) is a power of prime) we have \(p \mid \abs{Z(G)}\). But \(e \in Z(G)\), so \(\abs{Z(G)} \geq p\). \qed
 
 We can break down large groups into smaller groups.
 
@@ -61,6 +61,6 @@ We haven't seen many examples yet, but they will help us answer many classificat
 
 \pf We show that \(\varphi : HK \times (H \cap K) \ra H \times K\) is a bijection.
 
-\note{\(\leq\)} For \(hk \in HK\), choose \(x \in H \cap K\) and set \(h' = hx\), \(k' = x\inv k\). Then \(h'k' = hk\). Each element in \(HK \times (H \cap K)\) is mapped to a different element \((h', k') \in H \times K\).
+\note{\(\geq\)} For \(hk \in HK\), choose \(x \in H \cap K\) and set \(h' = hx\), \(k' = x\inv k\). Then \(h'k' = hk\). Each element in \(HK \times (H \cap K)\) is mapped to a different element \((h', k') \in H \times K\).
 
-\note{\(\geq\)} For each \((h, k) \in H \times K\), choose \(y \in H\cap K\) so that \(h'' = hy\inv\), \(k' = yk\). Then \(h''k'' = hk\). Each element of \(H \times K\) is mapped to a different element \((hk, y) \in HK \times (H \cap K)\). \qed
+\note{\(\leq\)} For each \((h, k) \in H \times K\), choose \(y \in H\cap K\) so that \(h'' = hy\inv\), \(k'' = yk\). Then \(h''k'' = hk\). Each element of \(H \times K\) is mapped to a different element \((hk, y) \in HK \times (H \cap K)\). \qed

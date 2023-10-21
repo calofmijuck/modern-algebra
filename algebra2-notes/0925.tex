@@ -2,7 +2,7 @@
 
 We saw that if a finite field of order \(p^n\) is given, it is isomorphic to the zeros of \(x^{p^n} - x \in \Z_p[x]\). Now we want to see if a field of order \(p^n\) exists for any given \(p\) and \(n\).
 
-We have two candidates. If there exists an irreducible polynomial \(f(x)\) of order \(n\) over \(\Z_p\), we know that \(\Z_p[x] \quotient \span{f(x)}\) is a finite field of order \(p^n\). Or we can try to show if the zeros of \(x^{p^n} - x\) form a field.
+We have two candidates. If there exists an irreducible polynomial \(f(x)\) of degree \(n\) over \(\Z_p\), we know that \(\Z_p[x] \quotient \span{f(x)}\) is a finite field of order \(p^n\). Or we can try to show that the zeros of \(x^{p^n} - x\) form a field.
 
 \lemma{1} \(x^{p^n} -x \in \Z_p[x]\) has \(p^n\) distinct zeros in \(\bar{\Z_p}\).
 
@@ -28,7 +28,7 @@ Our next question is the uniqueness!
 
 \thm. Let \(E, E'\) be fields of order \(p^n\). Then \(E \simeq E'\).
 
-\pf \(E \simeq \Z_p[x] \quotient \span{p(x)}\) where \(p(x) \in \Z_p[x]\) is irreducible with degree \(n\). For any \(\alpha \in E\), \(\alpha^{p^n} - \alpha = 0\), so \(p(x) \mid (x^{p^n} - x)\). In addition, \(E'\) also consists of zeros of \(x^{p^n} - x\), so \(E'\) has a zero of \(p(x)\). Since \(E'\) has order \(p^n\), then we have \(E' \simeq \Z_p[x] \quotient \span{p(x)} \simeq E\).
+\pf \(E \simeq \Z_p[x] \quotient \span{p(x)}\) where \(p(x) \in \Z_p[x]\) is irreducible with degree \(n\). For any \(\alpha \in E\), \(\alpha^{p^n} - \alpha = 0\), so \(p(x) \mid (x^{p^n} - x)\). In addition, \(E'\) also consists of zeros of \(x^{p^n} - x\), so \(E'\) has zeros of \(p(x)\). Since \(E'\) has order \(p^n\), then we have \(E' \simeq \Z_p[x] \quotient \span{p(x)} \simeq E\). \qed
 
 Conclusion. For a prime \(p\) and \(n \in \N\), there exists a unique field of order \(p^n\), up to isomorphism. Furthermore, this field is a simple extension field of order \(p^m\) (\(m < n\)), and contains zeros of \(x^{p^n} - x \in \Z_p[x]\).
 
@@ -84,7 +84,7 @@ is an isomorphism, and \(G \quotient \ker \varphi \simeq \im \varphi\).
 
 \topic{Series of Groups}
 
-\defn. Given a finite sequence of subgroups
+\defn. Given a \textit{finite} sequence of subgroups
 \[
     \{e\} = H_0 < H_1 < \cdots < H_k = G,
 \]
