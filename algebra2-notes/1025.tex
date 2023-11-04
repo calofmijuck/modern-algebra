@@ -1,0 +1,85 @@
+Next, we prove the uniqueness of the factorization, up to order and units.
+
+\rmk Let \(D\) be a PID. For \(a, b \in D\),
+\begin{center}
+    \(\span{a} \subseteq \span{b} \iff a \in \span{b} \iff b \mid a\).
+\end{center}
+Also, \(\span{a} = \span{b} \iff b \mid a\) and \(a \mid b\). (\(a\), \(b\) are associates)
+
+Note that if \(a \in D\) is a unit, then \(1 \in \span{a}\), so \(\span{a} = D\).
+
+\lemma. Let \(D\) be a PID and \(p \in D\). \(\span{p}\) is maximal \(\iff\) \(p\) is an irreducible.
+
+\pf \note{\mimp} Suppose \(p = ab\) for non-units \(a, b \in D\). Then \(\span{p}\) is strictly contained in \(\span{a}\) and \(\span{b}\), which are proper ideals of \(D\). Thus \(\span{p}\) is not maximal.
+
+\note{\mimpd} If \(\span{p}\) is not maximal, then there exists some maximal ideal \(\span{a} \neq D\) containing \(\span{p}\). Then \(p = ab\) for some non-unit \(b \in D\). \(a \in D\) is also not a unit, thus \(p\) is not an irreducible. \qed
+
+\lemma. In a PID, if \(p\) is an irreducible and \(p \mid ab\), then \(p \mid a\) or \(p \mid b\).
+
+\pf We have \(ab \in \span{p}\). Since \(p\) is an irreducible, \(\span{p}\) is a maximal ideal, which is also a prime ideal. Then \(a \in \span{p}\) or \(b \in \span{p}\). Thus \(p \mid a\) or \(p \mid b\). \qed
+
+\cor. Let \(p\) be an irreducible in a PID. If \(p \mid a_1a_2\cdots a_n\) then \(p \mid a_i\) for some \(i\).
+
+\defn. \note{Prime Element} Let \(p \in D\) be a nonzero non-unit element. If \(p \mid ab \implies p \mid a\) or \(p \mid b\), then \(p\) is called a \textbf{prime} element.
+
+We consider \(\Z\) when we learn integral domains, so our intuition might lead us to think that irreducibles and primes are similar concepts. But there are examples where irreducibles and primes are different. So we should always argue with rigorous definitions, not with intuition.
+
+\ex. Let \(F\) be a field and \(D = F[x^3, xy, y^3] \subset F[x, y]\). Then \(x^3, xy, y^3\) are irreducibles in \(D\). But observe that \(xy \mid x^3y^3\) but \(xy \nmid x^3\) and \(xy \nmid y^3\). \(xy\) is an irreducible but not a prime.
+
+\thm. Every PID is a UFD.
+
+\pf Let \(D\) be a PID and let \(a \in D\) be a nonzero, non-unit element. Since a factorization exists, suppose that \(a = p_1 p_2 \cdots p_r = q_1 q_2 \cdots q_s\) for irreducibles \(p_i, q_j \in D\). \(p_i\) are prime elements, so by reordering, \(p_i \mid q_i\) for all \(i = 1, \dots, r\). Let \(q_i = u_i p_i\) for units \(u_i \in D\). By cancellation, \(u_1 u_2 \cdots u_r q_{r+1} \cdots q_s = 1\). Thus \(q_{r+1}, \dots, q_s\) are also units. Irreducibles are not units, so \(s = r\) and we have that factorization is unique up to order and unit factors. \qed
+
+\cor. \(\Z\) and \(F[x]\) are UFDs.
+
+\rmk \textit{Irreducibles are primes in a PID.} But in a general integral domain, irreducible elements are not necessarily primes. But \textit{prime elements are always irreducibles.}
+
+\pagebreak
+
+Next, we show that if \(D\) is a UFD, then \(D[x]\) is also a UFD.
+
+\defn. \note{Greatest Common Divisor} Let \(D\) be a UFD and let \(a_1, \dots, a_n\) be nonzero elements of \(D\). \(d \in D\) is a \textbf{greatest common divisor} of \(a_1, \dots, a_n\) if
+\begin{enumerate}
+    \item \(d \mid a_i\) for \(i = 1, \dots, n\).
+    \item If \(d \mid a_i\) for \(i = 1, \dots, n\), then \(d' \mid d\).
+\end{enumerate}
+
+Note that \(\gcd\)s are also defined \textit{up to units}. If \(d, d'\) are both \(\gcd\)s, then \(d \mid d'\) and \(d' \mid d\) by definition, so they are associates.
+
+\defn. \note{Primitive Element} Let \(D\) be a UFD. A non-constant polynomial \(f(x) = a_0 + a_1 x + \cdots a_n x^n \in D[x]\) is a \textbf{primitive} if \(1\) is a \(\gcd\) of \(a_0, \dots, a_n\).
+
+\lemma. Let \(D\) be a UFD, \(f(x) \in D[x]\). Then there exist \(c \in D\) and a primitive polynomial \(g(x) \in D[x]\) such that \(f(x) = cg(x)\). Here, \(c\) and \(g(x)\) are unique up to unit factors. This \(c\) is called a \textbf{content} of \(f(x)\).
+
+\pf We can always write \(f(x) = cg(x)\) by taking \(c\) as the \(\gcd\) of all coefficients of \(f(x)\). Then \(g(x)\) will automatically be a primitive polynomial. Now suppose that \(f(x) = cg(x) = dh(x)\) where \(h(x) \in D[x]\) is primitive and \(d \in D\). \(d\) cannot divide all the coefficients of \(g(x)\), so \(d \mid c\). Similarly, \(c \mid d\). Thus \(c\) and \(d\) are associates, and \(g(x)\) and \(h(x)\) are same up to unit factors. \qed
+
+Let \(f(x) = 2x + 4 \in \Z[x]\), then \(f(x) = 2 \cdot (x + 2)\), so it is not an irreducible. Also \(f(x)\) has content \(2\) or \(-2\).
+
+\lemma. \note{Gauss} Let \(D\) be a UFD and let \(f(x), g(x) \in D[x]\) be primitive polynomials. Then \(f(x)g(x)\) is also a primitive polynomial.
+
+\pf Let \(f(x) = a_0 + a_1x + \cdots a_nx^n\) and \(g(x) = b_0 + b_1x + \cdots b_mx^m\). Take an irreducible \(p \in D\). Since \(f(x), g(x)\) are primitive, \(p\) cannot divide all coefficients. Let \(a_r\), \(b_s\) be the first coefficients not divisible by \(p\). Now consider the \((r+s)\)-th coefficient \(c_{r+s}\) of \(f(x)g(x)\),
+\[
+    c_{r+s} = (a_0b_{r+s} + \cdots + a_{r-1}b_{r+s+1} + a_{r+1}b_{r+s-1} + \cdots + a_{r+s}b_0) + a_rb_s.
+\]
+Then \(p \nmid c_{r+s}\) because of \(a_r b_s\). Thus \(f(x)g(x)\) is a primitive polynomial. \qed
+
+This lemma is a \textit{big} lemma.
+
+\lemma. Let \(D\) be a UFD and let \(F = Q_D\). For \(f(x) \in D[x]\) with \(\deg f \geq 1\),
+\begin{enumerate}
+    \item If \(f(x) \in D[x]\) is irreducible, then \(f(x) \in F[x]\) is also irreducible.
+    \item If \(f(x) \in F[x]\) is irreducible and \textit{primitive} in \(D[x]\), then \(f(x) \in D[x]\) is irreducible.\footnote{Consider \(f(x) = 2x + 4 \in \Z[x]\) again. \(f(x) = 2 \cdot (x + 2)\) is reducible, but it is not primitive in \(\Z[x]\).}
+\end{enumerate}
+
+\pf \note{1} Let \(f(x) = r(x)s(x)\) for \(r(x), s(x) \in F[x]\). Since \(F\) is the field of quotients, there exists \(d \in D\) such that \(df(x) = r_1(x)s_1(x)\) for \(r_1(x), s_1(x) \in D[x]\).
+
+Now take primitive polynomials \(g(x), r_2(x), s_2(x) \in D[x]\) and \(c, c_1, c_2 \in D\) such that
+\begin{center}
+    \(f(x) = cg(x)\), \quad \(r_1(x) = c_1r_2(x)\), \quad \(s_1(x) = c_2 s_2(x)\).
+\end{center}
+Then \(cd g(x) = c_1c_2 r_2(x)s_2(x)\). Since both \(g(x)\) and \(r_2(x)s_2(x)\) are primitives, \(cd\) and \(c_1c_2\) must differ by unit factors. So we have that \(g(x) = u r_2(x)s_2(x)\) for some unit \(u \in D\). Thus \(f(x) = cg(x) = (cu) r_2(x) s_2(x)\). Since \(\deg r = \deg r_2\) and \(\deg s = \deg s_2\), \(f(x)\) is reducible in \(D[x]\).
+
+\note{2} Trivial. If reducible in \(D[x]\), then it is also reducible in \(F[x]\) or it is not primitive. \qed
+
+The lemma tells us that if \(D\) is a UFD, then the irreducibles of \(D[x]\) consist of the irreducibles in \(D\) and the non-constant primitive polynomials irreducible in \(Q_D[x]\).
+
+\medskip
