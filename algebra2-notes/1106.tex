@@ -1,0 +1,116 @@
+\chapter{Automorphisms and Galois Theory}
+
+We will prove the unsolvability of the quntic. It says that there is no \textit{general formula} for solving the quntic. But what is a \textit{general formula} for solving an equation? What does this mean mathematically? We must define this first.
+
+We will learn \textbf{Galois theory}, and use the tools we learned from group theory and field theory. It is easy to get lost, so remember the big picture!
+
+We assume that all algebraic extensions and all algebraic elements over \(F\) are contained in one fixed algebraic closure \(\bar{F}\) of \(F\).
+
+\topic{Automorphisms of Fields}
+
+\defn. \note{Conjugate} Let \(E\) be an algebraic extension field of \(F\). \(\alpha, \beta \in E\) are said to be \textbf{conjugate} if \(\irr(\alpha, F) = \irr(\beta, F)\).
+
+\ex.
+\begin{enumerate}
+    \item For \(a, b \in \R\), we know that \(a+bi\) and \(a-bi\) are (complex) \textit{conjugates}. Assuming that \(b \neq 0\),
+          \[
+              \irr(a + bi, \R) = x^2 - 2ax + (a^2 + b^2) = \irr(a - bi, \R).
+          \]
+
+    \item \(\sqrt{2}\) and \(-\sqrt{2}\) are conjugate over \(\Q\).
+    \item \(\sqrt[3]{2}\), \(\sqrt[3]{2}\omega\), \(\sqrt[3]{2}\omega^2\) are conjugate over \(\Q\). It can be checked that the irreducible polynomials of the three elements are \(x^3 - 2 \in \Q[x]\).
+\end{enumerate}
+
+\rmk Factorization of polynomials and checking its irreducibility will be very important from now on.
+
+\pagebreak
+
+\thm. \note{Conjugation Isomorphism} Let \(F\) be a field and let \(\alpha, \beta \in E\) be algebraic over \(F\) with \(\deg(\alpha, F) = n\). Then the following are equivalent.
+\begin{enumerate}
+    \item There exists an isomorphism \(\psi_{\alpha, \beta} : F(\alpha) \ra F(\beta)\) defined as
+          \[
+              \psi_{\alpha, \beta}(c_0 + c_1 \alpha + \cdots + c_{n-1} \alpha^{n-1}) = c_0 + c_1\beta + \cdots + c_{n-1} \beta^{n-1}, \quad (c_i \in F).
+          \]
+
+    \item \(\alpha\) and \(\beta\) are conjugate over \(F\).
+\end{enumerate}
+
+\pf \note{\mimp} Let \(f(x) = \irr(\alpha, F) \in F[x]\). Then \(\psi_{\alpha, \beta}(f(\alpha)) = 0 = f(\beta)\) by definition. Thus \(\beta\) is a zero of \(f(x)\), so \(\irr(\beta, F) \mid \irr(\alpha, F)\). Next, consider \(\psi_{\alpha, \beta}\inv = \psi_{\beta, \alpha}\). By a similar argument, we have \(\irr(\alpha, F) \mid \irr(\beta, F)\). These are monic polynomials, so \(\irr(\alpha, F) = \irr(\beta, F)\).
+
+\note{\mimpd} Recall that \(F(\alpha) \simeq F[x] \quotient \span{\irr(\alpha, F)}\). Let \(p(x) = \irr(\alpha, F) = \irr(\beta, F)\). Then \(F(\alpha) \simeq F[x] \quotient \span{p(x)} \simeq F(\beta)\) by the first isomorphism theorem.
+\[
+    \begin{tikzcd}
+        & F[x] \arrow{d}{\pi} \arrow[bend right]{ddl}[swap]{\varphi_\alpha} \arrow[bend left]{ddr}{\varphi_\beta} & \\
+        & F[x] \quotient \span{p(x)} \arrow{dl}{\simeq}[swap]{\mu_\alpha} \arrow{dr}{\mu_\beta}[swap]{\simeq} & \\
+        F(\alpha) \arrow{rr}{\psi_{\alpha, \beta}}[swap]{{\simeq}} & & F(\beta)
+    \end{tikzcd}
+\]
+We see that \(\psi_{\alpha, \beta} = \mu_\beta \circ \mu_\alpha\inv\). \qed
+
+Since we quotient out \(F[x]\) with the same irreducible polynomial, the simple extensions \(F(\alpha)\), \(F(\beta)\) must have the same structure. Thus, the isomorphism \textit{should} be given by the mapping \(\alpha \mapsto \beta\).
+
+\ex. Examples of conjugation isomorphisms.
+\begin{enumerate}
+    \item \(\psi_{i, -i} : \R(i) \ra \R(-i)\) will be defined as \(a + bi \mapsto a - bi\).
+    \item \(\psi_{\sqrt[3]{2}, \sqrt[3]{2}\omega} : \Q(\sqrt[3]{2}) \ra \Q(\sqrt[3]{2}\omega)\) is defined as \(\sqrt[3]{2} \mapsto \sqrt[3]{2}\omega\) and \(a \mapsto a\).
+\end{enumerate}
+
+\cor. Let \(\alpha \in E\) be algebraic over \(F\).
+\begin{enumerate}
+    \item Let \(\psi : F(\alpha) \ra E \leq \bar{F}\) be any isomorphism such that \(\psi(a) = a\) for \(a \in F\). Then \(\psi\) maps \(\alpha\) onto a conjugate \(\beta\) of \(\alpha\) over \(F\).
+
+    \item If \(\beta\) is a conjugate of \(\alpha\) over \(F\), then there exists a unique isomorphism \(\psi_{\alpha, \beta} : F(\alpha) \ra E \leq \bar{F}\) such that \(\alpha \mapsto \beta\) and \(a \mapsto a\) for \(a \in F\).
+\end{enumerate}
+
+\pf \note{1} Let \(f(x) = \irr(\alpha, E)\), then \(f(\alpha) = 0\). So \(\psi(f(\alpha)) = f(\psi(\alpha)) = 0\) and \(\beta = \psi(\alpha)\) is a conjugate of \(\alpha\).
+
+\note{2} The isomorphism is uniquely determined by its values on \(a \in F\) and \(\alpha\). \qed
+
+\cor. Let \(f(x) \in \R[x]\) with \(a + bi \in \C \bs \R\). If \(f(a + bi) = 0\), then \(f(a - bi) = 0\).
+
+\pf Since \(i\) and \(-i\) are conjugate over \(\R\), consider the isomorphism \(\psi_{i, -i} : \R(i) \ra \R(-i)\). Then \(\psi_{i, -i}\paren{f(a+bi)} = f(\psi_{i, -i}(a + bi)) = f(a-bi)\). \qed
+
+Now we study new terms and definitions.
+
+\defn. \note{Automorphism} An isomorphism of a field onto itself is called an \textbf{automorphism} of the field.
+
+\defn. Let \(E, E'\) be two extension fields of \(F\). Let \(\sigma : E \ra E'\) be an isomorphism.
+\begin{enumerate}
+    \item \(a \in E\) is \textbf{fixed} by \(\sigma\) if \(\sigma(a) = a\).
+
+    \item If \(\sigma(a) = a\) for all \(a \in K \subset E\), we say that \(K\) is \textbf{fixed} by \(\sigma\).\footnote{Also: \(\sigma\) leaves \(K\) fixed.}
+\end{enumerate}
+
+\ex.
+\begin{enumerate}
+    \item \(\psi_{\sqrt{2}, -\sqrt{2}} : \Q(\sqrt{2}) \ra \Q(-\sqrt{2})\) is a field isomorphism. We see that \(\Q\) is fixed by \(\psi_{\sqrt{2}, -\sqrt{2}}\).
+    \item \(\sigma : \Q(\sqrt{2}, \sqrt{3}) \ra \Q(\sqrt{2}, \sqrt{3})\) defined as \(a + \sqrt{2}b + \sqrt{3}c + \sqrt{6}d \mapsto a + \sqrt{2}b - \sqrt{3}c - \sqrt{6}d\). Then \(\Q(\sqrt{2})\) is fixed by \(\sigma\).
+\end{enumerate}
+
+\thm. Let \(\{\sigma_i : i \in \mc{I}\}\) be a collection of automorphisms of a field \(E\). The set
+\[
+    E_{\{\sigma_i\}} = \{a \in E : \sigma_i(a) = a,\, \forall i \in \mc{I}\}
+\]
+forms a subfield of \(E\).
+
+\pf Trivial. \qed
+
+\defn. \note{Fixed Field}
+\begin{enumerate}
+    \item \(E_{\{\sigma_i\}} = \{a \in E : \sigma_i(a) = a,\, \forall i \in \mc{I}\}\) is called a \textbf{fixed field} of \(\{\sigma_i\}_{i \in \mc{I}}\) in \(E\).
+    \item \(E_\sigma = \{a \in E : \sigma(a) = a\}\) is called a \textbf{fixed field} of \(\sigma\) in \(E\).
+\end{enumerate}
+
+\thm. \note{Automorphism Group} The set of automorphisms of a field \(E\) is a group under composition. We will denote this group as \(\Aut(E)\).
+
+\thm. Let \(F \leq E\).
+\[
+    G(E \quotient F) = \{\sigma \in \Aut(E) \mid F \text{ is fixed by } \sigma\} \leq \Aut(E).
+\]
+Also, \(F \leq E_{G(E \quotient F)}\).
+
+\pf Mechanical. \(F \leq E_{G(E \quotient F)}\) holds by definition. \qed
+
+\defn. \(G(E \quotient F)\) is the \textbf{group of automorphisms of \(E\) leaving \(F\) fixed}, or briefly the \textbf{group of \(E\) over \(F\)}.
+
+\smallskip
