@@ -73,9 +73,9 @@ Given two isomorphisms \(\sigma_1 : F \ra F_1'\) and \(\sigma_2 : F \ra F_2'\), 
 
 \[
     \begin{tikzcd}
-        \bar{F_1'} \arrow[dash]{d} \arrow{rrrr}{\lambda} && && \bar{F_2'} \arrow[dash]{d} \\
-        \tau_1(E) \arrow[dash]{d}&& E \arrow{ll}{\tau_1} \arrow{rr}{\tau_2} \arrow[dash]{d} && \tau_2(E) \arrow[dash]{d} \\
-        F_1' && F \arrow{ll}{\sigma_1} \arrow{rr}{\sigma_2} && F_2'
+        \bar{F_1'} \arrow[dash]{d} \arrow{rrrr}{\lambda}[swap]{\simeq} && && \bar{F_2'} \arrow[dash]{d} \\
+        \tau_1(E) \arrow[dash]{d}&& E \arrow{ll}{\simeq}[swap]{\tau_1} \arrow{rr}{\tau_2}[swap]{\simeq} \arrow[dash]{d} && \tau_2(E) \arrow[dash]{d} \\
+        F_1' && F \arrow{ll}{\simeq}[swap]{\sigma_1} \arrow{rr}{\sigma_2}[swap]{\simeq} && F_2'
     \end{tikzcd}
 \]
 
