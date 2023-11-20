@@ -1,0 +1,58 @@
+\cor. Let \(F \leq E \leq K\) where \(K\) is a finite extension of \(F\). Then
+\[
+    \{K : F\} = \{K : E\} \{E : F\}.
+\]
+\pf Think about how many possible extensions there are. \qed
+
+\ex. \(\{\Q(\sqrt{2}, \sqrt{3}) : \Q\} = \{\Q(\sqrt{2}, \sqrt{3}) : \Q(\sqrt{2})\} \{\Q(\sqrt{2}) : \Q\} = 4\).
+
+\section*{Proof of the Isomorphism Extension Theorem}
+
+In case of simple extensions, the proof is easy since \(F(\alpha) \simeq F[x] \quotient \span{p(x)}\). If given an isomorphism \(\sigma : F \ra F'\), this induces an isomorphism \(\tilde{\sigma} : F[x] \ra F'[x]\). Thus for \(p'(x) = \tilde{\sigma}(p(x))\), we expect that \(F[x] \quotient \span{p(x)} \simeq F'[x] \quotient \span{p'(x)} \simeq E' \leq \bar{F'}\). But there are cases where \(E\) is not a finite extension, so we need \textbf{Zorn's lemma}.
+
+\pf Let \(S\) be a collection of \((L, \lambda)\) where \(F \leq L \leq E\), and \(\lambda\) is an isomorphism from \(L\) onto a subfield of \(\bar{F'}\), extending \(\sigma\). Define order on \(S\) by \((L, \lambda) \leq (M, \mu)\) if and only if \(L \leq M\) and \(\mu\) is an extension of \(\lambda\).
+Consider a chain \(T = \{(L_i, \lambda_i)\}_{i \in \mc{I}}\) in \(S\). Let \(M = \bigcup L_i\) and \(\mu(a) = \lambda_i(a)\) for some \(i \in \mc{I}\). Since \(a \in L_i\) for some \(i\), we can define \(\mu\) as above and it is well-defined. It can be shown that \((M, \mu) \in S\). Thus \(S\) has a maximal element \((K, \tau)\) by Zorn's lemma.
+
+Now we must show that \(K = E\). Suppose not, then \(K \lneq E\), so take \(\alpha \in E \bs K\). Since \(\alpha\) is algebraic over \(K\), we can extend \(K\) to \(K(\alpha)\). Let \(K' = \tau(K)\), \(p(x) = \irr(\alpha, F)\). Then \(K(\alpha) \simeq K[x] \quotient \span{p(x)} \simeq K'[x] \quotient \span{q(x)} \simeq K'(\alpha')\) where \(q(x) = \tilde{\tau}(p(x))\) and \(\alpha \in \bar{F'}\) is a zero of \(q(x)\). We have an isomorphism \(\varphi : K(\alpha) \ra K'(\alpha')\), thus \((K, \tau)\) cannot be maximal. \qed
+
+\pagebreak
+
+\topic{Splitting Fields}
+
+\defn. \note{Splitting Field} Let \(\{f_i(x) : i \in \mc{I}\} \subset F[x]\). A field \(E \leq \bar{F}\) is called the \textbf{splitting field of \(\{f_i\}\) over \(F\)} if \(E\) is the smallest extension field of \(F\) containing all zeros of all \(f_i\)'s.
+
+\defn. Let \(K \leq \bar{F}\).
+\begin{enumerate}
+    \item \(K\) is a \textbf{splitting field over \(F\)} if it is the splitting field of some set of polynomials in \(F[x]\).
+    \item If the set has a single element \(f(x) \in F[x]\), we say that \(K\) is a splitting field of \(f(x)\).
+\end{enumerate}
+
+\ex.
+\begin{enumerate}
+    \item Consider \(x^2 -2 \in \Q[x]\), which has zeros \(\pm \sqrt{2}\). We see that the smallest field containing these two elements is \(\Q(\sqrt{2})\). \(\Q(\sqrt{2})\) is a splitting field of \(x^2 - 2\) over \(\Q\).
+
+    \item \(\Q(\sqrt[3]{2}) \simeq \Q[x] \quotient \span{x^3 - 2}\). But \(\omega, \omega^2 \notin \Q(\sqrt[3]{2})\), so this field is not a splitting field of \(x^3 - 2\).\footnote{Also note that \(\{\Q(\sqrt[3]{2}) : \Q\} = 3\).}
+\end{enumerate}
+
+In the first case, both zeros of the irreducible polynomial were in the splitting field. But not in the second case. Thus, for \(\alpha\) algebraic over \(F\), \(F(\alpha) \simeq F[x] \quotient \span{\irr(\alpha, F)}\) is not necessarily the splitting field of \(\irr(\alpha, F)\).
+
+\thm. Let \(E \leq \bar{F}\) be an extension field of \(F\). Then \(E\) is a splitting field over \(F\) if and only if any automorphism of \(\bar{F}\) fixing \(F\) induces an automorphism of \(E\).
+
+\pf \note{\mimp} Let \(E\) be a splitting field of \(\{f_i(x)\} \subset F[x]\). Let \(\alpha_1, \dots, \alpha_n\) be zeros of all \(f_i\). Then \(E = F(\alpha_1, \dots, \alpha_n)\) by definition. Given an automorphism \(\lambda\) of \(\bar{F}\) fixing \(F\),\footnote{\(\lambda \in \Gal(\bar{F} \quotient F)\).} \(\lambda \mid_E\) is completely determined by \(\lambda(\alpha_i)\). Since \(\lambda(\alpha_i)\) is a conjugate of \(\alpha_i\), \(\lambda(\alpha_j)\) must also be contained in \(E\). Thus \(\lambda \mid_E : E \ra E\). Do the same thing to show that \(\lambda\inv\mid_E : E \ra E\). Thus \(\lambda\mid_E\) is an automorphism of \(E\).
+\[
+    \begin{tikzcd}
+        \bar{F} \arrow[dash]{d} \arrow{rr}{\lambda}[swap]{\simeq} && \bar{F} \arrow[dash]{d} \\
+        E \arrow[dash]{d} \arrow{rr}{\lambda\mid_E} && E \arrow[dash]{d} \\
+        F \arrow[dash]{rr}{id} && F
+    \end{tikzcd}
+    \qquad
+    \begin{tikzcd}
+        \bar{F} \arrow[dash]{d} \arrow{rr}{\sigma}[swap]{\simeq} && \bar{F} \arrow[dash]{d} \\
+        E \arrow[dash]{d} \arrow{rr}{\sigma\mid_E}[swap]{\simeq} && E \arrow[dash]{d} \\
+        F(\alpha) \arrow[dash]{d} \arrow{rr}{\psi_{\alpha, \beta}}[swap]{\simeq} && F(\beta) \arrow[dash]{d} \\
+        F \arrow[dash]{rr}{id} && F
+    \end{tikzcd}
+\]
+\note{\mimpd} Let \(f(x) \in F[x]\) be an irreducible polynomial and let \(\alpha, \beta \in \bar{F}\) be zeros of \(f(x)\). Suppose that \(\alpha \in E\), then there exists an isomorphism \(\psi_{\alpha, \beta} : F(\alpha) \ra F(\beta)\), which can be extended to an automorphism \(\sigma\) of \(\bar{F}\). Then \(\sigma\mid_E\) is an automorphism of \(E\) and \((\sigma\mid_E)(\alpha) = \psi_{\alpha, \beta}(\alpha) = \beta\). Thus \(F(\beta) \leq E\) and \(\beta \in E\), so \(E\) contains all zeros of \(f(x)\) in \(\bar{F}\). If \(\{f_i(x)\}\) is the set of irreducible polynomials, each having a zero in \(E\), \(E\) must contain all zeros of \(f_i(x)\). \qed
+
+\pagebreak
