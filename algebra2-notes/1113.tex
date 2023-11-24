@@ -38,21 +38,21 @@ In the first case, both zeros of the irreducible polynomial were in the splittin
 
 \thm. Let \(E \leq \bar{F}\) be an extension field of \(F\). Then \(E\) is a splitting field over \(F\) if and only if any automorphism of \(\bar{F}\) fixing \(F\) induces an automorphism of \(E\).
 
-\pf \note{\mimp} Let \(E\) be a splitting field of \(\{f_i(x)\} \subset F[x]\). Let \(\alpha_1, \dots, \alpha_n\) be zeros of all \(f_i\). Then \(E = F(\alpha_1, \dots, \alpha_n)\) by definition. Given an automorphism \(\lambda\) of \(\bar{F}\) fixing \(F\),\footnote{\(\lambda \in \Gal(\bar{F} \quotient F)\).} \(\lambda \mid_E\) is completely determined by \(\lambda(\alpha_i)\). Since \(\lambda(\alpha_i)\) is a conjugate of \(\alpha_i\), \(\lambda(\alpha_j)\) must also be contained in \(E\). Thus \(\lambda \mid_E : E \ra E\). Do the same thing to show that \(\lambda\inv\mid_E : E \ra E\). Thus \(\lambda\mid_E\) is an automorphism of \(E\).
+\pf \note{\mimp} Let \(E\) be a splitting field of \(\{f_i(x)\} \subset F[x]\). Let \(\alpha_1, \dots, \alpha_n\) be zeros of all \(f_i\). Then \(E = F(\alpha_1, \dots, \alpha_n)\) by definition. Given an automorphism \(\lambda\) of \(\bar{F}\) fixing \(F\), \(\lambda |_E\) is completely determined by \(\lambda(\alpha_i)\). Since \(\lambda(\alpha_i)\) is a conjugate of \(\alpha_i\), \(\lambda(\alpha_j)\) must also be contained in \(E\). Thus \(\lambda |_E : E \ra E\). Do the same thing to show that \(\lambda\inv|_E : E \ra E\). Thus \(\lambda|_E\) is an automorphism of \(E\).
 \[
     \begin{tikzcd}
         \bar{F} \arrow[dash]{d} \arrow{rr}{\lambda}[swap]{\simeq} && \bar{F} \arrow[dash]{d} \\
-        E \arrow[dash]{d} \arrow{rr}{\lambda\mid_E} && E \arrow[dash]{d} \\
+        E \arrow[dash]{d} \arrow{rr}{\lambda|_E} && E \arrow[dash]{d} \\
         F \arrow[dash]{rr}{id} && F
     \end{tikzcd}
     \qquad
     \begin{tikzcd}
         \bar{F} \arrow[dash]{d} \arrow{rr}{\sigma}[swap]{\simeq} && \bar{F} \arrow[dash]{d} \\
-        E \arrow[dash]{d} \arrow{rr}{\sigma\mid_E}[swap]{\simeq} && E \arrow[dash]{d} \\
+        E \arrow[dash]{d} \arrow{rr}{\sigma|_E}[swap]{\simeq} && E \arrow[dash]{d} \\
         F(\alpha) \arrow[dash]{d} \arrow{rr}{\psi_{\alpha, \beta}}[swap]{\simeq} && F(\beta) \arrow[dash]{d} \\
         F \arrow[dash]{rr}{id} && F
     \end{tikzcd}
 \]
-\note{\mimpd} Let \(f(x) \in F[x]\) be an irreducible polynomial and let \(\alpha, \beta \in \bar{F}\) be zeros of \(f(x)\). Suppose that \(\alpha \in E\), then there exists an isomorphism \(\psi_{\alpha, \beta} : F(\alpha) \ra F(\beta)\), which can be extended to an automorphism \(\sigma\) of \(\bar{F}\). Then \(\sigma\mid_E\) is an automorphism of \(E\) and \((\sigma\mid_E)(\alpha) = \psi_{\alpha, \beta}(\alpha) = \beta\). Thus \(F(\beta) \leq E\) and \(\beta \in E\), so \(E\) contains all zeros of \(f(x)\) in \(\bar{F}\). If \(\{f_i(x)\}\) is the set of irreducible polynomials, each having a zero in \(E\), \(E\) must contain all zeros of \(f_i(x)\). \qed
+\note{\mimpd} Let \(f(x) \in F[x]\) be an irreducible polynomial and let \(\alpha, \beta \in \bar{F}\) be zeros of \(f(x)\). Suppose that \(\alpha \in E\), then there exists an isomorphism \(\psi_{\alpha, \beta} : F(\alpha) \ra F(\beta)\), which can be extended to an automorphism \(\sigma\) of \(\bar{F}\).\footnote{Extend twice to see that \(\sigma\) must be an automorphism.} Then \(\sigma|_E\) is an automorphism of \(E\) and \((\sigma|_E)(\alpha) = \psi_{\alpha, \beta}(\alpha) = \beta\). Thus \(F(\beta) \leq E\) and \(\beta \in E\), so \(E\) contains all zeros of \(f(x)\) in \(\bar{F}\). If \(\{f_i(x)\}\) is the set of irreducible polynomials, each having a zero in \(E\), \(E\) must contain all zeros of \(f_i(x)\). \qed
 
 \pagebreak
