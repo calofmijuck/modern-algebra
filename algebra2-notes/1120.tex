@@ -1,0 +1,68 @@
+\rmk Let \(\alpha\) be algebraic. We can extend \(id : F \ra F\) to an isomorphism \(\tau\) from \(F(\alpha)\) onto a subfield of \(\bar{F}\), then \(\tau(\alpha)\) is another zero of \(\irr(\alpha, F)\), so \(\{F(\alpha) : F\}\) is the number of distinct zeros of \(\irr(\alpha, F)\).
+
+\thm. Let \(E\) be a finite extension of \(F\). Then \(\{E : F\} \mid [E : F]\).
+
+% Suppose \(E = F(\alpha)\). \([E : F] = \deg(\alpha, F) = \nu \{E : F\}\), since \(\{E : F\}\) is the nubmer of distinct zeros of \(\irr(\alpha, F)\) in \(\bar{F}\). Thus \(\{E : F\} \mid [E : F]\).
+
+\pf Let \(E = F(\alpha_1, \dots, \alpha_n)\), where \(\alpha_i \in \bar{F}\). Then
+\[
+    \begin{aligned}
+        [F(\alpha_1, \dots, \alpha_k) : F(\alpha_1, \dots, \alpha_{k-1})] & = \deg(\alpha_k, F(\alpha_1, \dots, \alpha_{k-1}))                          \\
+                                                                          & = \nu_k \{F(\alpha_1, \dots, \alpha_k) : F(\alpha_1, \dots, \alpha_{k-1})\},
+    \end{aligned}
+\]
+where \(\nu_k\) is the multiplicity of \(\alpha_k\) in \(\irr(\alpha_k, F(\alpha_1, \dots, \alpha_{k-1}))\). Multiply the above equations for \(k = 1, \cdots, n\), then \([E : F] = \prod_i \nu_i \{E : F\}\). \qed
+
+\section*{Separable Extensions}
+
+We study cases where the multiplicity is \(1\).
+
+\defn. \note{Separable Extension}
+\begin{enumerate}
+    \item Let \(E\) be a finite extension of \(F\). \(E\) is a \textbf{separable extension of \(F\)} if \(\{E : F\} = [E : F]\).
+    \item If \(\alpha \in \bar{F}\) is \textbf{separable over \(F\)} if \(F(\alpha)\) is a separable extension.
+    \item An irreducible polynomial \(f(x) \in F[x]\) is \textbf{separable} if all zeros of \(f(x)\) are separable.
+    \item Let \(E\) be an algebraic extension of \(F\). \(E\) is a \textbf{separable extension of \(F\)} if every \(\alpha \in E\) is separable over \(F\).
+\end{enumerate}
+
+\rmk These definitions are closely related.
+\begin{enumerate}
+    \item \(\alpha \in \bar{F}\) is separable over \(F \iff \{F(\alpha) : F\} = [F(\alpha) : F] \iff \alpha\) is a zero of \(\irr(\alpha, F)\) with multiplicity \(1 \iff\) \(\irr(\alpha, F)\) has all zeros of multiplicity \(1\).
+    \item An irreducible \(f(x) \in F[x]\) is separable \(\iff f(x)\) has all zeros of multiplicity \(1\).
+\end{enumerate}
+
+\thm. Let \(E\) be a finite extension of \(F\) and \(K\) be a finite extension of \(E\). \(K\) is separable over \(F\) if and only if \(K\) is separable over \(E\) and \(E\) is separable over \(F\).
+
+\pf Since index divides the degree, use the equations
+\[
+    [K : F] = [K : E][E : F], \qquad \{K : F\} = \{K : E\}\{E : F\}.
+\]
+Then the result follows directly from the definition. \qed
+
+\cor. Let \(E\) be a finite extension of \(F\). \(E\) is separable over \(F\) if and only if every \(\alpha \in E\) is separable over \(F\).
+
+\pf \note{\mimp} \(F \leq F(\alpha) \leq E\), so \(F(\alpha)\) is separable over \(F\).
+
+\note{\mimpd} Let \(E = F(\alpha_1, \dots, \alpha_n)\) for some \(\alpha_1, \dots, \alpha_n \in E\). We show that \(F(\alpha_1, \dots, \alpha_k)\) is separable over \(F(\alpha_1, \dots, \alpha_{k-1})\) for all \(k = 2, \dots, n\). Then we are done.
+
+\(\alpha_k\) is separable over \(F\), so it is a zero of \(\irr(\alpha_k, F)\) with multiplicity \(1\). \(\irr(\alpha_k, F(\alpha_1, \dots, \alpha_{k-1}))\) divides \(\irr(\alpha_k, F)\), so \(\alpha_k\) is a zero of \(\irr(\alpha_k, F(\alpha_1, \dots, \alpha_{k-1}))\) with multiplicity \(1\). Thus \(\alpha_k\) is separable over \(F(\alpha_1, \dots, \alpha_{k-1})\). \qed
+
+\section*{Perfect Fields}
+
+\lemma. Let \(f(x) = x^n + a_{n-1}x^{n-1} + \cdots + a_0 \in \bar{F}[x]\). If \((f(x))^m \in F[x]\) and \(m \cdot 1 \neq 0\) in \(F\) then \(f(x) \in F[x]\).
+
+\pf \((f(x))^m = x^{mn} + ma_{n-1}x^{mn-1} + \cdots \in F[x]\), but \(m \neq 0\), so \(a_{n-1} \in F\). Assume that \(a_{n-1}, \dots, a_{n-r} \in F\) and compute the coefficient of \(x^{mn - (r+1)}\) in \((f(x))^m\). It must be in \(F\) and \(m \neq 0\), so \(a_{n-(r+1)} \in F\).\footnote{Has the form \(ma_{n-(r+1)}+g_{r+1}(a_{n-1}, \dots, a_{n-r})\) where \(g_{r+1}\) is a polynomial expression.} By induction, all coefficients are in \(F\). \qed
+
+When does \(\alpha \in E\) fail to be separable over \(F\)?
+
+\defn. \note{Perfect Field} A field is a \textbf{perfect field} if every finite extension is separable.
+
+\thm. Every field \(F\) of characteristic zero is perfect.
+
+\pf Let \(E\) be a finite extension of \(F\), take \(\alpha \in E\). Then \(\irr(\alpha, F) = \prod (x - a_i)^\nu \in F[x]\) where \(a_i \in \bar{F}\) are distinct. Put \(a_1 = \alpha\). By the above lemma, \(\prod (x - a_i) \in F[x]\) and this polynomial also has \(\alpha\) as a zero. Thus \(\nu = 1\). \(\alpha\) is separable over \(F\) and \(E\) is separable over \(F\). \qed
+
+\thm. Every finite field \(F\) is perfect.
+
+\pf Read by yourself. (TBA) \qed
+
+\rmk \(F = \Z_p(t)\), \(E = \Z_p(y)\) with \(t = y^p\) is not separable and not perfect.
