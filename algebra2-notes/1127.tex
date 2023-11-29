@@ -1,0 +1,65 @@
+\defn. \note{Galois Group} If \(K\) is a finite normal extension of \(F\), then \(G(K/F)\) is called the \textbf{Galois group} of \(K\) over \(F\).
+
+\thm. \note{Galois} Let \(K\) be a finite normal extension of \(F\) and let \(E\) be an intermediate field between \(F\) and \(K\).
+\begin{enumerate}
+    \item \(E = K_{G(K/E)}\).
+    \item If \(H \leq G(K/F)\), then \(G(K/K_H) = H\).
+    \item \([K : E] = \abs{G(K/E)}\), \([E : F] = \bigl(G(K/F) : G(K/E)\bigr)\).\footnote{\(E\) may not be a normal extension of \(F\), so we cannot write \(\abs{G(E/F)}\) here.}
+    \item \(E\) is a normal extension of \(F\) if and only if \(G(K/E) \nsub G(K/F)\). In this case,
+          \[
+              G(E/F) \simeq \frac{G(K/F)}{G(K/E)}.
+          \]
+    \item The subgroup diagram of \(G(K/F)\) is the inverted diagram of intermediate fields of \(K\) over \(F\). i.e, this is an \textit{order-reversing} bijection.
+\end{enumerate}
+
+\pf \note{1} By definition, \(E \leq K_{G(K/E)}\). Now let \(\alpha \in K \bs E\). Since \(K\) is a finite (algebraic) extension of \(E\), \(\alpha\) must have a conjugate \(\beta \in K \bs E\). Then the conjugation isomorphism \(\psi_{\alpha, \beta} : E(\alpha) \ra E(\beta)\) can be extended to an automorphism of \(K\) that fixes \(E\). Then \(\alpha \in K \bs E\) is not fixed, so \(\alpha \notin K_{G(K/E)}\). Thus \(K_{G(K/E)} \leq E\).
+
+% Let \(K = E(\alpha_1, \dots, \alpha_n)\) and \(\deg(\alpha_i, E) \geq 2\). For \(\alpha_i\), there exists a conjugate \(\beta_i \in K\). Consider the conjugation isomorphism \(\psi_{\alpha, \beta}\) which can be extended to an automorphism of \(K\), which implies that \(\psi_{\alpha, \beta} \in G(K/E)\). There exists an isomorphism that does not fix \(\alpha_i \notin E\). Thus \(K_{G(K/E)} \leq E\).
+
+\note{2} First, take \(\sigma \in H\). For \(k \in K_H\), \(\sigma(k) = k\) by definition of \(K_H\). Then \(\sigma \in G(K/K_H)\) and \(H \leq G(K/K_H)\). For the other direction, note that \(H \leq G(K/K_H) \leq G(K/F)\). So we assume \(H < G(K/K_H)\) and derive a contradiction.
+
+Then \(\abs{H} < \abs{G(K/K_H)} = [K : K_H]\), since \(K\) is a finite normal extension of \(K_H\). Also, by the primitive element theorem, choose \(\alpha \in K\) such that \(K = K_H(\alpha)\). Now consider the polynomial \(f(x) = \prod_{\sigma_i \in H}\bigl(x - \sigma_i(\alpha)\bigr)\), which has degree \(\abs{H}\). This polynomial has coefficients in \(K_H\), since for every \(\sigma \in H\), \(\tilde{\sigma}\bigl(f(x)\bigr) = \prod_{\sigma_i \in H}\bigl(x - \sigma(\sigma_i(\alpha))\bigr) = f(x)\). Also, one of \(\sigma_i\) is the identity, so \(f(\alpha) = 0\). Thus,
+\[
+    \deg(\alpha, K_H) \leq \abs{H} < \abs{G(K/K_H)} = [K_H(\alpha) : K] = \deg(\alpha, K_H),
+\]
+arriving at a contradiction.
+
+\note{3} \(K\) is a finite normal extension of both \(E\) and \(F\). Thus \([K : E] = \abs{G(K/E)}\) and \([K : F] = \abs{G(K/F)}\), which implies
+\[
+    [E : F] = \frac{[K : F]}{[K : E]} = \frac{\abs{G(K/F)}}{\abs{G(K/E)}} = \bigl(G(K/F) : G(K/E)\bigr).
+\]
+
+\note{4} \(E\) is a normal extension of \(F\).
+\begin{itemize}
+    \item[] \hspace{-20pt} \(\iff\) \(E\) is a splitting field over \(F\).
+
+        \(E\) is separable over \(F\) by assumption.
+
+    \item[] \hspace{-20pt} \(\iff\) every isomorphism of \(E\) onto a subfield of \(\bar{F}\) leaving \(F\) fixed induces an automorphism of \(E\).
+
+        These isomorphisms can be extended to an automorphism of \(K\), since \(K\) is normal over \(F\). Thus \(\sigma \in G(K/F)\) induces those isomorphisms.
+
+    \item[] \hspace{-20pt} \(\iff\) \(\sigma(\alpha) \in E\) for any \(\sigma \in G(K/F)\) and \(\alpha \in E\).
+
+    \item[] \hspace{-20pt} \(\iff\) \(\tau(\sigma(\alpha)) = \sigma(\alpha)\) for all \(\tau \in G(K/E)\).
+
+        The reverse direction uses that \(E = K_{G(K/E)}\).
+
+    \item[] \hspace{-20pt} \(\iff\) \(\sigma\inv\tau\sigma|_E = id\) for any \(\tau \in G(K/E)\) and \(\sigma \in G(K/F)\).
+
+    \item[] \hspace{-20pt} \(\iff \sigma\inv\tau\sigma \in G(K/E)\), showing that \(G(K/E) \nsub G(K/F)\).
+\end{itemize}
+
+If \(E\) is normal over \(F\), \(E\) is a splitting field over \(F\). So \(\sigma \in G(K/F)\) induces an automorphism \(\sigma|_E\) of \(E\), and \(\sigma |_E \in G(E/F)\). The map \(\varphi : G(K/F) \ra G(E/F)\) defined as \(\sigma \mapsto \sigma|_E\) is clearly a well-defined homomorphism. By the isomorphism extension theorem, it is surjective, and \(\ker\varphi = G(K/E)\). The result follows by the first isomorphism theorem.
+
+\note{5} \(F \leq E \imp G(K/E) \leq G(K/F)\). The bijection reverses the order. \qed
+
+From the above theorem, we see that the mapping \(H \mapsto K_H\) and \(E \mapsto G(K/E)\) are inverses.
+\[
+    \begin{tikzcd}[row sep=tiny, every arrow/.append style={shift left}]
+        H = G(K/K_H) \arrow{rr}{\varphi} && K_H \arrow{ll}{\psi} \\
+        G(K/E) \arrow{rr}{\varphi} && E = K_{G(K/E)} \arrow{ll}{\psi}
+    \end{tikzcd}
+\]
+
+\smallskip
