@@ -58,14 +58,16 @@ We are interested in \textit{finite extensions that are separable splitting fiel
 
 \note{2} Automorphisms that fix \(E\) also fix \(F\).
 
-\note{3} If \(\sigma |_E = \tau |_E\), \(\tau\inv\sigma|_E = id \in G(K/E)\). Conversely, choose \(\mu \in G(K/E)\) so that \(\sigma = \tau\mu\). Then for \(a \in E\), \(\sigma(a) = (\tau\circ\mu)(a) = \tau(a)\), so \(\sigma |_E = \tau |_E\). \qed
+\note{3} If \(\sigma |_E = \tau |_E\), \(\tau\inv\sigma|_E = id\), so \(\tau\inv\sigma \in G(K/E)\). Conversely, choose \(\mu \in G(K/E)\) so that \(\sigma = \tau\mu\). Then for \(a \in E\), \(\sigma(a) = (\tau\circ\mu)(a) = \tau(a)\), so \(\sigma |_E = \tau |_E\). \qed
 
 The third statement says that there is a bijection between left cosets of \(G(K/E)\) in \(G(K/F)\) and isomorphisms of \(E\) onto a subfield of \(K\) leaving \(F\) fixed. If \(E\) is a \textit{normal} extension of \(F\), then the isomorphisms of \(E\) are actually automorphisms.
 
 Let \(K\) be a finite normal extension field of \(F\). The objective of Galois theory is to give a correspondence between \textit{subgroups} of \(G(K/F)\) and \textit{intermediate fields} between \(K\) and \(F\). Our guess is the follwing.
 \[
     \begin{tikzcd}[row sep=tiny]
-        H \arrow{rr}&& K_H \\
-        G(K/E) && E \arrow{ll}
+        H \arrow{rr}{\varphi} && K_H \\
+        G(K/E) && E \arrow{ll}[swap]{\psi}
     \end{tikzcd}
 \]
+
+\smallskip
