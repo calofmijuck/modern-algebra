@@ -1,0 +1,71 @@
+\section*{The Primitive Element Theorem}
+
+\thm. Let \(E\) be a finite separable extension field of \(F\). Then \(E\) is a simple extension of \(F\).
+
+\pf Let \(F\) be a finite field, then any finite extension of a finite field is a simple extension, so we are done. Now let \(F\) be infinite. We will show that if \(E = F(\beta, \gamma)\), we can find \(\alpha \in E\) such that \(E = F(\alpha)\). Then if \(E = F(\beta_1, \dots, \beta_n)\), we can inductively find \(\alpha_i \in E\) so that \(E = F(\alpha)\).
+
+Let \(\beta_i\), \(\gamma_j\) be zeros of \(\irr(\beta, F), \irr(\gamma, F)\) with multiplicity \(1\), respectively. Put \(\beta_1 = \beta\), \(\gamma_1 = \gamma\). Choose \(a \in F\) such that \(a \neq \frac{\beta_i - \beta_1}{\gamma_1 - \gamma_j}\) for all \(i, j\) except \(j = 1\). \(F\) is infinite, so we can choose such \(a\). Let \(\alpha = \beta + a\gamma \in E\), then \(\alpha \neq \beta_i + a\gamma_j\) for all \(i, j\) except \(j = 1\).
+
+Let \(f(x) = \irr(\beta, F)\) and define \(h(x) = f(\alpha - ax) \in F(\alpha)[x]\). Then \(h(\gamma) = f(\alpha - a\gamma) = f(\beta) = 0\), so \(\gamma\) is a zero of \(h(x)\). If \(j \neq 1\), \(h(\gamma_j) = f(\alpha - a\gamma_j) \neq 0\) since \(\alpha - a\gamma_j \neq \beta_i\) for all \(i\).
+
+Consider \(\irr(\gamma, F(\alpha))\), which divides both \(h(x)\) and \(\irr(\gamma, F)\). Then \(\irr(\gamma, F(\alpha)) = x - \gamma\) since \(\gamma\) is the only common zero of \(h(x)\) and \(\irr(\gamma, F)\) and has multiplicity \(1\). Therefore \(\gamma \in F(\alpha)\), \(\beta = \alpha - a\gamma \in F(\alpha)\). Thus \(F(\alpha) = F(\beta, \gamma)\). \qed
+
+If we show a property for simple extensions, then it automatically generalizes to finite separable extensions.
+
+\cor. A finite extension of a field of characteristic zero is a simple extension.
+
+\pf If \(\ch F = 0\), it is perfect, so any finite extension is separable, and thus simple. \qed
+
+\pagebreak
+
+\setcounter{topic}{52}
+\topic{Galois Theory}
+
+\recall Let \(F\) be a field, and let \(F \leq E \leq \bar{F}\).
+\begin{enumerate}
+    \item Let \(\alpha \in E\). If \(\alpha\), \(\beta\) are conjugate, there exists a unique isomorphism \(\psi_{\alpha, \beta} : F(\alpha) \ra F(\beta)\) such that \(\alpha \mapsto \beta\) and \(a \mapsto a\) for \(a \in F\).
+
+    \item Let \(\alpha \in E\). For \(\sigma \in \Aut(\bar{F})\) leaving \(F\) fixed, then \(\sigma(\alpha)\) is a conjugate of \(\alpha\).
+
+    \item \(G(E/F) = \{\sigma \in \Aut(E) : \sigma |_F = id\} \leq \Aut(E)\).
+
+          For \(S \subset G(E/F)\), \(E_S = \{a \in E : \forall \sigma \in S,\; \sigma(a) = a\}\) is a field, and \(F \leq E_{G(E/F)}\).
+
+    \item \(E\) is a splitting field over \(F\) if and only if every isomorphism of \(E\) onto a subfield of \(\bar{F}\) leaving \(F\) fixed is an automorphism of \(E\).
+
+    \item If \(E\) is finite and a splitting field of \(F\), \(\abs{G(E/F)} = \{E : F\}\).
+
+    \item For finite extension \(E\) of \(F\), \(\{E : F\} = [E : F]\) if and only if \(E\) is separable.
+
+    \item If \(E\) is a finite extension and a separable splitting field, then
+          \[
+              \abs{G(E/F)} = \{E : F\} = [E : F].
+          \]
+\end{enumerate}
+
+We are interested in \textit{finite extensions that are separable splitting fields.}
+
+\defn. \note{Finite Normal Extension} A finite extension \(K\) of \(F\) is a \textbf{finite normal extension} if \(K\) is a separable splitting field over \(F\).
+
+\thm. Let \(F \leq E \leq K \leq \bar{F}\). If \(K\) is a finite normal extension over \(F\),
+\begin{enumerate}
+    \item \(K\) is a finite normal extension over \(E\).\footnote{\(E\) may not be a finite normal extension over \(F\), because it may not be a splitting field. \(E\) is still separable.}
+    \item \(G(K/E) \leq G(K/F)\).
+    \item \(\sigma, \tau \in G(K/F)\) induces the same isomorphism of \(E\) onto a subfield of \(\bar{F}\) if and only if \(\sigma G(K/E) = \tau G(K/E)\). (\(\sigma, \tau\) are in the same left coset of \(G(K/E)\))
+\end{enumerate}
+
+\pf \note{1} \(K\) is separable over \(F\), so \(K\) is separable over \(E\). \(K\) is a splitting field of \(P \subset F[x] \subset E[x]\), so it is also a splitting field of \(E\).
+
+\note{2} Automorphisms that fix \(E\) also fix \(F\).
+
+\note{3} If \(\sigma |_E = \tau |_E\), \(\tau\inv\sigma|_E = id \in G(K/E)\). Conversely, choose \(\mu \in G(K/E)\) so that \(\sigma = \tau\mu\). Then for \(a \in E\), \(\sigma(a) = (\tau\circ\mu)(a) = \tau(a)\), so \(\sigma |_E = \tau |_E\). \qed
+
+The third statement says that there is a bijection between left cosets of \(G(K/E)\) in \(G(K/F)\) and isomorphisms of \(E\) onto a subfield of \(K\) leaving \(F\) fixed. If \(E\) is a \textit{normal} extension of \(F\), then the isomorphisms of \(E\) are actually automorphisms.
+
+Let \(K\) be a finite normal extension field of \(F\). The objective of Galois theory is to give a correspondence between \textit{subgroups} of \(G(K/F)\) and \textit{intermediate fields} between \(K\) and \(F\). Our guess is the follwing.
+\[
+    \begin{tikzcd}[row sep=tiny]
+        H \arrow{rr}&& K_H \\
+        G(K/E) && E \arrow{ll}
+    \end{tikzcd}
+\]
