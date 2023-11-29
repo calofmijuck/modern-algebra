@@ -52,7 +52,7 @@ Overall, \(\abs{N[H\cap K]} = 48\) and \(N[H \cap K] = G\), so \(H \cap K \nsub 
 
 \pf We only have to show that \(G\) is abelian, because if \(G\) is abelian, \(G\) is cyclic by the fundamental theorem of finitely generated abelian groups. We will show that the commutator subgroup \(C(G)\) is trivial.
 
-By the third Sylow theorem, \(G\) has a unique Sylow \(17\)-subgroup \(H\), and \(H \nsub G\). We consider \(G \quotient H\), which has \(15\) elements. In fact, \(G \quotient H \simeq \Z_{15}\) by the above example, thus it is abelian and cyclic. Recall that \(C(G) \leq N\) if and only if \(G \quotient N\) is abelian. So \(C(G) \leq H\), so \(C(G)\) must have order \(1\) or \(17\).
+By the third Sylow theorem, \(G\) has a unique Sylow \(17\)-subgroup \(H\), and \(H \nsub G\). We consider \(G/H\), which has \(15\) elements. In fact, \(G/H \simeq \Z_{15}\) by the above example, thus it is abelian and cyclic. Recall that \(C(G) \leq N\) if and only if \(G/N\) is abelian. So \(C(G) \leq H\), so \(C(G)\) must have order \(1\) or \(17\).
 
 Again by the third Sylow theorem,
 \begin{itemize}
@@ -61,9 +61,9 @@ Again by the third Sylow theorem,
 \end{itemize}
 Using a similar argument as above, we cannot have \(85\) distinct Sylow \(3\)-subgroups and \(51\) distinct Sylow \(5\)-subgroups at the same time. Check that \(1 + 2 \times 85 + 4 \times 51 = 375 > \abs{G}\). So either there is a unique Sylow \(3\)-subgroup, or a unique Sylow \(5\)-subgroup.
 \begin{itemize}
-    \item If \(G\) has a unique Sylow \(3\)-subgroup \(H_3\). Then it is normal, so \(G \quotient H_3 \simeq \Z_{85}\) and is abelian. Then \(C(G) \leq H_3\), so \(C(G)\) must have order \(1\) or \(3\).
+    \item If \(G\) has a unique Sylow \(3\)-subgroup \(H_3\). Then it is normal, so \(G/H_3 \simeq \Z_{85}\) and is abelian. Then \(C(G) \leq H_3\), so \(C(G)\) must have order \(1\) or \(3\).
 
-    \item If \(G\) has a unique Sylow \(5\)-subgroup \(H_5\). Similarly, \(G \quotient H_5 \simeq \Z_{51}\), so \(C(G) \leq H_5\) and \(C(G)\) must have order \(1\) or \(5\).
+    \item If \(G\) has a unique Sylow \(5\)-subgroup \(H_5\). Similarly, \(G/H_5 \simeq \Z_{51}\), so \(C(G) \leq H_5\) and \(C(G)\) must have order \(1\) or \(5\).
 \end{itemize}
 Since \(C(G)\) must have order \(1\) or \(17\), we see that \(C(G)\) must be \(\{e\}\) for both cases. \qed
 

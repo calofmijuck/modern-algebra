@@ -6,15 +6,15 @@
 
 Recall that \(\Q(\sqrt[3]{2})\) is not a splitting field of \(x^3-2\). Now we can omit the polynomial and just say that it is not a splitting field. \(x^3 - 2 = (x - \sqrt[3]{2})(x^2 + \sqrt[3]{2}x + \sqrt[3]{2}^2)\) cannot be factored further into linear terms on \(\Q(\sqrt[3]{2})\).
 
-\cor. Let \(E \leq \bar{F}\) be a splitting field of \(F\). Then every isomorphism from \(E\) onto a subfield of \(\bar{F}\) leaving \(F\) fixed is actually an automorphism of \(E\). In particular, if \(E\) has finite degree, \(\{E : F\} = \abs{G(E \quotient F)}\).
+\cor. Let \(E \leq \bar{F}\) be a splitting field of \(F\). Then every isomorphism from \(E\) onto a subfield of \(\bar{F}\) leaving \(F\) fixed is actually an automorphism of \(E\). In particular, if \(E\) has finite degree, \(\{E : F\} = \abs{G(E/F)}\).
 
-\pf Extend the isomorphism to an automorphism of \(\bar{F}\), which induces an automorphism \(\tau|_E\) on \(E\) since \(E\) is a splitting field. Then by definition \(\{E : F\} = \abs{G(E \quotient F)}\).\footnote{\(\abs{G(E\quotient F)} \leq \{E : F\}\) always holds.}
+\pf Extend the isomorphism to an automorphism of \(\bar{F}\), which induces an automorphism \(\tau|_E\) on \(E\) since \(E\) is a splitting field. Then by definition \(\{E : F\} = \abs{G(E/F)}\).\footnote{\(\abs{G(E/F)} \leq \{E : F\}\) always holds.}
 
-\ex. If \(E\) is a splitting field of \(x^3 - 2 \in \Q[x]\), \(E = \Q(\sqrt{2}, \omega)\). We want to inspect \(G(E \quotient \Q)\), so consider the irreducible polynomials of \(\sqrt[3]{2}\) and \(\omega\), which are \(x^3 - 2\) and \(x^2 + x + 1\).
+\ex. If \(E\) is a splitting field of \(x^3 - 2 \in \Q[x]\), \(E = \Q(\sqrt{2}, \omega)\). We want to inspect \(G(E/\Q)\), so consider the irreducible polynomials of \(\sqrt[3]{2}\) and \(\omega\), which are \(x^3 - 2\) and \(x^2 + x + 1\).
 
-Thus \(\sqrt[3]{2}\) can be mapped to either \(\sqrt[3]{2}\), \(\sqrt[3]{2}\omega\) or \(\sqrt[3]{2}\omega^2\), and \(\omega\) can be mapped to either \(\omega\) or \(\omega^2\). Thus \(\abs{G(E \quotient \Q)} = 6\). Similarly, \(\abs{G(E \quotient \Q(\sqrt[3]{2}))} = 2\), but \(\abs{G(\Q(\sqrt[3]{2}) \quotient \Q)} = 1\) since only the identity is possible.
+Thus \(\sqrt[3]{2}\) can be mapped to either \(\sqrt[3]{2}\), \(\sqrt[3]{2}\omega\) or \(\sqrt[3]{2}\omega^2\), and \(\omega\) can be mapped to either \(\omega\) or \(\omega^2\). Thus \(\abs{G(E/\Q)} = 6\). Similarly, \(\abs{G(E/\Q(\sqrt[3]{2}))} = 2\), but \(\abs{G(\Q(\sqrt[3]{2})/\Q)} = 1\) since only the identity is possible.
 
-Recall that \(\{E : \Q\} = \{E : \Q(\sqrt[3]{2})\} \{\Q(\sqrt[3]{2}) : \Q\}\). However, \(\abs{G(\Q(\sqrt[3]{2}) \quotient \Q)} \neq \{\Q(\sqrt[3]{2}) : \Q\}\), since \(\Q(\sqrt[3]{2})\) is not a splitting field.
+Recall that \(\{E : \Q\} = \{E : \Q(\sqrt[3]{2})\} \{\Q(\sqrt[3]{2}) : \Q\}\). However, \(\abs{G(\Q(\sqrt[3]{2})/\Q)} \neq \{\Q(\sqrt[3]{2}) : \Q\}\), since \(\Q(\sqrt[3]{2})\) is not a splitting field.
 
 \rmk Why was \(\{\Q(\sqrt[3]{2}) : \Q\} = 3\)? We know that \(\irr(\sqrt[2]{3}, \Q) = x^3 - 2\), which has \(3\) zeros in \(\bar{\Q}\). If \(\tau : \Q(\sqrt[3]{2}) \ra \bar{\Q}\) fixes \(\Q\), then \(\tau(\sqrt[3]{2})\) must be one of \(\sqrt[3]{2}\), \(\sqrt[3]{2}\omega\), \(\sqrt[3]{2}\omega^2\). We see that the number \(3\) could have came from the degree of the irreducible polynomial or the \(3\) zeros of the irreducible polynomial.
 
