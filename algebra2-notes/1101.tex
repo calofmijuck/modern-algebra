@@ -1,0 +1,58 @@
+\thm. \((\Z[i], N)\) is an Euclidean domain.
+
+\pf We show that \(N\) is an Euclidean norm. The second condition holds from (2), (3) in the above lemma. If \(N(a) < N(b)\), set \(r = a\) and we are done. Now assume that \(N(a) \geq N(b)\).
+
+\quad \textbf{Claim}. If \(N(a) \geq N(b)\), then \(N(a)\) is greater than one of \(N(a+b)\), \(N(a-b)\), \(N(a+bi)\) and \(N(a-bi)\).
+
+\quad \pf On the complex plane, consider the four angles between \(a\) and \(b\), \(-b\), \(bi\), \(-bi\), respectively. Then one of the angles must be at least \(135^\circ\). Let \(n_1b\) be one of \(b\), \(-b\), \(bi\), \(-bi\) that makes the angle between \(a\) larger than \(135^\circ\). Then \(N(a + n_1 b) < N(a)\).
+
+Now, if \(N(a + n_1 b) < N(b)\), then we can write \(a = -n_1b + (a + n_1b)\), satisfying the first condition. If not, take \(n_2\) such that \(N(a + n_1b + n_2b) < N(a + n_1b)\) and repeat the same process until \(N(a + n_1 b + \cdots + n_k b) < N(b)\). This process terminates.
+
+Let \(r = a + n_1 b + \cdots + n_k b\), which will be the remainder. Then \(a = -(n_1 + \cdots + n_k)b + r\). Since \(n_i \in \{1, -1, i, -i\}\), \(n_1 + \cdots + n_k \in \Z[i]\) and we are done. \qed
+
+\section*{Multiplicative Norms}
+
+Lastly, we learn an example that is not a UFD.
+
+\defn. \note{Multiplicative Norm} Let \(D\) be an integral domain. \(N : D \ra \Z\) is a \textbf{multiplicative norm on \(D\)} if
+\begin{enumerate}
+    \item \(N(\alpha) = 0 \iff \alpha = 0\).
+    \item For \(\alpha, \beta \in D\), \(N(\alpha\beta) = N(\alpha)N(\beta)\).
+\end{enumerate}
+
+\ex. The norm \(N\) defined on \(\Z[i]\) is a multiplicative norm.
+
+\thm. Let \(D\) be an integral domain and let \(N\) be a multiplicative norm.
+\begin{enumerate}
+    \item \(N(1) = 1\), \(\abs{N(u)} = 1\) for all units \(u \in D\).
+    \item Suppose that every \(\alpha \in D\) with \(\abs{N(\alpha)} = 1\) is a unit in \(D\). If \(\abs{N(\pi)}\) is prime, then \(\pi\) is irreducible in \(D\).
+\end{enumerate}
+
+\pf \note{1} \(N(1 \cdot 1) = N(1) \cdot N(1)\). \(N(u u\inv) = N(u) N(u\inv) = 1\), so \(\abs{N(u)} = 1\). (\(N(u) \in \Z\))
+
+\note{2} If \(\pi = ab\) for non-units \(a, b \in D\), then \(N(\pi) = N(a)N(b)\) cannot be prime. \qed
+
+Examples are important in this section.
+
+\ex.
+\begin{enumerate}
+    \item \(\Z[i]\). (how different is this from \(\Z\)) Take \(5 \in \Z[i]\), which is prime in \(\Z\). \(N(5) = 25\), which is not prime. If \(5 = xy\) for non-unit \(x, y \in \Z[i]\), then \(N(x) = N(y) = 5\). Then \(a^2 + b^2 = 5\), so we see that \(5 = (1 + 2i)(1 - 2i)\). We can also show that \(1 + 2i\) and \(1 - 2i\) are irreducible since \(N(1 + 2i) = N(1-2i) = 5\) which is prime.
+
+    \item \(\Z[\sqrt{-5}]\). This is an integral domain as a subset of \(\C\). Take \(21 \in \Z[\sqrt{-5}]\), which can be written as \(21 = 3 \cdot 7 = (1 + 2\sqrt{-5})(1 - 2\sqrt{-5})\). We show that all of these factors are irreducible. Then \(\Z[\sqrt{-5}]\) is an integral domain but not a UFD.
+
+          Define a multiplicative norm on \(\Z[\sqrt{-5}]\) by \(N(a + b\sqrt{-5}) = a^2 + 5b^2\). Then \(N(1 + 2\sqrt{-5}) = 21\) and if \(N(\alpha) = 1\), we can check that \(\alpha\) is a unit. If \(1 + 2\sqrt{-5} = xy\) for non-units \(x, y \in \Z[\sqrt{-5}]\), \((N(x), N(y)) = (3, 7), (7, 3)\). It can be seen that no such \(x, y \in \Z[\sqrt{-5}]\) exists.
+\end{enumerate}
+
+\thm. \note{Fermat} Let \(p\) be an odd prime in \(\Z\). \(p = a^2 + b^2\) for some \(a, b \in \Z\) if and only if \(p \equiv 1 \pmod 4\).
+
+\pf \note{\mimp} \(a, b\) must have different parity. Trivial.
+
+\note{\mimpd} We first show that \(p \mid (n^2 + 1)\) for some \(n\). Since \(\Z_p\cross\) is cyclic and has order multiple of \(4\), there exists a cyclic subgroup \(\span{n}\) of order \(4\). Then \(n^4 = 1\), \(n^2 \neq 1\). Then \(n^2 = -1\) in \(\Z_p\), so \(p \mid (n^2 + 1)\). Now \(p\) must be reducible in \(\Z[i]\). If \(p\) is irreducible, then \(p \mid (n + i)\) or \(p \mid (n - i)\), which is not possible.
+
+Thus, let \(p = (a + bi)(c + di)\) where both factors are non-units. Then
+\[
+    N(p) = p^2 = N(a + bi)N(c + di) = (a^2 + b^2)(c^2 + d^2),
+\]
+and \(N(a+bi), N(c+di)\) cannot be \(\pm 1\). Then each of them should be \(p\), so \(a^2 + b^2 = p\). \qed
+
+\pagebreak
