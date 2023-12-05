@@ -8,7 +8,7 @@
 
 \pf Take \(f(x) \in D[x]\), with \(\deg f \geq 1\). If \(\deg f = 0\), then we are done since \(D\) is a UFD. Write \(f(x) = g_1(x) g_2(x) \cdots g_r(x) \in D[x]\), where \(r\) is maximal and \(\deg g_i \geq 1\). Then \(g_i(x) = c_ih_i(x)\) where \(c_i \in D\) and \(h_i(x)\) are primitive and irreducible by the maximality of \(r\). Then we have \(f(x) = (c_1 \cdots c_r)h_1(x) \cdots h_r(x)\). We can factorize \(c_1 \cdots c_r\) into \(d_1 \cdots d_s\) where \(d_i\) are irreducible in \(D\).
 
-For uniqueness, let \(F = Q_D\). We will use the fact that \(F[x]\) is a UFD. First factorize \(f(x)\) in \(D[x]\) and get \(f(x) = g_1(x) \cdots g_s(x)\) where \(g_i(x)\) are irreducible factors in \(D[x]\). (the factors are also primitive) This factorization can be viewed as a factorization in \(F[x]\), where \(g_i(x)\) are irreducible in \(F[x]\). This factorization is unique in \(F[x]\) up to unit factors, so it guarantees the uniqueness in \(D[x]\).\footnote{Check if this is right...} \qed
+For uniqueness, let \(F = Q_D\). We will use the fact that \(F[x]\) is a UFD. First factorize \(f(x)\) in \(D[x]\) and get \(f(x) = g_1(x) \cdots g_s(x)\) where \(g_i(x)\) are irreducible factors in \(D[x]\). Then \(g_i(x)\) is either an irreducible in \(D\) or a irreducible primitive polynomial in \(D[x]\). For irreducible primitive polynomials, they are unique up to unit factors. For irreducibles in \(D\), consider their product, which will be the content of \(f(x)\). The content is also unique up to unit factors. Thus all irreducibles appearing in the factorization of \(f(x) \in D[x]\) are unique up to order and unit factors. \qed
 
 \cor. \(F[x_1, x_2, \dots, x_n]\) is a UFD.
 
