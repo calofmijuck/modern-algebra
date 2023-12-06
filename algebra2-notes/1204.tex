@@ -1,0 +1,108 @@
+We can draw subgroup and subfield diagrams. It is hard to draw subfield diagrams from scratch, the subgroup diagram helps us with this.
+\[
+    \begin{tikzcd}[column sep=small]
+        & & G(K/\Q) \arrow[dash]{d} \arrow[dash]{dl} \arrow[dash]{dr} & & \\
+        & \{\rho_0, \rho_2, \delta_1, \delta_2\} \arrow[dash]{d} \arrow[dash]{dl} \arrow[dash]{dr} & \{\rho_0, \rho_1, \rho_2, \rho_3\} \arrow[dash]{d} & \{\rho_0, \rho_2, \mu_1, \mu_2\} \arrow[dash]{d} \arrow[dash]{dr} \arrow[dash]{dl} & \\
+        \{\rho_0, \delta_2\} & \{\rho_0, \delta_1\} & \{\rho_0, \rho_2\} & \{\rho_0, \mu_1\} & \{\rho_0, \mu_2\} \\
+        & & G(K/K) \arrow[dash]{u} \arrow[dash]{ul} \arrow[dash]{ur} \arrow[dash]{ull} \arrow[dash]{urr} & &
+    \end{tikzcd}
+\]
+\[
+    \begin{tikzcd}[column sep=small]
+        & & K \arrow[dash]{d} \arrow[dash]{dl} \arrow[dash]{dr} \arrow[dash]{dll} \arrow[dash]{drr} & & \\
+        \Q(i\sqrt[4]{2}) & \Q(\sqrt[4]{2}) & \Q(\sqrt{2}, i) & \Q(\sqrt[4]{2} + i\sqrt[4]{2}) & \Q(\sqrt[4]{2} - i\sqrt[4]{2}) \\
+        & \Q(\sqrt{2}) \arrow[dash]{u} \arrow[dash]{ul} \arrow[dash]{ur} & \Q(i) \arrow[dash]{u} & \Q(i\sqrt{2}) \arrow[dash]{u} \arrow[dash]{ur} \arrow[dash]{ul} & \\
+        & & \Q \arrow[dash]{u} \arrow[dash]{ul} \arrow[dash]{ur} & &
+    \end{tikzcd}
+\]
+
+We draw subfield lattices from subgroup lattices!
+
+\ex. Let \(K\) be a splitting field of \(x^4 + 1\) over \(\Q\). Let \(\alpha_n\) be the \(8\)-th roots of unity, then the zeros of \(x^4 + 1\) are \(\alpha_1, \alpha_3, \alpha_5, \alpha_7\). Consider \(\sigma \in G(K/\Q)\), then \(\sigma\) is determined by the value of \(\sigma(\alpha_1)\). Thus this group has order \(4\), and it can be checked that \(\sigma(\alpha_1)\) always has order \(2\), so \(G(K/\Q) \simeq \Z_2 \times \Z_2\).
+
+\[
+    \begin{tikzcd}
+        & G(K/\Q) \simeq V_4 \arrow[dash]{d} \arrow[dash]{dl} \arrow[dash]{dr} & \\
+        \{id, \sigma_1\} & \{id, \sigma_2\} & \{id, \sigma_3\} \\
+        & G(K/K) \simeq \{id\} \arrow[dash]{u} \arrow[dash]{ul} \arrow[dash]{ur} & \\
+    \end{tikzcd}
+    \qquad
+    \begin{tikzcd}
+        & K \arrow[dash]{d} \arrow[dash]{dl} \arrow[dash]{dr} & \\
+        \Q() & \Q() & \Q() \\
+        & \Q \arrow[dash]{u} \arrow[dash]{ul} \arrow[dash]{ur}& \\
+    \end{tikzcd}
+\]
+
+\pagebreak
+
+\topic{Cyclotomic Extensions}
+
+Given \(f(x) = ax^2 + bx + c\), we have a formula for zeros. What is the definition of a \textit{formula}? \textit{Solvable}: zeros can be expressed by \(+, -, \times, \div, \sqrt[n]{\phantom{a}}\).
+
+\section*{Galois Group of a Cyclotomic Extension}
+
+\defn. \note{Cyclotomic Extension} The splitting field of \(x^n-1\) over \(F\) is the \(n\)\textbf{-th cyclotomic extension} of \(F\).
+
+Why do we consider this extension? It's because we allow \(n\)-th radicals in the formula. We want to study more about radicals. To use Galois theory, we must check first that cyclotomic extensions are finite normal extensions. It is finite and a splitting field by definition. To check separability, check that any zero \(\alpha \in \bar{F}\) has multiplicity \(1\). Factorize, and then if \(\ch F \nmid n\), then \(x^n - 1\) has no multiple roots.
+
+Now we assume \(F = \Q\) and cyclotomic extensions will always be finite normal.
+
+\defn. \note{Cyclotomic Polynomial} The \(n\)-th \textbf{cyclotomic polynomial} over \(F\) is
+\[
+    \Phi_n(x) = \prod_{i=1}^{\varphi(n)} (x - \alpha_i)
+\]
+where \(\varphi(n)\) is the Euler totient function, and \(\alpha_i\) are distinct primitive \(n\)-th roots of unity.
+
+\ex. \(\Phi_8(x) = (x - \alpha_1)(x - \alpha_3)(x - \alpha_5)(x - \alpha_7) = x^4 + 1\).
+
+\rmk
+\begin{enumerate}
+    \item Let \(K\) be the \(n\)-th cyclotomic extension field of \(F\). Then for \(\sigma \in G(K/F)\), \(\sigma\paren{\Phi_n(x)} = \Phi_n(x)\), so coefficients of \(\Phi_n(x)\) are in \(F = K_{G(K/F)}\). Thus \(\Phi_n(x) \in F[x]\).
+
+    \item \(x^n - 1 = \Phi_n(x) g(x)\) for some \(g(x) \in \Q[x]\). But if we can factor it in \(\Q[x]\), then it also factors in \(\Z[x]\), so actually, \(\Phi_n(x) \in \Z[x]\) since the factors are monic polynomials with same degree.
+
+    \item \(\Phi_n(x)\) is irreducible over \(\Q\).
+\end{enumerate}
+
+\thm. Let \(K\) be the \(n\)-th cyclotomic extension of \(\Q\). Then
+\begin{center}
+    \(\abs{G(K/\Q)} = \varphi(n)\), \quad \(G(K/\Q) \simeq \Z_n\cross = G_n\).
+\end{center}
+
+\pf Let \(\zeta\) be a primitive \(n\)-th root of unity. Since \(\zeta\) generates all \(n\)-th roots of unity, \(K = \Q(\zeta)\). Now, \(\sigma \in G(K/\Q)\) must map \(\zeta\) to its conjugate, which is another root of \(\Phi_n(x) = \irr(\zeta, \Q)\). There are \(\varphi(n)\) primitive \(n\)-th roots of unity, so \(\abs{G(K/\Q)} = \varphi(n)\).
+
+For \(m \in \N\) relatively prime to \(n\), define \(\sigma_m \in G(K/\Q)\) as \(\zeta \mapsto \zeta^m\). Then for \(\sigma_m, \sigma_r \in G(K/\Q)\), \(\sigma_m \circ \sigma_r = \sigma_{mr}\). Thus the map \(\psi : G(K/\Q) \ra \Z_n\cross\) is an isomorphism. \qed
+
+\cor. For prime \(p\), \(G(K/\Q) \simeq \Z_p\cross\) is a cyclic group of order \(p - 1\).
+
+\thm. A regular \(n\)-gon is constructible if and only if \(n = 2^\nu p_1 p_2 \cdots p_m\), where \(p_i\) are distinct \textbf{Fermat primes}.\footnote{Primes of the form \(p = 2^{2^k} + 1\).}
+
+\pf Let \(\zeta = \cos \frac{2\pi}{n} + i \sin \frac{2\pi}{n}\). Then by computation, \(\zeta + 1/\zeta = 2\cos \frac{2\pi}{n}\). A regular \(n\)-gon is constructible if and only if \(\cos \frac{2\pi}{n}\) is constructible. Thus we need to check if \(\zeta + 1/\zeta\) generates an extension of \(\Q\) having a degree power of \(2\). We want to find \([\Q\paren{\zeta + 1/\zeta} : \Q]\), and use Galois theory here.
+
+Let \(K\) be the \(n\)-th cyclotomic extension of \(\Q\), which is a finite normal extension. Then the group \(G(K/\Q(\zeta + 1/\zeta))\) corresponds to the intermediate field \(\Q(\zeta + 1/\zeta)\). So we find \(\sigma \in G(K/\Q)\) that fix \(\zeta + 1/\zeta\). For \(\sigma_r \in G(K/\Q)\),
+\[
+    2\cos \frac{2\pi}{n} = \zeta + \frac{1}{\zeta} = \sigma_r\paren{\zeta + \frac{1}{\zeta}} = \zeta^r + \frac{1}{\zeta^r} = 2\cos \frac{2\pi r}{n}.
+\]
+We see that \(r\) can only be \(1\) or \(n-1\). There are two automorphisms fixing \(\Q(\zeta + 1/\zeta)\). Thus,
+\[
+    \left[\Q\paren{\zeta + \frac{1}{\zeta}} : \Q\right] = \paren{G(K/\Q) : G\paren{K/\Q\paren{\zeta + \frac{1}{\zeta}}}} = \frac{\varphi(n)}{2}.
+\]
+
+\note{\mimp} If a regular \(n\)-gon is constructible, then \(\varphi(n)\) must be a power of \(2\). Let \(n = 2^\nu p_1^{s_1}\cdots p_m^{s_m}\) where \(p_i\) are distinct odd primes. Then
+\[
+    \varphi(n) = 2^{\nu-1}p_1^{s_1-1}\cdots p_m^{s_m-1}(p_1-1)\cdots (p_m-1).
+\]
+For this expression to be a power of \(2\), \(s_i - 1\) should be all zeros, and \(p_i\) must be of the form \(2^m + 1\). But if \(m\) has an odd factor, \(p_i\) is not prime.\footnote{\(x^q + 1\) has \(-1\) as a zero, so it has \(x+1\) as a factor.} Thus \(m\) must also be a power of \(2\), and \(p_i\) are Fermat primes.
+
+\note{\mimpd} Now suppose that \(\varphi(n)\) is a power of \(2\). Then \(G(\Q(\zeta)/\Q)\) has order power of \(2\). Set \(H_1 = \{\sigma_1, \sigma_{n-1}\}\). By Sylow theorem, consider subgroups \(H_j\) of order \(2^j\) for \(j = 2, \dots\) so that
+\[
+    H_0 = \{e\} < H_1 < H_2 < \cdots < H_s = G(\Q(\zeta)/\Q).
+\]
+By Galois correspondence, we have a tower of fields
+\[
+    \Q < K_{H_s} < K_{H_{s-1}} \cdots < K_{H_1} = \Q\paren{\zeta + \frac{1}{\zeta}},
+\]
+with each extension having degree \(2\). Since we have a \textit{quadratic formula}, we can always construct any element of \(\Q(\zeta + 1/\zeta)\) starting from \(\Q\). In particular, \(\cos \frac{2\pi}{n}\) is constructible and we conclude that a regular \(n\)-gon is constructible. \qed
+
+\pagebreak
