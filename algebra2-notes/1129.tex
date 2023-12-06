@@ -1,0 +1,106 @@
+\ex. Let \(K = \Q(\sqrt{2}, \sqrt{3})\), \(F = \Q\). \(K\) is a finite normal extension of \(F\). It is a splitting field for \(\{x^2 - 2, x^2 - 3\}\), and separable since \([K : F] = \{K : F\} = 4\). Denote the \(4\) isomorphisms as
+\[
+    id, \quad \sigma_1 : \sqrt{2} \mapsto \sqrt{2}, \quad \sigma_2 : \sqrt{3} \mapsto -\sqrt{3}, \quad \sigma_3 = \sqrt{6} \mapsto -\sqrt{6}.
+\]
+Then we have the following correspondence.
+\[
+    \begin{array}{rclcrcl}
+        G(K/K)            & = & \{id, \sigma_1, \sigma_2, \sigma_3\} & \longleftrightarrow & \Q                     & = & K_{\{id, \sigma_1, \sigma_2, \sigma_3\}} \\
+        G(K/\Q(\sqrt{3})) & = & \{id, \sigma_1\}                     & \longleftrightarrow & \Q(\sqrt{3})           & = & K_{\{id, \sigma_1\}}                     \\
+        G(K/\Q(\sqrt{2})) & = & \{id, \sigma_2\}                     & \longleftrightarrow & \Q(\sqrt{2})           & = & K_{\{id, \sigma_2\}}                     \\
+        G(K/\Q(\sqrt{6})) & = & \{id, \sigma_3\}                     & \longleftrightarrow & \Q(\sqrt{6})           & = & K_{\{id, \sigma_3\}}                     \\
+        G(K/\Q)           & = & \{id\}                               & \longleftrightarrow & \Q(\sqrt{2}, \sqrt{3}) & = & K_{\{id\}}
+    \end{array}
+\]
+This is shown as a diagram below.
+\[
+    \begin{tikzcd}[column sep=tiny]
+        & \Q(\sqrt{2}, \sqrt{3}) \arrow[dash]{dl} \arrow[dash]{d} \arrow[dash]{dr} & \\
+        \Q(\sqrt{2}) & \Q(\sqrt{3}) & \Q(\sqrt{6}) \\
+        & \Q \arrow[dash]{ul} \arrow[dash]{u} \arrow[dash]{ur} &
+    \end{tikzcd} \qquad
+    \begin{tikzcd}[column sep=tiny]
+        & G(K/\Q) \arrow[dash]{dl} \arrow[dash]{d} \arrow[dash]{dr} & \\
+        G(K/\Q(\sqrt{6})) & G(K/\Q(\sqrt{3})) & G(K/\Q(\sqrt{2}))   \\
+        & G(K/K) \arrow[dash]{ul} \arrow[dash]{u} \arrow[dash]{ur} &
+    \end{tikzcd}
+\]
+
+\section*{Galois Groups over Finite Fields}
+
+\thm. Let \(K\) be a finite extension of degree \(n\) of a finite field \(F\) of \(p^r\) elements. Then \(G(K/F) = \span{\sigma_{p^r}}\) with order \(n\), where \(\sigma_{p^r}(\alpha) = \alpha^{p^r}\) for \(\alpha \in K\).
+
+\pf \(F\) is a perfect field, so its finite extension \(K\) is separable, and \(K\) is the splitting field of \(x^{p^{rn}} - x\) since \(K\) has \(p^{rn}\) elements. Thus \(K\) is a finite normal extension of \(F\).
+\begin{itemize}
+    \item \(\sigma_{p^r} \in G(K/F)\) since \(\sigma_{p^r}(\alpha) = \alpha^{p^r} = \alpha\) for \(\alpha \in F\).
+    \item \(\abs{\sigma_{p^r}} \geq n\). If \(\bigl(\sigma_{p^r}\bigr)^i(\alpha) = \alpha\) for all \(\alpha \in K\), \(\alpha^{p^{ri}} = \alpha\), so \(i\) must be at least \(n\).
+\end{itemize}
+But \(n = [K : F] = \abs{G(K/F)}\), so \(G(K/F) = \span{\sigma_{p^r}}\). \qed
+
+\topic{Illustrations of Galois Theory}
+
+Let \(F\) be a field and let \(y_1, \dots, y_n\) be indeterminates. We consider automorphisms of \\\(F(y_1, \dots, y_n)\) that fix \(F\).
+
+\defn. \note{Symmetric Function} For \(\sigma \in S_n\), define \(\bar{\sigma} \in \Aut(F(y_1, \dots, y_n))\) by
+\[
+    \bar{\sigma}(f(y_1, \dots, y_n)) = f(y_{\sigma(1)}, \dots, y_{\sigma(n)}).
+\]
+\(f \in F(y_1, \dots, y_n)\) is a \textbf{symmetric function in \(y_1, \dots, y_n\) over \(F\)} if \(\bar{\sigma}(f) = f\) for all \(\sigma \in S_n\).
+
+\ex. \(f(y_1, \dots, y_n) = y_1 + \cdots + y_n\) is symmetric.
+
+\pagebreak
+
+\defn. \note{Elementary Symmetric Functions} Define \textbf{elementary symmetric functions} in \(F(y_1, \dots, y_n)\) as the following.
+\[
+    s_1 = \sum_{i=1}^n y_i, \quad s_2 = \sum_{i < j} y_i y_j, \quad s_3 = \sum_{i < j < k} y_i y_j y_k, \quad \dots, \quad s_n = y_1 y_2 \cdots y_n.
+\]
+
+% \( \leq F(y_1, \dots, y_n)\). Every element in \(E\) is a symmetric function.
+
+% If \(K\) is the set of symmetric functions in \(F(y_1, \dots, y_n)\), \(K \leq F(y_1, \dots, y_n)\).
+
+\thm. Let \(K\) be the field of symmetric functions in \(F(y_1, \dots, y_n)\).
+\begin{enumerate}
+    \item \(E = F(s_1, \dots, s_n) = K\).
+    \item \(G(F(y_1, \dots, y_n)/K) = S_n\).
+\end{enumerate}
+
+\pf Obviously, \(E \leq K\). Now consider the polynomial
+\[
+    f(x) = \prod_{i=1}^n (x - y_i) = x^n - s_1 x^{n-1} + s_2x^{n-2} + \cdots + (-1)^n s_n \in E[x].
+\]
+\(F(y_1, \dots, y_n)\) is the splitting field of \(f(x)\) over \(E\). We know that
+\[
+    [E(y_1, \dots, y_k) : E(y_1, \dots, y_{k-1})] \leq n-k+1
+\]
+from the degree of \(f(x)\) and its factorization. Then by induction, \([F(y_1, \dots, y_n) : E] \leq n!\). Also, \(F(y_1, \dots, y_n)\) is a finite normal extension of \(E\) since \(y_i\) are algebraic over \(E\), and they are separable.
+
+\(K\) is fixed by \(\bar{\sigma}\) for all \(\sigma \in S_n\), so \(S_n \leq G(F(y_1, \dots, y_n)/K)\). Therefore,
+\[
+    \begin{aligned}
+        n! & \leq \abs{G(F(y_1, \dots, y_n) / K)} \leq \{F(y_1, \dots, y_n) : K\}  \leq [F(y_1, \dots, y_n) : K] \\
+           & = [F(y_1, \dots, y_n) : K][K : E]  =[F(y_1, \dots, y_n) : E] \leq n!.
+    \end{aligned}
+\]
+We must have \([K : E] = 1\), so \(K = E\). Therefore all equalities hold, and naturally we have \(G(F(y_1, \dots, y_n)/K) \simeq S_n\). \qed
+
+\rmk Every symmetric function in \(F(y_1, \dots, y_n)\) is a rational function of the elementary symmetric functions. Also, \(F(y_1, \dots, y_n)\) is a finite normal extension of degree \(n!\).
+
+\ex. Let \(K\) be the splitting field of \(x^4 - 2\) over \(\Q\). We can check that \(K\) is finite normal.
+
+We want to find \(G(K/\Q)\). \(K = \Q(\sqrt[4]{2}, \sqrt[4]{2}i) = \Q(\sqrt[4]{2}, i)\). Thus automorphisms of \(K\) will be determined by the values on \(\sqrt[4]{2}\) and \(i\), and the values must be conjugates.
+\begin{itemize}
+    \item If \(i \mapsto i\),
+          \begin{center}
+              \(\rho_0 : \sqrt[4]{2} \mapsto \sqrt[4]{2}, \quad \rho_1 : \sqrt[4]{2} \mapsto i\sqrt[4]{2}, \quad  \rho_2 : \sqrt[4]{2} \mapsto -\sqrt[4]{2}, \quad \rho_3 : \sqrt[4]{2} \mapsto -i\sqrt[4]{2}\).
+          \end{center}
+    \item If \(i \mapsto -i\),
+          \begin{center}
+              \(\mu_1 : \sqrt[4]{2} \mapsto \sqrt[4]{2}, \quad \delta_1 : \sqrt[4]{2} \mapsto i\sqrt[4]{2}, \quad  \mu_2 : \sqrt[4]{2} \mapsto -\sqrt[4]{2}, \quad \delta_2 : \sqrt[4]{2} \mapsto -i\sqrt[4]{2}\).
+          \end{center}
+\end{itemize}
+
+We see that \(G(K/\Q) = D_4\).
+
+\smallskip
