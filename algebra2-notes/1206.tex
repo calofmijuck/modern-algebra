@@ -1,0 +1,60 @@
+\topic{Insolvability of the Quintic}
+
+\defn. \note{Radical Extension} An extension \(K\) of \(F\) is an \textbf{extension of \(F\) by radicals} if
+\begin{enumerate}
+    \item \(\exists \alpha_1, \dots, \alpha_r \in K\) such that \(K = F(\alpha_1, \dots, \alpha_r)\)
+    \item \(\exists n_1, \dots, n_r \in \N\) such that \(\alpha_1^{n_1} \in F\) and \(\alpha_k^{n_k} \in F(\alpha_1, \dots, \alpha_{k-1})\) for \(k = 2, \dots, r\).
+\end{enumerate}
+
+In the second condition, \(\alpha_1 = \sqrt[n_1]{a}\) for some \(a \in F\). The condition for \(\alpha_k\) says that we allow nested radicals. Therefore, we can have radicals in the formula.
+
+\defn. \note{Solvable by Radicals} \(f(x) \in F[x]\) is \textbf{solvable by radicals} over \(F\) if the splitting field \(E\) of \(f(x)\) over \(F\) is contained in a radical extension of \(F\).
+
+The splitting field \(E\) of \(f(x)\) over \(F\) contains zeros of \(f(x)\). We want to express the zeros using \(+, -, \times, \div, \sqrt[n]{\phantom{a}}\). We can do this if there is a radical extension \(K\) over \(F\) containing \(E\).
+
+\ex.
+\begin{enumerate}
+    % \item \(f(x) = x^n - 1 \in \Q[x]\).
+    \item \(f(x) = ax^2 + bx + c \in \Q[x]\) with \(a, b, c \in \Q\).
+    \item \(f(x) = x^n - a \in \Q[x]\) with \(a \in \Q\). The splitting field is \(E = \Q(\zeta_n, \sqrt[n]{a})\) where \(\zeta_n\) is the primitive \(n\)-th root of unity. \(E\) is a radical extension of \(F\).
+\end{enumerate}
+
+\recall A group \(G\) is \textbf{solvable} if there exists a composition series \(\{H_i\}\) such that all quotient groups \(H_i/H_{i-1}\) are abelian. For abelian \(G\), it is solvable. For \(S_n\) with \(n \geq 5\), the series
+\begin{center}
+    \(\{e\} < A_n < S_n\)
+\end{center}
+is a composition series since \(A_n\) is simple. But \(A_n\) is not abelian, so \(S_n\) is not a solvable group.
+
+\lemma. If \(K\) is the splitting field of \(x^n - a \in F[x]\), then \(G(K/F)\) is solvable.
+
+\pf Let \(\zeta\) be a primitive \(n\)-th root of unity.
+
+\note{Case 1} Suppose \(\zeta \in F\), then \(K = F(\sqrt[n]{a})\) and \(\sigma \in G(K/F)\) is determined by its value on \(\sqrt[n]{a}\). Then \(\sigma(\sqrt[n]{a})\) must be \(\sqrt[n]{a}\zeta^i\) for some \(i\). Let \(\sigma_i \in G(K/F)\) as \(\sqrt[n]{a} \mapsto \sqrt[n]{a}\zeta^i\). Then \(\sigma_i \sigma_j = \sigma_j \sigma_i = \sigma_{i+j}\), showing that \(G(K/F)\) is abelian and solvable.
+
+\note{Case 2} If \(\zeta \notin F\), then \(K = F(\zeta, \sqrt[n]{a})\). We consider the tower \(F \leq F(\zeta) \leq F(\zeta, \sqrt[n]{a})\). \(F(\zeta)\) is a cyclotomic extension of \(F\), so it is a normal extension. Also \(K\) is a normal extension of \(F\). Then by Galois theorem, we have that \(G(K/F(\zeta)) \nsub G(K/F)\). Thus the series
+\begin{center}
+    \(\{e\} < G(K/F(\zeta)) < G(K/F)\)
+\end{center}
+is a subnormal series. Next, check the quotient groups. \(G(K/F(\zeta))\) is abelian by the proof in Case 1, and again by Galois theorem,
+\begin{center}
+    \(G(K/F) / G(K/F(\zeta)) \simeq G(F(\zeta)/F) \simeq \Z_n\cross\)
+\end{center}
+is also abelian. Any composition series of \(G(K/F)\) will be a refinement of the above subnormal series. Since the quotient groups are abelian, the quotient groups in the composition series are also abelian. \(G(K/F)\) is solvable. \qed
+
+\thm. Let \(F\) be a field of characteristic \(0\), and let \(F \leq E \leq K \leq \bar{F}\) where \(E\) is a finite normal extension over \(F\), and \(K\) is a radical extension of \(F\). Then \(G(E/F)\) is solvable.
+
+\textit{Proof Sketch.} We are given \(F \leq E \leq K\). \(K\) is not normal, so we cannot use Galois theorem directly. Consider another \textit{normal radical} extension \(L\) of \(F\) so that \(K \leq L\). If we find a radical extension \(K\) of \(F\) containing \(E\), we can construct a normal radical extension \(L\) of \(F\). Then \(G(L/F)\) is solvable, and \(G(E/F)\) is also solvable since \(G(E/F) \simeq G(L/F)/G(L/E)\).
+
+\rmk Suppose that \(f(x)\) is solvable by radicals over \(F\). For the splitting field \(E\) of \(f(x)\) over \(F\), \(G(E/F)\) is solvable. i.e, if \(G(E/F)\) is \textit{not solvable}, then \(f(x)\) is \textit{not solvable by radicals}.
+
+To show the insolvability of the quintic, we need to find a polynomial \(f(x)\) such that for the splitting field \(E\) of \(f(x)\) over \(F\), \(G(E/F)\) is not solvable.
+
+\thm. Let \(y_1\) be transcendental over \(\Q\), and let \(y_i\) be transcendental over \(\Q(y_1, \dots, y_{i-1})\) for \(i = 2, 3, 4, 5\). Consider the polynomial
+\[
+    f(x) = \prod_{i=1}^5 (x - y_i) \in \Q(s_1, s_2, s_3, s_4, s_5) =: F.
+\]
+The splitting field \(E\) of \(f(x)\) over \(F\) is \(\Q(y_1, y_2, y_3, y_4, y_5)\), and \(G(E/F) \simeq S_5\). Thus \(f(x)\) is not solvable by radicals over \(F\).
+
+\ex. Let \(f(x) \in \Q[x]\) be irreducible with \(\deg f = 5\), having \(3\) real roots \(\alpha_1, \alpha_2, \alpha_3\) and \(2\) imaginary roots \(\beta_1, \beta_2\). Let \(E\) be the splitting field of \(f(x)\) over \(\Q\). Then there exists \(\sigma \in G(E/F)\) that fixes \(\alpha_i\), but swaps \(\beta_1\) and \(\beta_2\). For a zero \(\alpha\) of \(f(x)\), \([F(\alpha) : F] = 5\) since \(f(x)\) is irreducible. \(5 \mid \abs{G(E/F)} = [E : F]\). Then \(G(E/F)\) has an element of order \(5\).
+
+However, \(G(E/F) \leq S_5\). \(G(E/F) \simeq S_5\) since we can generate \(S_5\) from two elements each of order \(2\) and \(5\). Thus \(f(x)\) is not solvable by radicals. \qed
