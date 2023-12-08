@@ -25,7 +25,7 @@ If we show a property for simple extensions, then it automatically generalizes t
 \begin{enumerate}
     \item Let \(\alpha \in E\). If \(\alpha\), \(\beta\) are conjugate, there exists a unique isomorphism \(\psi_{\alpha, \beta} : F(\alpha) \ra F(\beta)\) such that \(\alpha \mapsto \beta\) and \(a \mapsto a\) for \(a \in F\).
 
-    \item Let \(\alpha \in E\). For \(\sigma \in \Aut(\bar{F})\) leaving \(F\) fixed, then \(\sigma(\alpha)\) is a conjugate of \(\alpha\).
+    \item Let \(\alpha \in E\). For \(\sigma \in \Aut(\bar{F})\) leaving \(F\) fixed, \(\sigma(\alpha)\) is a conjugate of \(\alpha\).
 
     \item \(G(E/F) = \{\sigma \in \Aut(E) : \sigma |_F = id\} \leq \Aut(E)\).
 
@@ -35,9 +35,9 @@ If we show a property for simple extensions, then it automatically generalizes t
 
     \item If \(E\) is finite and a splitting field of \(F\), \(\abs{G(E/F)} = \{E : F\}\).
 
-    \item For finite extension \(E\) of \(F\), \(\{E : F\} = [E : F]\) if and only if \(E\) is separable.
+    \item For finite extension \(E\) of \(F\), \(E\) is separable over \(F\) if and only if \(\{E : F\} = [E : F]\).
 
-    \item If \(E\) is a finite extension and a separable splitting field, then
+    \item If \(E\) is a finite extension and a separable splitting field over \(F\), then
           \[
               \abs{G(E/F)} = \{E : F\} = [E : F].
           \]
@@ -51,10 +51,10 @@ We are interested in \textit{finite extensions that are separable splitting fiel
 \begin{enumerate}
     \item \(K\) is a finite normal extension over \(E\).\footnote{\(E\) may not be a finite normal extension over \(F\), because it may not be a splitting field. \(E\) is still separable.}
     \item \(G(K/E) \leq G(K/F)\).
-    \item \(\sigma, \tau \in G(K/F)\) induces the same isomorphism of \(E\) onto a subfield of \(\bar{F}\) if and only if \(\sigma G(K/E) = \tau G(K/E)\). (\(\sigma, \tau\) are in the same left coset of \(G(K/E)\))
+    \item \(\sigma, \tau \in G(K/F)\) induce the same isomorphism of \(E\) onto a subfield of \(\bar{F}\) if and only if \(\sigma G(K/E) = \tau G(K/E)\). (\(\sigma, \tau\) are in the same left coset of \(G(K/E)\) in \(G(K/F)\))
 \end{enumerate}
 
-\pf \note{1} \(K\) is separable over \(F\), so \(K\) is separable over \(E\). \(K\) is a splitting field of \(P \subset F[x] \subset E[x]\), so it is also a splitting field of \(E\).
+\pf \note{1} \(K\) is separable over \(F\), so \(K\) is separable over \(E\). \(K\) is a splitting field of \(P \subset F[x] \subset E[x]\), so it is also a splitting field of \(P\) over \(E\).
 
 \note{2} Automorphisms that fix \(E\) also fix \(F\).
 
@@ -62,7 +62,7 @@ We are interested in \textit{finite extensions that are separable splitting fiel
 
 The third statement says that there is a bijection between left cosets of \(G(K/E)\) in \(G(K/F)\) and isomorphisms of \(E\) onto a subfield of \(K\) leaving \(F\) fixed. If \(E\) is a \textit{normal} extension of \(F\), then the isomorphisms of \(E\) are actually automorphisms.
 
-Let \(K\) be a finite normal extension field of \(F\). The objective of Galois theory is to give a correspondence between \textit{subgroups} of \(G(K/F)\) and \textit{intermediate fields} between \(K\) and \(F\). Our guess is the follwing.
+Let \(K\) be a finite normal extension field of \(F\). The objective of Galois theory is to give a correspondence between \textit{subgroups} of \(G(K/F)\) and \textit{intermediate fields} between \(K\) and \(F\). Our guess is the following.
 \[
     \begin{tikzcd}[row sep=tiny]
         H \arrow{rr}{\varphi} && K_H \\

@@ -1,15 +1,17 @@
-\ex. Let \(K = \Q(\sqrt{2}, \sqrt{3})\), \(F = \Q\). \(K\) is a finite normal extension of \(F\). It is a splitting field for \(\{x^2 - 2, x^2 - 3\}\), and separable since \([K : F] = \{K : F\} = 4\). Denote the \(4\) isomorphisms as
+\thm. If every irreducible factor of \(f(x) \in F[x]\) is separable over \(F\), then the splitting field \(K\) of \(f(x)\) over \(F\) is a normal extension of \(F\). The Galois group \(G(K/F)\) is called the \textbf{group of the polynomial \(f(x)\) over \(F\)}.
+
+\ex. Let \(K = \Q(\sqrt{2}, \sqrt{3})\), \(F = \Q\). \(K\) is a finite normal extension of \(F\). It is a splitting field of \(\{x^2 - 2, x^2 - 3\}\), and separable since \([K : F] = \{K : F\} = 4\). Denote the \(4\) isomorphisms as
 \[
-    id, \quad \sigma_1 : \sqrt{2} \mapsto \sqrt{2}, \quad \sigma_2 : \sqrt{3} \mapsto -\sqrt{3}, \quad \sigma_3 = \sqrt{6} \mapsto -\sqrt{6}.
+    id, \quad \sigma_1 : \sqrt{2} \mapsto -\sqrt{2}, \quad \sigma_2 : \sqrt{3} \mapsto -\sqrt{3}, \quad \sigma_3 = \sqrt{6} \mapsto -\sqrt{6}.
 \]
 Then we have the following correspondence.
 \[
     \begin{array}{rclcrcl}
-        G(K/K)            & = & \{id, \sigma_1, \sigma_2, \sigma_3\} & \longleftrightarrow & \Q                     & = & K_{\{id, \sigma_1, \sigma_2, \sigma_3\}} \\
+        G(K/\Q)            & = & \{id, \sigma_1, \sigma_2, \sigma_3\} & \longleftrightarrow & \Q                     & = & K_{\{id, \sigma_1, \sigma_2, \sigma_3\}} \\
         G(K/\Q(\sqrt{3})) & = & \{id, \sigma_1\}                     & \longleftrightarrow & \Q(\sqrt{3})           & = & K_{\{id, \sigma_1\}}                     \\
         G(K/\Q(\sqrt{2})) & = & \{id, \sigma_2\}                     & \longleftrightarrow & \Q(\sqrt{2})           & = & K_{\{id, \sigma_2\}}                     \\
         G(K/\Q(\sqrt{6})) & = & \{id, \sigma_3\}                     & \longleftrightarrow & \Q(\sqrt{6})           & = & K_{\{id, \sigma_3\}}                     \\
-        G(K/\Q)           & = & \{id\}                               & \longleftrightarrow & \Q(\sqrt{2}, \sqrt{3}) & = & K_{\{id\}}
+        G(K/\Q(\sqrt{2}, \sqrt{3}))           & = & \{id\}                               & \longleftrightarrow & \Q(\sqrt{2}, \sqrt{3}) & = & K_{\{id\}}
     \end{array}
 \]
 This is shown as a diagram below.
@@ -63,7 +65,7 @@ Let \(F\) be a field and let \(y_1, \dots, y_n\) be indeterminates. We consider 
 \thm. Let \(K\) be the field of symmetric functions in \(F(y_1, \dots, y_n)\).
 \begin{enumerate}
     \item \(E = F(s_1, \dots, s_n) = K\).
-    \item \(G(F(y_1, \dots, y_n)/K) = S_n\).
+    \item \(G(F(y_1, \dots, y_n)/K) \simeq S_n\).
 \end{enumerate}
 
 \pf Obviously, \(E \leq K\). Now consider the polynomial
@@ -85,7 +87,7 @@ from the degree of \(f(x)\) and its factorization. Then by induction, \([F(y_1, 
 \]
 We must have \([K : E] = 1\), so \(K = E\). Therefore all equalities hold, and naturally we have \(G(F(y_1, \dots, y_n)/K) \simeq S_n\). \qed
 
-\rmk Every symmetric function in \(F(y_1, \dots, y_n)\) is a rational function of the elementary symmetric functions. Also, \(F(y_1, \dots, y_n)\) is a finite normal extension of degree \(n!\).
+\rmk Symmetric functions in \(F(y_1, \dots, y_n)\) are a rational function of the elementary symmetric functions. Also, \(F(y_1, \dots, y_n)\) is a finite normal extension of degree \(n!\) of \(F(s_1, \dots, s_n)\).
 
 \ex. Let \(K\) be the splitting field of \(x^4 - 2\) over \(\Q\). We can check that \(K\) is finite normal.
 

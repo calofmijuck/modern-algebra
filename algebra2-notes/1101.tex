@@ -1,6 +1,6 @@
-\thm. \((\Z[i], N)\) is an Euclidean domain.
+\thm. \((\Z[i], N)\) is a Euclidean domain.
 
-\pf We show that \(N\) is an Euclidean norm. The second condition holds from (2), (3) in the above lemma. If \(N(a) < N(b)\), set \(r = a\) and we are done. Now assume that \(N(a) \geq N(b)\).
+\pf We show that \(N\) is a Euclidean norm. The second condition holds from (2), (3) in the above lemma. If \(N(a) < N(b)\), set \(r = a\) and we are done. Now assume that \(N(a) \geq N(b)\).
 
 \quad \textbf{Claim}. If \(N(a) \geq N(b)\), then \(N(a)\) is greater than one of \(N(a+b)\), \(N(a-b)\), \(N(a+bi)\) and \(N(a-bi)\).
 
@@ -25,7 +25,7 @@ Lastly, we learn an example that is not a UFD.
 \thm. Let \(D\) be an integral domain and let \(N\) be a multiplicative norm.
 \begin{enumerate}
     \item \(N(1) = 1\), \(\abs{N(u)} = 1\) for all units \(u \in D\).
-    \item Suppose that every \(\alpha \in D\) with \(\abs{N(\alpha)} = 1\) is a unit in \(D\). If \(\abs{N(\pi)}\) is prime, then \(\pi\) is irreducible in \(D\).
+    \item Suppose that every \(\alpha \in D\) with \(\abs{N(\alpha)} = 1\) is a unit in \(D\). If \(\abs{N(\pi)}\) is prime, then \(\pi\) is an irreducible in \(D\).
 \end{enumerate}
 
 \pf \note{1} \(N(1 \cdot 1) = N(1) \cdot N(1)\). \(N(u u\inv) = N(u) N(u\inv) = 1\), so \(\abs{N(u)} = 1\). (\(N(u) \in \Z\))
@@ -36,7 +36,7 @@ Examples are important in this section.
 
 \ex.
 \begin{enumerate}
-    \item \(\Z[i]\). (how different is this from \(\Z\)) Take \(5 \in \Z[i]\), which is prime in \(\Z\). \(N(5) = 25\), which is not prime. If \(5 = xy\) for non-unit \(x, y \in \Z[i]\), then \(N(x) = N(y) = 5\). Then \(a^2 + b^2 = 5\), so we see that \(5 = (1 + 2i)(1 - 2i)\). We can also show that \(1 + 2i\) and \(1 - 2i\) are irreducible since \(N(1 + 2i) = N(1-2i) = 5\) which is prime.
+    \item \(\Z[i]\). (notice how different it is from \(\Z\)) Take \(5 \in \Z[i]\), which is prime in \(\Z\). \(N(5) = 25\), which is not prime. If \(5 = xy\) for non-unit \(x, y \in \Z[i]\), then \(N(x) = N(y) = 5\). Then \(a^2 + b^2 = 5\), so we see that \(5 = (1 + 2i)(1 - 2i)\). We can also show that \(1 + 2i\) and \(1 - 2i\) are irreducible since \(N(1 + 2i) = N(1-2i) = 5\) is prime.
 
     \item \(\Z[\sqrt{-5}]\). This is an integral domain as a subset of \(\C\). Take \(21 \in \Z[\sqrt{-5}]\), which can be written as \(21 = 3 \cdot 7 = (1 + 2\sqrt{-5})(1 - 2\sqrt{-5})\). We show that all of these factors are irreducible. Then \(\Z[\sqrt{-5}]\) is an integral domain but not a UFD.
 

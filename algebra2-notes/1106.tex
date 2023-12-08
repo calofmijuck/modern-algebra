@@ -19,7 +19,7 @@ We assume that all algebraic extensions and all algebraic elements over \(F\) ar
           \]
 
     \item \(\sqrt{2}\) and \(-\sqrt{2}\) are conjugate over \(\Q\).
-    \item \(\sqrt[3]{2}\), \(\sqrt[3]{2}\omega\), \(\sqrt[3]{2}\omega^2\) are conjugate over \(\Q\). It can be checked that the irreducible polynomials of the three elements are \(x^3 - 2 \in \Q[x]\).
+    \item \(\sqrt[3]{2}\), \(\sqrt[3]{2}\omega\), \(\sqrt[3]{2}\omega^2\) are conjugate over \(\Q\). It can be checked that the irreducible polynomial of the three elements is \(x^3 - 2 \in \Q[x]\).
 \end{enumerate}
 
 \rmk Factorization of polynomials and checking its irreducibility will be very important from now on.
@@ -63,7 +63,7 @@ Since we quotient out \(F[x]\) with the same irreducible polynomial, the simple 
     \item If \(\beta\) is a conjugate of \(\alpha\) over \(F\), then there exists a unique isomorphism \(\psi_{\alpha, \beta} : F(\alpha) \ra E \leq \bar{F}\) such that \(\alpha \mapsto \beta\) and \(a \mapsto a\) for \(a \in F\).
 \end{enumerate}
 
-\pf \note{1} Let \(f(x) = \irr(\alpha, E)\), then \(f(\alpha) = 0\). So \(\psi(f(\alpha)) = f(\psi(\alpha)) = 0\) and \(\beta = \psi(\alpha)\) is a conjugate of \(\alpha\).
+\pf \note{1} Let \(f(x) = \irr(\alpha, F)\), then \(f(\alpha) = 0\). So \(\psi(f(\alpha)) = f(\psi(\alpha)) = 0\) and \(\beta = \psi(\alpha)\) is a conjugate of \(\alpha\).
 
 \note{2} The isomorphism is uniquely determined by its values on \(a \in F\) and \(\alpha\). \qed
 
@@ -106,12 +106,12 @@ forms a subfield of \(E\).
 
 \thm. Let \(F \leq E\).
 \[
-    G(E \quotient F) = \{\sigma \in \Aut(E) \mid F \text{ is fixed by } \sigma\} \leq \Aut(E).
+    G(E/F) = \{\sigma \in \Aut(E) \mid F \text{ is fixed by } \sigma\} \leq \Aut(E).
 \]
-Also, \(F \leq E_{G(E \quotient F)}\).
+Also, \(F \leq E_{G(E/F)}\).
 
-\pf Mechanical. \(F \leq E_{G(E \quotient F)}\) holds by definition. \qed
+\pf Mechanical. \(F \leq E_{G(E/F)}\) holds by definition. \qed
 
-\defn. \(G(E \quotient F)\) is the \textbf{group of automorphisms of \(E\) leaving \(F\) fixed}, or briefly the \textbf{group of \(E\) over \(F\)}.
+\defn. \(G(E/F)\) is the \textbf{group of automorphisms of \(E\) leaving \(F\) fixed}, or briefly the \textbf{group of \(E\) over \(F\)}.
 
-\smallskip
+\pagebreak

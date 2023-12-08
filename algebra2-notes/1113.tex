@@ -1,7 +1,7 @@
 \cor. Let \(F \leq E \leq K\) where \(K\) is a finite extension of \(F\). Then
-\[
-    \{K : F\} = \{K : E\} \{E : F\}.
-\]
+\begin{center}
+    \(\{K : F\} = \{K : E\} \{E : F\}\).
+\end{center}
 \pf Think about how many possible extensions there are. \qed
 
 \ex. \(\{\Q(\sqrt{2}, \sqrt{3}) : \Q\} = \{\Q(\sqrt{2}, \sqrt{3}) : \Q(\sqrt{2})\} \{\Q(\sqrt{2}) : \Q\} = 4\).
@@ -11,7 +11,8 @@
 In case of simple extensions, the proof is easy since \(F(\alpha) \simeq F[x] \quotient \span{p(x)}\). If given an isomorphism \(\sigma : F \ra F'\), this induces an isomorphism \(\tilde{\sigma} : F[x] \ra F'[x]\). Thus for \(p'(x) = \tilde{\sigma}(p(x))\), we expect that \(F[x] \quotient \span{p(x)} \simeq F'[x] \quotient \span{p'(x)} \simeq E' \leq \bar{F'}\). But there are cases where \(E\) is not a finite extension, so we need \textbf{Zorn's lemma}.
 
 \pf Let \(S\) be a collection of \((L, \lambda)\) where \(F \leq L \leq E\), and \(\lambda\) is an isomorphism from \(L\) onto a subfield of \(\bar{F'}\), extending \(\sigma\). Define order on \(S\) by \((L, \lambda) \leq (M, \mu)\) if and only if \(L \leq M\) and \(\mu\) is an extension of \(\lambda\).
-Consider a chain \(T = \{(L_i, \lambda_i)\}_{i \in \mc{I}}\) in \(S\). Let \(M = \bigcup L_i\) and \(\mu(a) = \lambda_i(a)\) for some \(i \in \mc{I}\). Since \(a \in L_i\) for some \(i\), we can define \(\mu\) as above and it is well-defined. It can be shown that \((M, \mu) \in S\). Thus \(S\) has a maximal element \((K, \tau)\) by Zorn's lemma.
+
+Consider a chain \(T = \{(L_i, \lambda_i)\}_{i \in \mc{I}}\) in \(S\). Let \(M = \bigcup L_i\) and \(\mu(a) = \lambda_i(a)\) for some \(i \in \mc{I}\). Since \(a \in L_i\) for some \(i\), we can define \(\mu\) as above and it is well-defined. It can be shown that \((M, \mu)\) is an upper bound of \(T\) in \(S\). Thus \(S\) has a maximal element \((K, \tau)\) by Zorn's lemma.
 
 Now we must show that \(K = E\). Suppose not, then \(K \lneq E\), so take \(\alpha \in E \bs K\). Since \(\alpha\) is algebraic over \(K\), we can extend \(K\) to \(K(\alpha)\). Let \(K' = \tau(K)\), \(p(x) = \irr(\alpha, F)\). Then \(K(\alpha) \simeq K[x] \quotient \span{p(x)} \simeq K'[x] \quotient \span{q(x)} \simeq K'(\alpha')\) where \(q(x) = \tilde{\tau}(p(x))\) and \(\alpha \in \bar{F'}\) is a zero of \(q(x)\). We have an isomorphism \(\varphi : K(\alpha) \ra K'(\alpha')\), thus \((K, \tau)\) cannot be maximal. \qed
 
@@ -24,7 +25,7 @@ Now we must show that \(K = E\). Suppose not, then \(K \lneq E\), so take \(\alp
 \defn. Let \(K \leq \bar{F}\).
 \begin{enumerate}
     \item \(K\) is a \textbf{splitting field over \(F\)} if it is the splitting field of some set of polynomials in \(F[x]\).
-    \item If the set has a single element \(f(x) \in F[x]\), we say that \(K\) is a splitting field of \(f(x)\).
+    \item If the set has a single element \(f(x) \in F[x]\), we say that \(K\) is the splitting field of \(f(x)\).
 \end{enumerate}
 
 \ex.

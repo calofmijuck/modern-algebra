@@ -20,7 +20,7 @@
 
 Then \(\abs{H} < \abs{G(K/K_H)} = [K : K_H]\), since \(K\) is a finite normal extension of \(K_H\). Also, by the primitive element theorem, choose \(\alpha \in K\) such that \(K = K_H(\alpha)\). Now consider the polynomial \(f(x) = \prod_{\sigma_i \in H}\bigl(x - \sigma_i(\alpha)\bigr)\), which has degree \(\abs{H}\). This polynomial has coefficients in \(K_H\), since for every \(\sigma \in H\), \(\tilde{\sigma}\bigl(f(x)\bigr) = \prod_{\sigma_i \in H}\bigl(x - \sigma(\sigma_i(\alpha))\bigr) = f(x)\). Also, one of \(\sigma_i\) is the identity, so \(f(\alpha) = 0\). Thus,
 \[
-    \deg(\alpha, K_H) \leq \abs{H} < \abs{G(K/K_H)} = [K_H(\alpha) : K] = \deg(\alpha, K_H),
+    \deg(\alpha, K_H) \leq \abs{H} < \abs{G(K/K_H)} = [K_H(\alpha) : K_H] = \deg(\alpha, K_H),
 \]
 arriving at a contradiction.
 

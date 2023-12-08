@@ -55,22 +55,21 @@ Given \(F, F', E, \sigma\), the theorem tells us that an extension \(\tau : E \r
 
 \section*{Index of a Field Extension}
 
-Now that existence is given by the isomorphism extension theorem, we want to count how many there are. In particular, we want to find isomorphisms from \(E\) to a subfield of \(\bar{F}\) that leaves \(F\) fixed.
+Now that existence is given by the isomorphism extension theorem, we want to count how many there are. In particular, we want to find isomorphisms from \(E\) onto a subfield of \(\bar{F}\) that leaves \(F\) fixed.
 
 \defn. \note{Index} Let \(E\) be a finite extension of \(F\). The number of isomorphisms of \(E\) onto a subfield of \(\bar{F}\) leaving \(F\) fixed is called the \textbf{index} of \(E\) over \(F\), denoted as \(\{E : F\}\).
 
 It seems that we fixed \(\bar{F}\), but since the algebraic closure is unique up to isomorphism, fixing \(\bar{F}\) doesn't matter at all.
 
-\ex. Isomorphisms of \(\Q(\sqrt{2})\) that fixes \(\Q\) must map \(\sqrt{2}\) to itself or \(-\sqrt{2}\). Therefore, \(\{\Q(\sqrt{2}) : \Q\} = 2\).
+\ex. Isomorphisms of \(\Q(\sqrt{2})\) that fix \(\Q\) must map \(\sqrt{2}\) to itself or \(-\sqrt{2}\). Therefore, \(\{\Q(\sqrt{2}) : \Q\} = 2\).
 
 Using this definition, we want to find the number of automorphisms between the roots of some polynomial, that was used to extend \(F\) to \(E\). The following theorem shows the well-definedness of the index.
 
 \thm. Let \(E\) be a finite extension field of \(F\), and let \(\sigma : F \ra F'\) be an isomorphism. The number of extensions \(\tau : E \ra E' \leq \bar{F'}\) is finite. Moreover, the number of extensions is completely determined by \(E\) and \(F\).
 
-\pf We have to show that the number of extensions is independent of \(F'\) and \(\sigma\). We already know the existence of \(\tau\) and \(E'\).
+\pf We have to show that the number of extensions is independent of \(F'\) and \(\sigma\). We already know the existence of \(\tau\) and \(E'\). We construct a bijection between extensions \(\tau_1\) and \(\tau_2\).
 
-Given two isomorphisms \(\sigma_1 : F \ra F_1'\) and \(\sigma_2 : F \ra F_2'\), \(\sigma_2 \sigma_1\inv : F_1' \ra F_2'\) is an isomorphism. We can extend this into an isomorphism \(\lambda : \bar{F_1'} \ra \bar{F_2'}\). Now for each \(\tau_1 : E \ra \bar{F_1'}\) that extend \(\sigma_1\), we can choose \(\tau_2 = \lambda \circ \tau_1\). Similarly, we can also extend \(\sigma_2\) to get \(\tau_2 : E \ra \bar{F_2'}\) and choose \(\tau_1 : \lambda\inv \circ \tau_2\). Thus the number of extensions \(\tau\) of \(\sigma\) must be the same, independent of \(F_1'\) and \(\sigma\).
-% If \(\tau_1 \neq \tau_1'\) extensions of \(\sigma_1\), then \(\lambda \circ \tau_1 \neq \lambda \circ \tau_1'\). Thus the number of \(\tau_2\) is greater than equal to the number of \(\tau_1\). The other way can be shown similarly. Thus the numbers are equal.
+Given two isomorphisms \(\sigma_1 : F \ra F_1'\) and \(\sigma_2 : F \ra F_2'\), \(\sigma_2 \sigma_1\inv : F_1' \ra F_2'\) is an isomorphism. Extend it to an isomorphism \(\lambda : \bar{F_1'} \ra \bar{F_2'}\). Now for each \(\tau_1 : E \ra \bar{F_1'}\) that extend \(\sigma_1\), we can choose \(\tau_2 = \lambda \circ \tau_1\). Similarly, we can extend \(\sigma_2\) to get \(\tau_2 : E \ra \bar{F_2'}\) and recover \(\tau_1 = \lambda\inv \circ \tau_2\). Thus the number of extensions of \(\sigma\) must be the same, independent of \(F'\) and \(\sigma\).
 \[
     \begin{tikzcd}
         \bar{F_1'} \arrow[dash]{d} \arrow{rrrr}{\lambda}[swap]{\simeq} && && \bar{F_2'} \arrow[dash]{d} \\
@@ -78,7 +77,6 @@ Given two isomorphisms \(\sigma_1 : F \ra F_1'\) and \(\sigma_2 : F \ra F_2'\), 
         F_1' && F \arrow{ll}{\simeq}[swap]{\sigma_1} \arrow{rr}{\sigma_2}[swap]{\simeq} && F_2'
     \end{tikzcd}
 \]
-
-The number is also finite since \(E = F(\alpha_1, \dots, \alpha_n)\) for some \(\alpha_i \in E\). Consider the \(\irr(\alpha_i, F) = a_0 + a_1 x + \cdots + a_{n_i} x^{n_i}\). Since \(\tau\) fixes \(F\), \(\tau(\alpha_i)\) also be a zero of \(\tau(a_0) + \tau(a_1) x + \cdots + \tau(a_{n_i}) x^{n_i}\). Thus there are finitely many choices for \(\tau(\alpha_i)\) and the total number must be less than the product of the number of zeros of each irreducible polynomial of \(\alpha_i\). \qed
+The number is also finite since \(E = F(\alpha_1, \dots, \alpha_n)\) for some \(\alpha_i \in E\). Consider \(\irr(\alpha_i, F) = a_0 + a_1 x + \cdots + a_{n_i} x^{n_i}\). Since \(\tau\) fixes \(F\), \(\tau(\alpha_i)\) is also a zero of \(\tau(a_0) + \tau(a_1) x + \cdots + \tau(a_{n_i}) x^{n_i}\). Thus there are finitely many choices for \(\tau(\alpha_i)\) and the total number must be less than the product of the number of zeros of each irreducible polynomial of \(\alpha_i\). \qed
 
 \smallskip
