@@ -45,16 +45,36 @@ is also abelian. Any composition series of \(G(K/F)\) will be a refinement of th
 
 \textit{Proof Sketch.} We are given \(F \leq E \leq K\). \(K\) is not normal, so we cannot use Galois theorem directly. Consider another \textit{normal radical} extension \(L\) of \(F\) so that \(K \leq L\). If we find a radical extension \(K\) of \(F\) containing \(E\), we can construct a normal radical extension \(L\) of \(F\). Then \(G(L/F)\) is solvable, and \(G(E/F)\) is also solvable since \(G(E/F) \simeq G(L/F)/G(L/E)\).
 
+\pf Let \(K = F(\alpha_1, \dots, \alpha_r)\) where \(\alpha_1^{n_1} \in F\) and \(\alpha_i^{n_i} \in F(\alpha_i, \dots, \alpha_{i-1})\) for \(2 \leq i \leq r\). Form the splitting field \(L_1\) of \(f_1(x) = x^{n_1} - \alpha_1^{n_1}\) over \(F\). Then \(L_1\) is a normal extension of \(F\) and \(G(L_1/F)\) is solvable by the above lemma. Next, we have \(\alpha_2^{n_2} \in L_1\) and form the splitting field \(L_2\) of \(f_2(x)\) over \(L_1\), where
+\[
+    f_2(x) = \prod_{\sigma \in G(L_1/F)} \paren{x^{n_2} - \sigma(\alpha_2)^{n_2}}.
+\]
+\(f_2(x)\) is invariant under any \(\sigma \in G(L_1/F)\), so \(f_2(x) \in F[x]\). \(L_2\) is a splitting field over \(F\) and is a normal radical extension of \(F\). To actually construct \(L_2\), start from \(L_1\) and consider the splitting field of \(x^{n_2} - \sigma(\alpha_2)^{n_2}\) for each step, just like in the above lemma. Suppose we extend \(E_1\) to \(E_2\), then \(G(E_2/E_1)\) is solvable, and \(G(E_2/E_1) \simeq G(L_2/E_1) / G(L_2/E_2)\). So if
+\[
+    F \leq L_1 \leq E_1 \leq E_2 \leq \cdots \leq L_2,
+\]
+then
+\[
+    G(L_2/L_2) \leq \cdots \leq G(L_2/E_2) \leq G(L_2/E_1) \leq G(L_2/L_1) \leq G(L_2/F)
+\]
+where each quotient group is solvable. This is a subnormal series of a \textit{finite} group with solvable quotients, which can be refined to a composition series with abelian quotients. Thus \(G(L_2/F)\) is solvable. Continue in this manner, obtain a field \(L = L_r\) that is a normal radical extension of \(F\) and \(G(L/F)\) is solvable. By construction, \(F \leq K \leq L\).
+
+Now, \(G(E/F) \simeq G(L/F) / G(L/E)\) is a homomorphic image of \(G(L/F)\). Since a homomorphic image of a solvable group is also solvable, \(G(E/F)\) is solvable. \qed
+
 \rmk Suppose that \(f(x)\) is solvable by radicals over \(F\). For the splitting field \(E\) of \(f(x)\) over \(F\), \(G(E/F)\) is solvable. i.e, if \(G(E/F)\) is \textit{not solvable}, then \(f(x)\) is \textit{not solvable by radicals}.
 
-To show the insolvability of the quintic, we need to find a polynomial \(f(x)\) such that for the splitting field \(E\) of \(f(x)\) over \(F\), \(G(E/F)\) is not solvable.
+Finally, to show the insolvability of the quintic, we need to find a polynomial \(f(x)\) such that for the splitting field \(E\) of \(f(x)\) over \(F\), \(G(E/F)\) is not solvable.
 
-\thm. Let \(y_1\) be transcendental over \(\Q\), and let \(y_i\) be transcendental over \(\Q(y_1, \dots, y_{i-1})\) for \(i = 2, 3, 4, 5\). Consider the polynomial
+\pagebreak
+
+\thm. Let \(y_1\) be transcendental over \(\Q\), and let \(y_i\) be transcendental over \(\Q(y_1, \dots, y_{i-1})\) for \(i = 2, 3, 4, 5\).\footnote{These \(y_i\) are called \textit{independent transcendental elements} over \(\Q\).} Let \(F = \Q(s_1, s_2, s_3, s_4, s_5)\) and consider the polynomial
 \[
-    f(x) = \prod_{i=1}^5 (x - y_i) \in \Q(s_1, s_2, s_3, s_4, s_5) =: F.
+    f(x) = \prod_{i=1}^5 (x - y_i) \in F.
 \]
-The splitting field \(E\) of \(f(x)\) over \(F\) is \(\Q(y_1, y_2, y_3, y_4, y_5)\), and \(G(E/F) \simeq S_5\). Thus \(f(x)\) is not solvable by radicals over \(F\).
+The splitting field \(E\) of \(f(x)\) over \(F\) is \(\Q(y_1, y_2, y_3, y_4, y_5)\), and \(G(E/F) \simeq S_5\). Thus \(f(x)\) is not solvable by radicals over \(F = \Q(s_1, s_2, s_3, s_4, s_5)\).
 
-\ex. Let \(f(x) \in \Q[x]\) be irreducible with \(\deg f = 5\), having \(3\) real roots \(\alpha_1, \alpha_2, \alpha_3\) and \(2\) imaginary roots \(\beta_1, \beta_2\). Let \(E\) be the splitting field of \(f(x)\) over \(\Q\). Then there exists \(\sigma \in G(E/F)\) that fixes \(\alpha_i\), but swaps \(\beta_1\) and \(\beta_2\). For a zero \(\alpha\) of \(f(x)\), \([F(\alpha) : F] = 5\) since \(f(x)\) is irreducible. \(5 \mid \abs{G(E/F)} = [E : F]\). Then \(G(E/F)\) has an element of order \(5\).
+\ex. Let \(f(x) \in \Q[x]\) be irreducible with \(\deg f = 5\), having \(3\) real roots \(\alpha_1, \alpha_2, \alpha_3\) and \(2\) imaginary roots \(\beta_1, \beta_2\). Let \(E\) be the splitting field of \(f(x)\) over \(\Q\). Then there exists \(\tau \in G(E/F)\) that fixes \(\alpha_i\), but swaps \(\beta_1\) and \(\beta_2\), which has order \(2\). Next, for a zero \(\alpha\) of \(f(x)\), \([\Q(\alpha) : \Q] = 5\) since \(f(x)\) is irreducible. Thus \(5 \mid [E : F]\) and \([E : F] = G(E/F)\), so \(G(E/F)\) has an element \(\sigma\) of order \(5\) by Sylow theorem.
 
-However, \(G(E/F) \leq S_5\). \(G(E/F) \simeq S_5\) since we can generate \(S_5\) from two elements each of order \(2\) and \(5\). Thus \(f(x)\) is not solvable by radicals. \qed
+We know that \(G(E/F) \leq S_5\). However, \(G(E/F) \simeq S_5\) since we can generate \(S_5\) from \(\tau\) and \(\sigma\), having order \(2\) and \(5\). Thus \(f(x)\) is not solvable by radicals. \qed
+
+\pagebreak
