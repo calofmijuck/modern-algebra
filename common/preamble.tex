@@ -19,6 +19,10 @@
     right = 20mm
 }
 
+% font styles
+\usepackage{palatino}
+\renewcommand{\sfdefault}{ppl}
+
 % Changing counters
 \usepackage{chngcntr}
 \counterwithin*{footnote}{section}
@@ -29,7 +33,7 @@
 
 % Line spacing
 \usepackage[nodisplayskipstretch]{setspace}
-\linespread{1.4}
+\linespread{1.25}
 
 \titleformat{\section}
 {\normalfont\large\bfseries}{\thesection}{0em}{}
@@ -54,7 +58,8 @@
 \usepackage{tikz-cd}
 
 % Skips between paragraph
-\usepackage[skip=10pt]{parskip}
+\usepackage{parskip}
+\setlength{\parskip}{8pt}
 
 \renewcommand{\chaptername}{Part}
 \renewcommand{\thechapter}{\Roman{chapter}}
