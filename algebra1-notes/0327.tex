@@ -1,7 +1,5 @@
 \chapter{Permutations, Cosets and Direct Products}
 
-\section*{March 27th, 2023}
-
 \setcounter{topic}{7}
 \topic{Groups of Permutations}
 
@@ -81,12 +79,12 @@ A natural question arises here: \textit{Can we get \(S_n\) from the symmetries o
 
 \lemma. For a group homomorphism \(\varphi: G \ra H\), \(\im \varphi \leq H\). Additionally if \(\varphi\) is injective, \(G \simeq \im \varphi \leq H\).
 
-\pf \(\im\varphi\) is closed under the binary operation on \(H\), since for any \(a, b \in G\), \(\varphi(a)\varphi(b) = \varphi(ab)\), and \(ab \in G\), so \(\varphi(a)\varphi(b) \in H\). \(\varphi(e)\) is the identity, and \(\varphi(a)\inv = \varphi(a\inv)\). So \(\im\varphi \leq H\). If \(\varphi\) is injective, restricting the range of \(\varphi\) to \(\im \varphi\) gives an isomorphism, so \(G \simeq \im \varphi\).
+\pf \(\im\varphi\) is closed under the binary operation on \(H\), since for any \(a, b \in G\), \(\varphi(a)\varphi(b) = \varphi(ab)\), and \(ab \in G\), so \(\varphi(a)\varphi(b) \in H\). \(\varphi(e)\) is the identity, and \(\varphi(a)\inv = \varphi(a\inv)\). So \(\im\varphi \leq H\). If \(\varphi\) is injective, restricting the range of \(\varphi\) to \(\im \varphi\) gives an isomorphism, so \(G \simeq \im \varphi\). \qed
 
 Why do we study symmetric groups? It is because of the following theorem. It states that all groups are isomorphic to some permutation group.
 
 \thm. \note{Cayley} Every group is isomorphic to some subgroup of \(S_n\).
 
-\pf Consider \(\varphi : G \ra S_G\) such that \(\varphi(g) = \lambda_g\), where \(\lambda_g(x) = gx\) for \(x \in G\). (left multiplication by \(g\)) We check that \(\lambda_g \in S_G\), since groups have the cancellation law. Now check that \(\varphi\) is a monomorphism, then \(G \simeq \im \varphi \leq S_G\).
+\pf Consider \(\varphi : G \ra S_G\) such that \(\varphi(g) = \lambda_g\), where \(\lambda_g(x) = gx\) for \(x \in G\). (left multiplication by \(g\)) We check that \(\lambda_g \in S_G\), since groups have the cancellation law. Now check that \(\varphi\) is a monomorphism, then \(G \simeq \im \varphi \leq S_G\). \qed
 
 \pagebreak

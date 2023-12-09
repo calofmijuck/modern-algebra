@@ -1,5 +1,3 @@
-\section*{March 22nd, 2023}
-
 \topic{Cyclic Groups}
 
 \thm. Every cyclic group is commutative.
@@ -10,7 +8,7 @@ Always consider \(U_n \simeq (\Z_n, +_n)\) as an example, when dealing with cycl
 
 \pf Let \(G = \span{g}\) be a cyclic group, and let \(H \leq G\). Choose the smallest positive \(r \in \N\) such that \(g^r \in H\). We show that \(H = \span{g^r}\). It is clear that \(\span{g^r} \leq H\), since \(H\) is a subgroup.
 
-Suppose that there exists \(s \in \Z\) such that \(g^s \in H\), but \(g^s \notin \span{g^r}\). Then there exists unique quotient and remainder \(q \in \Z, t \in \{1, \cdots, r - 1\}\) such that \(s = rq + t\). Then \(g^s, g^{rq} \in H\), so \(g^s(g^{rq})\inv = g^t \in H\), contradicting the minimality of \(r\). Thus \(H \leq \span{g^r}\) and \(H = \span{g^r}\).
+Suppose that there exists \(s \in \Z\) such that \(g^s \in H\), but \(g^s \notin \span{g^r}\). Then there exists unique quotient and remainder \(q \in \Z, t \in \{1, \cdots, r - 1\}\) such that \(s = rq + t\). Then \(g^s, g^{rq} \in H\), so \(g^s(g^{rq})\inv = g^t \in H\), contradicting the minimality of \(r\). Thus \(H \leq \span{g^r}\) and \(H = \span{g^r}\). \qed
 
 \ex. \((\Z, +) = \span{1}\). So any subgroup of \((\Z, +)\) should be \(\span{n} = n\Z\) for some \(n \in \Z\).
 
@@ -30,10 +28,9 @@ We want to classify all cyclic groups!
     \item \(\abs{G} = n \iff G \simeq \Z_n\).
 \end{enumerate}
 
-\pf \\
-\note{1} Consider the map \(\varphi: G \ra \Z\), defined as \(\varphi(g) = 1\). We first check that \(\varphi\) is well-defined. This is clear, since \(\abs{G} = \infty\), so \(n \neq m \in \Z \iff g^n \neq g^m\). Otherwise, \(\abs{G}\) would be finite. This also implies that \(\varphi\) is bijective. Also \(\varphi\) is a homomorphism, since \(\varphi(g^n g^m) = n + m = \varphi(g^n) + \varphi(g^m)\). \(\varphi\) is an isomorphism and \(G \simeq \Z\).
+\pf \note{1} Consider the map \(\varphi: G \ra \Z\), defined as \(\varphi(g) = 1\). We first check that \(\varphi\) is well-defined. This is clear, since \(\abs{G} = \infty\), so \(n \neq m \in \Z \iff g^n \neq g^m\). Otherwise, \(\abs{G}\) would be finite. This also implies that \(\varphi\) is bijective. Also \(\varphi\) is a homomorphism, since \(\varphi(g^n g^m) = n + m = \varphi(g^n) + \varphi(g^m)\). \(\varphi\) is an isomorphism and \(G \simeq \Z\).
 
-\note{2} Consider the map \(\varphi_n: G \ra \Z_n\), defined as \(\varphi_n(g) = 1\). We can check that \(\varphi_n\) is a well-defined isomorphism.
+\note{2} Consider the map \(\varphi_n: G \ra \Z_n\), defined as \(\varphi_n(g) = 1\). We can check that \(\varphi_n\) is a well-defined isomorphism. \qed
 
 \thm. Let \(G = \span{a}\) be a cyclic group of order \(n\).
 \begin{enumerate}
@@ -44,7 +41,7 @@ We want to classify all cyclic groups!
 \pf
 \note{1} We want to find the smallest positive integer \(m\) such that \(b^m = e\). (\(a^{ms} = e\), so \(n \mid ms\)) Take \(d = \gcd(n, s)\), then \(\gcd\paren{\frac{n}{d}, \frac{s}{d}} = 1\). Since \(\frac{n}{d} \mid \frac{s}{d}\cdot m\), then \(\frac{n}{d} \mid m\). Hence the smallest positive integer \(m\) is \(\frac{n}{d}\).
 
-\note{2} Directly follows from (1). May have to prove that \(\span{a^s} = \span{a^t}\).
+\note{2} Directly follows from (1). May have to prove that \(\span{a^s} = \span{a^t}\). \qed
 
 \cor. If \(G = \span{a}\) with order \(n\), other generators of \(G\) are the elements of the form \(a^r\) where \(\gcd(r, n) = 1\).
 

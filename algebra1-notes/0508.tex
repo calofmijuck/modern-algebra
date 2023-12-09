@@ -1,5 +1,3 @@
-\section*{May 8th, 2023}
-
 \topic{Integral Domains}
 
 Keep in mind \((\Z, +, \cdot)\) and \((\R[x], +, \cdot)\).
@@ -23,6 +21,8 @@ Returning to the example \(3n = 12\), rewrite using the distributive law to get 
 \note{\mimp} If \(\gcd(m, n) = 1\), then \(mr = 0\) in \(\Z_n\) if and only if \(n \mid r\). So \(r = 0\), contradiction. \qed
 
 \cor. If \(p\) is prime, \(\Z_p\) has no zero divisors.
+
+\pagebreak
 
 \defn. \note{Cancellation Law} For a ring \(R\), we say that \textbf{cancellation laws} hold in \(R\) if
 \begin{center}
@@ -73,11 +73,11 @@ The following diagram shows the relations between ring structures.
 
 \pf Let \(D = \{a_0, \dots, a_n\}\) be an integral domain. For nonzero \(a \in D\), consider the set \(aD = \{aa_0, aa_1, \dots, aa_n\}\). We show that \(aD = D\). Since \(D\) is finite, it is enough to show that \(aa_i \neq aa_j\) for \(i \neq j\). This is clear since \(D\) is an integral domain. Since \(1 \in aD\), \(\exists a_i \in D\) such that \(a a_i = 1\). So \(\exists a\inv = a_i\), concluding that \(D\) is a field. \qed
 
+\pagebreak
+
 \pf (Another) Let \(x \in D \bs \{0\}\). Then consider \(x, x^2, \dots\). Due to finiteness, \(x^n = x^m\) for two distinct \(n, m \in \N\). Then \(x^{n-m} = 1\) by cancellation. We conclude that \(x\) has an inverse. \qed
 
 \cor. If \(p\) is prime, \(\Z_p\) is a field.
-
-\pagebreak
 
 \subsection*{Characteristic of Ring}
 
@@ -97,4 +97,4 @@ The following diagram shows the relations between ring structures.
 \]
 So \(\ch R = n\), since \(n\) is the smallest positive integer. \qed
 
-\pagebreak
+\smallskip
