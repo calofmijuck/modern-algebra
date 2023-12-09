@@ -73,7 +73,7 @@ Finally, to show the insolvability of the quintic, we need to find a polynomial 
 \]
 The splitting field \(E\) of \(f(x)\) over \(F\) is \(\Q(y_1, y_2, y_3, y_4, y_5)\), and \(G(E/F) \simeq S_5\). Thus \(f(x)\) is not solvable by radicals over \(F = \Q(s_1, s_2, s_3, s_4, s_5)\).
 
-\ex. Let \(f(x) \in \Q[x]\) be irreducible with \(\deg f = 5\), having \(3\) real roots \(\alpha_1, \alpha_2, \alpha_3\) and \(2\) imaginary roots \(\beta_1, \beta_2\). Let \(E\) be the splitting field of \(f(x)\) over \(\Q\). Then there exists \(\tau \in G(E/F)\) that fixes \(\alpha_i\), but swaps \(\beta_1\) and \(\beta_2\), which has order \(2\). Next, for a zero \(\alpha\) of \(f(x)\), \([\Q(\alpha) : \Q] = 5\) since \(f(x)\) is irreducible. Thus \(5 \mid [E : F]\) and \([E : F] = G(E/F)\), so \(G(E/F)\) has an element \(\sigma\) of order \(5\) by Sylow theorem.
+\ex. Let \(f(x) \in \Q[x]\) be irreducible with \(\deg f = 5\), having \(3\) real roots \(\alpha_1, \alpha_2, \alpha_3\) and \(2\) imaginary roots \(\beta_1, \beta_2\). Let \(E\) be the splitting field of \(f(x)\) over \(\Q\). Then there exists \(\tau \in G(E/F)\) that fixes \(\alpha_i\), but swaps \(\beta_1\) and \(\beta_2\), which has order \(2\). Next, for a zero \(\alpha\) of \(f(x)\), \([\Q(\alpha) : \Q] = 5\) since \(f(x)\) is irreducible. Thus \(5 \mid [E : F]\) and \([E : F] = \abs{G(E/F)}\), so \(G(E/F)\) has an element \(\sigma\) of order \(5\) by Sylow theorem.
 
 We know that \(G(E/F) \leq S_5\). However, \(G(E/F) \simeq S_5\) since we can generate \(S_5\) from \(\tau\) and \(\sigma\), having order \(2\) and \(5\). Thus \(f(x)\) is not solvable by radicals. \qed
 
